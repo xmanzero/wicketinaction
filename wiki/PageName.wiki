@@ -1,0 +1,6 @@
+#summary introduction Wicket In Action project.
+
+= Introduction =
+
+This project hosts the sources of Manning's Wicket In Action book.
+
