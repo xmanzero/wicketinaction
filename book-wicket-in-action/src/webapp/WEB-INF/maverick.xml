@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<maverick version="2.0" default-view-type="document" default-transform-type="document">
+
+	<commands>
+
+		<command name="echo">
+			<controller class="wicket.in.action.chapter01.section_1_1_2.listing03.EchoAction"/>
+			<view name="success" path="/echomaverick.jsp">
+			</view>
+		</command>
+
+	</commands>
+
+</maverick>
