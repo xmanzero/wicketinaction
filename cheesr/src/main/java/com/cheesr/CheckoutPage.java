@@ -1,23 +1,17 @@
 package com.cheesr;
 
-import java.text.NumberFormat;
-
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.Link;
-import org.apache.wicket.markup.html.list.ListItem;
-import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
 import com.cheesr.store.objects.Address;
 import com.cheesr.store.objects.Cart;
-import com.cheesr.store.objects.Cheese;
 
 public class CheckoutPage extends CheesrPage {
 	public CheckoutPage() {
