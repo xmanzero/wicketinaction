@@ -10,7 +10,7 @@ public class CheesrSession extends WebSession {
 	private Cart cart = new Cart();
 
 	public CheesrSession(WebApplication application, Request request) {
-		super(application, request);
+		super(request);
 	}
 
 	public Cart getCart() {
