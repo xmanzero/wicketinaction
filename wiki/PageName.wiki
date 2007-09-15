@@ -2,5 +2,7 @@
 
 = Introduction =
 
-This project hosts the sources of Manning's Wicket In Action book.
+This project hosts the sources of Manning's [http://manning.com/dashorst Wicket In Action] book.
 
+ 
+ 
