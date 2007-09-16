@@ -7,7 +7,7 @@ import org.apache.wicket.Page;
 import org.apache.wicket.PageParameters;
 
 import wicket.in.action.chapter09.locales.LocaleDropDown;
-import wicket.in.action.common.SignOut;
+import wicket.in.action.common.SignOutPage;
 import wicket.in.action.common.User;
 import wicket.in.action.common.WiaSession;
 import org.apache.wicket.markup.html.basic.Label;
@@ -31,9 +31,9 @@ public class UserPanel extends Panel {
     IModel nameModel = new PropertyModel(userModel, "fullname");
     add(new Label("fullname", nameModel));
     PageParameters parameters = new PageParameters();
-    parameters.add(SignOut.REDIRECTPAGE_PARAM, logoutToPageClass
+    parameters.add(SignOutPage.REDIRECTPAGE_PARAM, logoutToPageClass
         .getName());
-    add(new BookmarkablePageLink("signout", SignOut.class, parameters));
+    add(new BookmarkablePageLink("signout", SignOutPage.class, parameters));
     add(new LocaleDropDown("localeSelect", Arrays
         .asList(new Locale[] { Locale.ENGLISH, new Locale("nl"),
             new Locale("th") })));

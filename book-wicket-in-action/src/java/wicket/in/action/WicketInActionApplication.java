@@ -1,9 +1,11 @@
 package wicket.in.action;
 
+import org.apache.wicket.Component;
 import org.apache.wicket.Page;
 import org.apache.wicket.Request;
 import org.apache.wicket.Response;
 import org.apache.wicket.Session;
+import org.apache.wicket.application.IComponentInstantiationListener;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.settings.ISecuritySettings;
 import org.apache.wicket.util.io.IObjectStreamFactory;
@@ -45,5 +47,16 @@ public class WicketInActionApplication extends WebApplication {
     // securitySettings.setEnforceMounts(true);
     mountBookmarkablePage("/discounts", DiscountsPage.class);
     mountBookmarkablePage("/signin", SigninPage.class);
+
+    addComponentInstantiationListener(new IComponentInstantiationListener() {
+      public void onInstantiation(final Component component) {
+        if (!getSecuritySettings().getAuthorizationStrategy()
+            .isInstantiationAuthorized(component.getClass())) {
+          getSecuritySettings()
+              .getUnauthorizedComponentInstantiationListener()
+              .onUnauthorizedInstantiation(component);
+        }
+      }
+    });
   }
 }
