@@ -2,7 +2,7 @@ package wicket.in.action.chapter11.authdiscounts;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.PageParameters;
-import wicket.in.action.common.SignOut;
+import wicket.in.action.common.SignOutPage;
 import wicket.in.action.common.User;
 import wicket.in.action.common.WiaSession;
 import org.apache.wicket.markup.html.basic.Label;
@@ -14,7 +14,7 @@ import org.apache.wicket.model.PropertyModel;
 
 public class UserPanel extends Panel {
 
-  public UserPanel(String id, Class<? extends Page> logoutToPageClass) {
+  public UserPanel(String id, Class<? extends Page> logoutPageClass) {
 
     super(id);
     IModel userModel = new LoadableDetachableModel() {
@@ -26,9 +26,9 @@ public class UserPanel extends Panel {
     IModel nameModel = new PropertyModel(userModel, "fullname");
     add(new Label("fullname", nameModel));
     PageParameters parameters = new PageParameters();
-    parameters.add(SignOut.REDIRECTPAGE_PARAM, logoutToPageClass
+    parameters.add(SignOutPage.REDIRECTPAGE_PARAM, logoutPageClass
         .getName());
-    add(new BookmarkablePageLink("signout", SignOut.class, parameters));
+    add(new BookmarkablePageLink("signout", SignOutPage.class, parameters));
   }
 
   @Override

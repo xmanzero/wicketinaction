@@ -22,18 +22,22 @@ import org.apache.wicket.Page;
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 
-public class SignOut extends WebPage {
+public class SignOutPage extends WebPage {
 
   public static final String REDIRECTPAGE_PARAM = "redirectpage";
 
   @SuppressWarnings("unchecked")
-  public SignOut(final PageParameters parameters) {
+  public SignOutPage(final PageParameters parameters) {
     String page = parameters.getString(REDIRECTPAGE_PARAM);
     Class<? extends Page> pageClass;
-    try {
-      pageClass = (Class<? extends Page>) Class.forName(page);
-    } catch (ClassNotFoundException e) {
-      throw new RuntimeException(e);
+    if (page != null) {
+      try {
+        pageClass = (Class<? extends Page>) Class.forName(page);
+      } catch (ClassNotFoundException e) {
+        throw new RuntimeException(e);
+      }
+    } else {
+      pageClass = getApplication().getHomePage();
     }
     getSession().invalidate();
     setResponsePage(pageClass);
