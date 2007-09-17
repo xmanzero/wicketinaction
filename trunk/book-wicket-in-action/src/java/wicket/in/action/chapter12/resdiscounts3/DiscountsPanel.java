@@ -9,6 +9,7 @@ import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 
 import wicket.in.action.chapter09.discounts.DiscountsList;
+import wicket.in.action.chapter11.authdiscounts.DiscountsEditList;
 import wicket.in.action.common.AdminOnly;
 
 public final class DiscountsPanel extends Panel {
