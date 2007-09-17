@@ -37,16 +37,13 @@ public class Index extends AbstractBasePage {
         wicket.in.action.chapter11.authdiscounts2.Index.class));
     add(new BookmarkablePageLink(
         "wicket.in.action.chapter12.resdiscounts.Index",
-        wicket.in.action.chapter12.resdiscounts.Index.class));
+        wicket.in.action.chapter12.resdiscounts.DiscountsPage.class));
     add(new BookmarkablePageLink(
         "wicket.in.action.chapter12.resdiscounts2.Index",
-        wicket.in.action.chapter12.resdiscounts2.Index.class));
+        wicket.in.action.chapter12.resdiscounts2.DiscountsPage.class));
     add(new BookmarkablePageLink(
         "wicket.in.action.chapter12.resdiscounts3.Index",
-        wicket.in.action.chapter12.resdiscounts3.Index.class));
-    add(new BookmarkablePageLink(
-        "wicket.in.action.chapter12.resdiscounts4.Index",
-        wicket.in.action.chapter12.resdiscounts4.Index.class));
+        wicket.in.action.chapter12.resdiscounts3.DiscountsPage.class));
     add(new BookmarkablePageLink(
         "wicket.in.action.chapter12.jcaptcha.JCaptcha",
         wicket.in.action.chapter12.jcaptcha.JCaptcha.class));

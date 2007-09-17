@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>book-wicket-in-action</name>
-	<comment>Wicket in Action is a book concerning Wicket. Wicket is a Java
+  <name>wicket-in-action</name>
+  <comment>Wicket in Action is a book concerning Wicket. Wicket is a Java
 		web application framework that takes simplicity, separation of
 		concerns and ease of development to a whole new level. Wicket
 		pages can be mocked up, previewed and later revised using
@@ -9,16 +8,13 @@
 		and form handling is all handled in Java code using a
 		first-class component model backed by POJO data beans that can
 		easily be persisted using your favourite technology.</comment>
-	<projects>
-	</projects>
-	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-	</buildSpec>
-	<natures>
-		<nature>org.eclipse.jdt.core.javanature</nature>
-	</natures>
+  <projects/>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
 </projectDescription>

@@ -15,6 +15,7 @@ import org.apache.wicket.request.target.resource.ResourceStreamRequestTarget;
 import org.apache.wicket.util.resource.IResourceStream;
 import org.apache.wicket.util.resource.StringResourceStream;
 
+import wicket.in.action.chapter12.resdiscounts.DiscountsEditList;
 import wicket.in.action.chapter12.resdiscounts.DiscountsList;
 import wicket.in.action.common.AdminOnly;
 import wicket.in.action.common.DataBase;

@@ -50,24 +50,24 @@
 		</servlet-class>
 	</servlet>
 
-	<servlet>
+	<!-- servlet>
 		<servlet-name>maverickdispatcher</servlet-name>
 		<display-name>Maverick Dispatcher</display-name>
 		<servlet-class>
 			org.infohazard.maverick.Dispatcher
 		</servlet-class>
 		<load-on-startup>2</load-on-startup>
-	</servlet>
+	</servlet-->
 
 	<servlet-mapping>
 		<servlet-name>EchoServlet</servlet-name>
 		<url-pattern>/echoservlet</url-pattern>
 	</servlet-mapping>
 
-	<servlet-mapping>
+	<!-- servlet-mapping>
 		<servlet-name>maverickdispatcher</servlet-name>
 		<url-pattern>*.m</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping-->
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
