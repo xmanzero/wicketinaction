@@ -3,17 +3,21 @@
     <thead>
       <tr>
         <th>name</th>
-        <th>discount</th>
+        <th>%</th>
         <th>description</th>
+        <th>from</th>
+        <th>until</th>
         <th>remove</th>
       </tr>
     </thead>
     <form wicket:id="form">
       <tbody>
         <tr wicket:id="discounts">
-          <td nowrap="nowrap"><span wicket:id="cheese.name">name</span></td>
+          <td><span wicket:id="cheese.name">name</span></td>
           <td><input type="text" wicket:id="discount" size="6" /></td>
           <td><input type="text" wicket:id="description" /></td>
+          <td><span wicket:id="from" /></td>
+          <td><span wicket:id="until" /></td>
           <td><a href="#" wicket:id="remove"><img wicket:id="icon" /></a></td>
         </tr>
         <tr>

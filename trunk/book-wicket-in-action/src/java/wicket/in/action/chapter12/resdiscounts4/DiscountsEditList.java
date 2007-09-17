@@ -16,6 +16,7 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.PropertyModel;
 
+import wicket.in.action.chapter09.discounts.NewDiscountForm;
 import wicket.in.action.common.DataBase;
 import wicket.in.action.common.Discount;
 import wicket.in.action.common.RequiredTextField;

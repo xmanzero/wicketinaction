@@ -1,8 +1,6 @@
 package wicket.in.action.chapter12.resdiscounts2;
 
 import org.apache.wicket.RequestCycle;
-import wicket.in.action.common.AdminOnly;
-import wicket.in.action.common.DataBase;
 import org.apache.wicket.markup.html.WebResource;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
@@ -16,6 +14,10 @@ import org.apache.wicket.protocol.http.WebResponse;
 import org.apache.wicket.request.target.resource.ResourceStreamRequestTarget;
 import org.apache.wicket.util.resource.IResourceStream;
 import org.apache.wicket.util.resource.StringResourceStream;
+
+import wicket.in.action.chapter12.resdiscounts.DiscountsList;
+import wicket.in.action.common.AdminOnly;
+import wicket.in.action.common.DataBase;
 
 public final class DiscountsPanel extends Panel {
 
