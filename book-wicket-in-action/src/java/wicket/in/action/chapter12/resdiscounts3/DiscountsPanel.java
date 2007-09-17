@@ -1,13 +1,15 @@
 package wicket.in.action.chapter12.resdiscounts3;
 
 import org.apache.wicket.ResourceReference;
-import wicket.in.action.common.AdminOnly;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.link.ResourceLink;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
+
+import wicket.in.action.chapter09.discounts.DiscountsList;
+import wicket.in.action.common.AdminOnly;
 
 public final class DiscountsPanel extends Panel {
 
