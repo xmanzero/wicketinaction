@@ -11,7 +11,7 @@ import org.apache.wicket.settings.ISecuritySettings;
 import org.apache.wicket.util.io.IObjectStreamFactory;
 import org.apache.wicket.util.lang.Objects;
 
-import wicket.in.action.chapter11.authdiscounts2.DiscountsPage;
+import wicket.in.action.chapter012.authdiscounts2.DiscountsPage;
 import wicket.in.action.common.SigninPage;
 import wicket.in.action.common.WiaAuthorizationStrategy;
 import wicket.in.action.common.WiaSession;
