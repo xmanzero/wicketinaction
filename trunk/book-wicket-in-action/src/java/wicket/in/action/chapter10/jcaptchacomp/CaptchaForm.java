@@ -27,24 +27,21 @@ import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.validation.IValidatable;
 import org.apache.wicket.validation.validator.AbstractValidator;
 
-import com.octo.captcha.service.image.DefaultManageableImageCaptchaService;
 import com.octo.captcha.service.image.ImageCaptchaService;
 
 public abstract class CaptchaForm extends Panel {
 
   private final class CaptchaInputForm extends Form {
 
-    private String challengeId = UUID.randomUUID().toString();
-
     private String challengeResponse;
 
     public CaptchaInputForm(String id) {
       super(id);
-
+      String challengeId = UUID.randomUUID().toString();
       add(new CaptchaImage("captchaImage", challengeId) {
         @Override
         protected ImageCaptchaService getImageCaptchaService() {
-          return captchaService;
+          return getImageCaptchaService();
         }
       });
 
@@ -52,7 +49,7 @@ public abstract class CaptchaForm extends Panel {
           "challengeResponse"), challengeId) {
         @Override
         protected ImageCaptchaService getImageCaptchaService() {
-          return captchaService;
+          return getImageCaptchaService();
         }
 
         @Override
@@ -65,32 +62,26 @@ public abstract class CaptchaForm extends Panel {
       add(new FeedbackPanel("feedback"));
     }
 
-    public String getChallengeResponse() {
-      return challengeResponse;
-    }
-
-    public void setChallengeResponse(String challengeResponse) {
-      this.challengeResponse = challengeResponse;
-    }
-
     @Override
     protected void onSubmit() {
       onSuccess();
     }
   }
 
-  private static final ImageCaptchaService captchaService = new DefaultManageableImageCaptchaService();
-
   public CaptchaForm(String id) {
-
     super(id);
     add(new CaptchaInputForm("form"));
   }
+
+  protected abstract ImageCaptchaService getImageCaptchaService();
 
   protected void onError(AbstractValidator validator,
       IValidatable validatable) {
     validator.error(validatable, "captcha.validation.failed");
   }
 
-  protected abstract void onSuccess();
+  protected void onSuccess() {
+    info(getLocalizer().getString("captcha.validation.succeeded",
+        this));
+  }
 }
