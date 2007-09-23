@@ -20,14 +20,19 @@ package wicket.in.action.chapter10.jcaptchacomp;
 
 import org.apache.wicket.markup.html.WebPage;
 
+import com.octo.captcha.service.image.DefaultManageableImageCaptchaService;
+import com.octo.captcha.service.image.ImageCaptchaService;
+
 public class CaptchaPage extends WebPage {
+
+  private static final ImageCaptchaService captchaService = new DefaultManageableImageCaptchaService();
 
   public CaptchaPage() {
     add(new CaptchaForm("captchaForm") {
+
       @Override
-      protected void onSuccess() {
-        info(getLocalizer().getString("captcha.validation.succeeded",
-            this));
+      protected ImageCaptchaService getImageCaptchaService() {
+        return captchaService;
       }
     });
   }
