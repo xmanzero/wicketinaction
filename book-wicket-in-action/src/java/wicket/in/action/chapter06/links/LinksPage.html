@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Links page</title>
+</head>
+<body>
+    <h1>Links examples</h1>
+    <h2>Static links</h2>
+    <p>The following link takes you to a <a href="linkexample.html">document in the context root</a>.</p>
+    <h2>External Link example</h2>
+    <h3>Gouda</h3>
+    <p>Gouda is a yellowish Dutch cheese named after the city of Gouda. The cheese is made from cow's milk that is cultured and heated until the curd is separate from the whey. About ten percent of the mixture is curds which are pressed into circular moulds for several hours. These molds are the essential reason behind its traditional, characteristic shape.</p>
+    <p><a href="#" wicket:id="recipelink">recipe</a></p>
+
+    <h2>Bookmarkable links example</h2>
+    <ul>
+        <li><a href="#" wicket:id="cheese1">Gouda cheese</a> (not mounted)</li>
+        <li><a href="#" wicket:id="cheese2">Edam cheese</a> (mounted with BookmarkablePageRequestTargetUrlCodingStrategy)</li>
+        <li><a href="#" wicket:id="cheese3">Old Amsterdam cheese</a> (mounted with IndexedParamUrlCodingStrategy)</li>
+        <li><a href="#" wicket:id="cheese4">Gouda cheese</a> (mounted with MixedParamUrlCodingStrategy)</li>
+        <li><a href="#" wicket:id="cheese5">Edam cheese</a> (mounted with HybridUrlCodingStrategy)</li>
+        <li><a href="#" wicket:id="cheese6">Old Amsterdam cheese</a> (mounted with IndexedHybridUrlCodingStrategy)</li>
+        <li><a href="#" wicket:id="parameters">Parameters example</a></li>
+    </ul>
+
+    <h2>Normal Link example</h2>
+    <ul>
+        <li><a href="#" wicket:id="link">link</a></li>
+    </ul>
+
+    <h2>Autolink with wicket:link</h2>
+    <wicket:link>
+        <p><img src="picture.jpg" alt="Example picture loaded using autolinks" /></p>
+        <ul>
+            <li><a href="LinksPage.html">this page</a></li>
+            <li><a href="BookmarkableMountedCheeseDetailsPage.html">same package</a></li>
+            <li><a href="../labels/LabelsPage.html">labels package</a></li>
+        </ul>
+    </wicket:link>
+</body>
+</html>

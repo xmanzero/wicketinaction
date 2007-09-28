@@ -1,0 +1,47 @@
+<html xmlns:wicket="">
+<body>
+<h1>6.4 Basic operations on components</h1>
+<h2>6.4.1 Changing the visibility</h2>
+
+<div wicket:id="example1">
+    <h3>Example 1</h3>
+    <span wicket:id="label1"></span><br />
+    <span wicket:id="label2"></span><br />
+    <span wicket:id="label3"></span><br />
+    <span wicket:id="label4"></span><br />
+</div>
+
+<div wicket:id="example2">
+    <h3>Example 2 using a WebMarkupContainer</h3>
+    <span wicket:id="label1"></span><br />
+    <span wicket:id="label2"></span><br />
+    <span wicket:id="wmc">
+        <span wicket:id="label3"></span><br />
+        <span wicket:id="label4"></span><br />
+    </span>
+</div>
+
+<div wicket:id="example3">
+    <h3>Example 3 using wicket:enclosure</h3>
+    <span wicket:id="label1"></span><br />
+    <span wicket:id="label2"></span><br />
+    <wicket:enclosure child="label3">
+        <span wicket:id="label3"></span><br />
+        <span wicket:id="label4"></span><br />
+    </wicket:enclosure>                              
+</div>
+
+<div wicket:id="example4">
+    <h3>Example 4 AttributeModifiers</h3>
+    <h4 wicket:id="label">text</h4>
+    <a href="#" wicket:id="link">Click me!</a>
+    
+    <table>
+        <wicket:container wicket:id="foo">
+            <tr><td wicket:id="a"></td></tr>
+            <tr><td wicket:id="b"></td></tr>
+        </wicket:container>
+    </table>
+</div>
+</body>
+</html>

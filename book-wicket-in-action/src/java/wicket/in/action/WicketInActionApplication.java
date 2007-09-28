@@ -7,10 +7,11 @@ import org.apache.wicket.Response;
 import org.apache.wicket.Session;
 import org.apache.wicket.application.IComponentInstantiationListener;
 import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.request.target.coding.*;
 import org.apache.wicket.settings.ISecuritySettings;
 import org.apache.wicket.util.io.IObjectStreamFactory;
 import org.apache.wicket.util.lang.Objects;
-
+import wicket.in.action.chapter06.links.*;
 import wicket.in.action.chapter12.authdiscounts2.DiscountsPage;
 import wicket.in.action.common.SigninPage;
 import wicket.in.action.common.WiaAuthorizationStrategy;
@@ -48,15 +49,21 @@ public class WicketInActionApplication extends WebApplication {
     mountBookmarkablePage("/discounts", DiscountsPage.class);
     mountBookmarkablePage("/signin", SigninPage.class);
 
-    addComponentInstantiationListener(new IComponentInstantiationListener() {
-      public void onInstantiation(final Component component) {
-        if (!getSecuritySettings().getAuthorizationStrategy()
-            .isInstantiationAuthorized(component.getClass())) {
-          getSecuritySettings()
-              .getUnauthorizedComponentInstantiationListener()
-              .onUnauthorizedInstantiation(component);
+    mountBookmarkablePage("/chapter-6/links", LinksPage.class);
+    mount(new BookmarkablePageRequestTargetUrlCodingStrategy("/chapter-6/details1", BookmarkableMountedCheeseDetailsPage.class, null));
+    mount(new IndexedParamUrlCodingStrategy("/chapter-6/details2", IndexedMountedCheeseDetailsPage.class));
+    mount(new MixedParamUrlCodingStrategy("/chapter-6/details3", MixedMountedCheeseDetailsPage.class, new String[]{"id"}));
+    mount(new HybridUrlCodingStrategy("/chapter-6/details4", HybridMountedCheeseDetailsPage.class));
+    mount(new IndexedHybridUrlCodingStrategy("/chapter-6/details5", IndexedHybridMountedCheeseDetailsPage.class));
+      addComponentInstantiationListener(new IComponentInstantiationListener() {
+        public void onInstantiation(final Component component) {
+          if (!getSecuritySettings().getAuthorizationStrategy()
+              .isInstantiationAuthorized(component.getClass())) {
+            getSecuritySettings()
+                .getUnauthorizedComponentInstantiationListener()
+                .onUnauthorizedInstantiation(component);
+          }
         }
-      }
-    });
+      });
   }
 }

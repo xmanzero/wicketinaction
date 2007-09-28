@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>6.3 Using Repeaters for components, components, ...</title>
+    <style type="text/css">
+        ul.menu {
+            padding-bottom : 10px;
+        }
+        .menu li {
+            display:inline;
+            float:left;
+            padding:0 10px;
+            background-color : #00B;
+            color : #fff;
+            border-right : 1px solid #fff;
+        }
+        .menu a {
+            color : #fff;
+            text-decoration : none;
+            font-family : helvetica;
+            font-weight : bold;
+            font-size : 16px;
+        }
+        h2 { clear:both;}
+    </style>
+</head>
+<body>
+<h1>6.3 Using Repeaters for components, components, ...</h1>
+<p>This page shows the examples for the repeats section of chapter 6.</p>
+<h2>RepeatingView</h2>
+<ul>
+    <li wicket:id="rv1"></li>
+</ul>
+<h3>RepeatingView with different components</h3>
+<ul>
+    <li wicket:id="rv2">bare text</li>
+</ul>
+
+<h3>Menu with RepeatingView</h3>
+<ul class="menu">
+    <li wicket:id="menu">
+        <a href="" wicket:id="link">
+            <span wicket:id="caption"></span>
+        </a>
+    </li>
+</ul>
+
+<h2>ListView</h2>
+<ul>
+    <li wicket:id="lv1"><span wicket:id="value"></span></li>
+</ul>
+
+<h3>Menu with ListView</h3>
+<ul class="menu">
+    <li wicket:id="lv2">
+        <a href="" wicket:id="link">
+            <span wicket:id="caption"></span>
+        </a>
+    </li>
+</ul>
+<br />
+<a href="#" wicket:id="add">add</a> <a href="#" wicket:id="remove">remove</a>
+</body>
+</html>
