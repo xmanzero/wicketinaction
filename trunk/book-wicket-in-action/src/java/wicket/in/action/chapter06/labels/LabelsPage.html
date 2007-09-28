@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Labels page</title>
+</head>
+<body>
+<h2>Hello world example</h2>
+<span wicket:id="message">contents go here</span>
+
+<h2>Different tags for a label example</h2>
+<span wicket:id="label1">Will be replaced</span>
+<td wicket:id="label2">[name]</td>
+<div wicket:id="label3"></div>
+<h1 wicket:id="label4">title goes here</h1>
+Name: <span wicket:id="name"></span>
+
+<h2>HTML embedded in label tag example</h2>
+<!-- markup -->
+<div wicket:id="replacer">
+this gets replaced.
+<h1>And this</h1>
+<img src="images/parishilton.jpg" alt="Hilton hotel in Paris">
+</div>
+
+<h2>MultiLineLabel example</h2>
+<table>
+    <tr>
+        <th>Normal label</th>
+        <td><span wicket:id="label"></span></td>
+    </tr>
+    <tr>
+        <th>MultiLineLabel</th>
+        <td><span wicket:id="multiline"></span></td>
+    </tr>
+</table>
+
+<h2>Markup in model</h2>
+<table>
+    <tr>
+        <th>With escaping markup in models</th>
+        <td><span wicket:id="markup1"></span></td>
+    </tr>
+    <tr>
+        <th>Without escaping markup in models</th>
+        <td><span wicket:id="markup2"></span></td>
+    </tr>
+    <tr>
+        <th>Without escaping markup in models and JavaScript</th>
+        <td><span wicket:id="markup3"></span></td>
+    </tr>
+</table>
+</body>
+</html>
