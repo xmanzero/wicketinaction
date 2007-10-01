@@ -3,45 +3,60 @@
 <h1>6.4 Basic operations on components</h1>
 <h2>6.4.1 Changing the visibility</h2>
 
-<div wicket:id="example1">
-    <h3>Example 1</h3>
-    <span wicket:id="label1"></span><br />
-    <span wicket:id="label2"></span><br />
-    <span wicket:id="label3"></span><br />
-    <span wicket:id="label4"></span><br />
-</div>
+<p>This section shows several examples modifying the visibility of components.</p>
 
-<div wicket:id="example2">
-    <h3>Example 2 using a WebMarkupContainer</h3>
-    <span wicket:id="label1"></span><br />
-    <span wicket:id="label2"></span><br />
-    <span wicket:id="wmc">
-        <span wicket:id="label3"></span><br />
-        <span wicket:id="label4"></span><br />
-    </span>
-</div>
-
-<div wicket:id="example3">
-    <h3>Example 3 using wicket:enclosure</h3>
-    <span wicket:id="label1"></span><br />
-    <span wicket:id="label2"></span><br />
-    <wicket:enclosure child="label3">
-        <span wicket:id="label3"></span><br />
-        <span wicket:id="label4"></span><br />
-    </wicket:enclosure>                              
-</div>
-
-<div wicket:id="example4">
-    <h3>Example 4 AttributeModifiers</h3>
-    <h4 wicket:id="label">text</h4>
-    <a href="#" wicket:id="link">Click me!</a>
-    
+<div wicket:id="examples-6.4.1">
     <table>
-        <wicket:container wicket:id="foo">
-            <tr><td wicket:id="a"></td></tr>
-            <tr><td wicket:id="b"></td></tr>
-        </wicket:container>
+    <tr><th>Example</th><th>Result</th></tr>
+    <tr><td><tt>label.setVisible(false);</tt></td><td><span wicket:id="label1"></span></td></tr>
+    <tr><td><tt>label.setVisible(!label.isVisible());</tt></td><td><span wicket:id="label2"></span></td></tr>
+    <tr><td><pre>new Label("label", "Now I'm visible!") {
+      @Override
+      public boolean isVisible() {
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+        return day != Calendar.SATURDAY && day != Calendar.SUNDAY;
+      }
+    }</pre></td><td><span wicket:id="label"></span></td></tr>
     </table>
 </div>
+
+<h2>6.4.2 Changing markup tag attributes</h2>
+
+<p>This section shows examples of modifying markup attributes from your Java code.</p>
+<div wicket:id="examples-6.4.2">
+	<table>
+		<tr><th>Example</th><th>Result</th></tr>
+		<tr><td>
+<pre>add(new Label("message", "Hello, World!") {
+    @Override
+    protected void onComponentTag(ComponentTag tag) {
+        super.onComponentTag(tag);
+        tag.put("style", "color:red");
+    }
+});</pre></td><td><span wicket:id="message1">text goes here</span></td></tr>
+        <tr><td><pre>add(new Label("message", "Hello, World!").add(
+        new SimpleAttributeModifier("style", "color:red"))); 
+        </pre></td><td><span wicket:id="message2">text goes here</span></td></tr>
+        <tr><td><pre>Link link = new Link("link") {
+  public void onClick() {
+    System.out.println("Clicked!");
+  }
+};
+example4.add(link);
+link.add(new SimpleAttributeModifier("onclick",
+    "return confirm('Are you sure?');"));</pre></td><td><a href="#" wicket:id="link">Click me!</a></td></tr>
+	</table>
+</div>
+<h2>6.4.3 Removing excess markup</h2>
+
+<p>This section shows examples of removing excess markup tags.</p>
+<div wicket:id="examples-6.4.3">
+	<table>
+		<tr><th>Example</th><th>Result</th></tr>
+        <tr><td><pre>&lt;h1 wicket:id="message"&gt;text goes here&lt;/h1&gt;
+add(new Label("message", "Hello, World!").setRenderBodyOnly(true));</pre></td><td><h1 wicket:id="message"></h1></td></tr>
+	</table>
+</div>
+
 </body>
 </html>
