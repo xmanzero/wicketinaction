@@ -23,8 +23,8 @@
 	<inceptionYear>2005</inceptionYear>
 
 	<organization>
-		<name>Wicket developers</name>
-		<url>http://wicket.sourceforge.net</url>
+		<name>Wicket in Action authors</name>
+		<url>http://wicketinaction.googlecode.com</url>
 	</organization>
 
 	<licenses>
@@ -36,9 +36,15 @@
 	</licenses>
 
 	<issueManagement>
-		<url>http://sourceforge.net/tracker/?group_id=119783</url>
+		<url>http://code.google.com/p/wicketinaction/issues/list</url>
 	</issueManagement>
-
+	<repositories>
+	    <repository>
+	        <id>org.wicketstuff</id>
+	        <name>Wicket Stuff Repository</name>
+	        <url>http://wicketstuff.org/maven/repository</url>
+	    </repository>
+	</repositories>
 	<dependencies>
 		<!-- 
 			no idea how to do relative jars with friggnin' Maven. My god, how
@@ -161,7 +167,7 @@
 				<filtering>false</filtering>
 				<directory>src/java</directory>
 				<includes>
-					<include>**</include>
+					<include>**/*.*</include>
 				</includes>
 				<excludes>
 					<exclude>**/*.java</exclude>
