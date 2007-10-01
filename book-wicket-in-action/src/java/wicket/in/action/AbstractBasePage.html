@@ -1,10 +1,25 @@
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.2.0/build/reset-fonts-grids/reset-fonts-grids.css"> 
 <link rel="stylesheet" type="text/css" href="style/style.css" />
 <title wicket:id="title"></title>
 </head>
 <body>
+<div id="doc" class="yui-t2">
+<div id="hd">
 <h1 wicket:id="heading"></h1>
-<wicket:child />
+</div>
+<div id="bd">
+	<div id="yui-main">
+		<div class="yui-b"><wicket:child /></div>
+	</div>
+	<div id="colophon" class="yui-b first">
+		<h2>Wicket in Action</h2>
+		<p>Martijn Dashorst</p>
+		<p>Eelco Hillenius</p>
+	</div>
+</div>
+<div id="ft">Copyright &copy; 2007 - Eelco Hillenius &amp; Martijn Dashorst</div>
+</div>
 </body>
 </html>
