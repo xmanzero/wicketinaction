@@ -34,6 +34,19 @@ public class LinksPage extends WebPage {
             public void onClick() {
                 setResponsePage(LinksPage.this);
             }
+            @Override
+            protected boolean getStatelessHint() {
+              return false;
+            }
         });
+        add(new Link("stateless"){
+          public void onClick() {
+              setResponsePage(LinksPage.this);
+          }
+          @Override
+          protected boolean getStatelessHint() {
+            return true;
+          }
+      });
     }
 }

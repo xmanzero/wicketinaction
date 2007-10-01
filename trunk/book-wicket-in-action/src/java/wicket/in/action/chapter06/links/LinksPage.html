@@ -24,7 +24,8 @@
 
     <h2>Normal Link example</h2>
     <ul>
-        <li><a href="#" wicket:id="link">link</a></li>
+        <li><a href="#" wicket:id="link">link</a> - needs session state to be present</li>
+        <li><a href="#" wicket:id="stateless">stateless link</a> - can be called without building up session state</li>
     </ul>
 
     <h2>Autolink with wicket:link</h2>
@@ -33,7 +34,7 @@
         <ul>
             <li><a href="LinksPage.html">this page</a></li>
             <li><a href="BookmarkableMountedCheeseDetailsPage.html">same package</a></li>
-            <li><a href="../labels/LabelsPage.html">labels package</a></li>
+            <li><a href="/wicket/in/action/chapter06/labels/LabelsPage.html">labels package</a></li>
         </ul>
     </wicket:link>
 </body>
