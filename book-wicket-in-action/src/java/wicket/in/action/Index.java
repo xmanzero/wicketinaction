@@ -46,10 +46,7 @@ public class Index extends AbstractBasePage {
         wicket.in.action.chapter11.ajax.dojo.Index.class));
     add(new BookmarkablePageLink(
         "wicket.in.action.chapter12.authdiscounts.Index",
-        wicket.in.action.chapter12.authdiscounts.Index.class));
-    add(new BookmarkablePageLink(
-        "wicket.in.action.chapter12.authdiscounts2.Index",
-        wicket.in.action.chapter12.authdiscounts2.Index.class));
+        wicket.in.action.chapter12.authdiscounts.DiscountsPage.class));
     add(new BookmarkablePageLink(
         "wicket.in.action.chapter13.locdiscounts.Index",
         wicket.in.action.chapter13.locdiscounts.Index.class));
