@@ -1,11 +1,11 @@
 package wicket.in.action.chapter12.authdiscounts;
 
-import wicket.in.action.common.ProtectedPage;
+import org.apache.wicket.markup.html.WebPage;
 
-public class DiscountsPage extends ProtectedPage {
+public class DiscountsPage extends WebPage {
 
   public DiscountsPage() {
-    add(new UserPanel("userPanel", Index.class));
+    add(new UserPanel("userPanel", DiscountsPage.class));
     add(new DiscountsPanel("discounts"));
   }
 }

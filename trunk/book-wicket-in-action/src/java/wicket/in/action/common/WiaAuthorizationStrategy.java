@@ -25,9 +25,9 @@ public final class WiaAuthorizationStrategy implements
 
   public boolean isInstantiationAuthorized(Class componentClass) {
 
-    if (ProtectedPage.class.isAssignableFrom(componentClass)) {
-      return WiaSession.get().isAuthenticated();
-    }
+//    if (ProtectedPage.class.isAssignableFrom(componentClass)) {
+//      return WiaSession.get().isAuthenticated();
+//    }
 
     return true;
   }
