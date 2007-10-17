@@ -41,7 +41,7 @@ public abstract class CaptchaForm extends Panel {
       add(new CaptchaImage("captchaImage", challengeId) {
         @Override
         protected ImageCaptchaService getImageCaptchaService() {
-          return getImageCaptchaService();
+          return CaptchaForm.this.getImageCaptchaService();
         }
       });
 
