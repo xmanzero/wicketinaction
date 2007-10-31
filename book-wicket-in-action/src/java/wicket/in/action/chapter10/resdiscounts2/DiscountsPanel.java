@@ -8,7 +8,6 @@ import org.apache.wicket.markup.html.form.SubmitLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
-import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.protocol.http.WebResponse;
 import org.apache.wicket.request.target.resource.ResourceStreamRequestTarget;
@@ -17,31 +16,9 @@ import org.apache.wicket.util.resource.StringResourceStream;
 
 import wicket.in.action.chapter10.resdiscounts.DiscountsEditList;
 import wicket.in.action.chapter10.resdiscounts.DiscountsList;
-import wicket.in.action.common.AdminOnly;
 import wicket.in.action.common.DataBase;
 
 public final class DiscountsPanel extends Panel {
-
-  @AdminOnly
-  private class ModeLink extends Link {
-
-    ModeLink(String id) {
-      super(id);
-      IModel linkLabelModel = new AbstractReadOnlyModel() {
-        @Override
-        public Object getObject() {
-          return inEditMode ? "[display]" : "[edit]";
-        }
-      };
-      add(new Label("linkLabel", linkLabelModel));
-    }
-
-    @Override
-    public void onClick() {
-      inEditMode = !inEditMode;
-      setContentPanel();
-    }
-  }
 
   private boolean inEditMode = false;
 
@@ -51,7 +28,20 @@ public final class DiscountsPanel extends Panel {
 
     add(new DiscountsList("content"));
 
-    add(new ModeLink("modeLink"));
+    Link modeLink = new Link("modeLink") {
+      @Override
+      public void onClick() {
+        inEditMode = !inEditMode;
+        setContentPanel();
+      }
+    };
+    add(modeLink);
+    modeLink.add(new Label("linkLabel", new AbstractReadOnlyModel() {
+      @Override
+      public Object getObject() {
+        return inEditMode ? "[display]" : "[edit]";
+      }
+    }));
 
     final WebResource export = new WebResource() {
 

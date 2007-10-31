@@ -7,12 +7,21 @@ import org.apache.wicket.Response;
 import org.apache.wicket.Session;
 import org.apache.wicket.application.IComponentInstantiationListener;
 import org.apache.wicket.protocol.http.WebApplication;
-import org.apache.wicket.request.target.coding.*;
+import org.apache.wicket.request.target.coding.BookmarkablePageRequestTargetUrlCodingStrategy;
+import org.apache.wicket.request.target.coding.HybridUrlCodingStrategy;
+import org.apache.wicket.request.target.coding.IndexedHybridUrlCodingStrategy;
+import org.apache.wicket.request.target.coding.IndexedParamUrlCodingStrategy;
+import org.apache.wicket.request.target.coding.MixedParamUrlCodingStrategy;
 import org.apache.wicket.settings.ISecuritySettings;
 import org.apache.wicket.util.io.IObjectStreamFactory;
 import org.apache.wicket.util.lang.Objects;
-import wicket.in.action.chapter06.links.*;
-import wicket.in.action.chapter12.authdiscounts2.DiscountsPage;
+
+import wicket.in.action.chapter06.links.BookmarkableMountedCheeseDetailsPage;
+import wicket.in.action.chapter06.links.HybridMountedCheeseDetailsPage;
+import wicket.in.action.chapter06.links.IndexedHybridMountedCheeseDetailsPage;
+import wicket.in.action.chapter06.links.IndexedMountedCheeseDetailsPage;
+import wicket.in.action.chapter06.links.LinksPage;
+import wicket.in.action.chapter06.links.MixedMountedCheeseDetailsPage;
 import wicket.in.action.common.SigninPage;
 import wicket.in.action.common.WiaAuthorizationStrategy;
 import wicket.in.action.common.WiaSession;
@@ -46,7 +55,6 @@ public class WicketInActionApplication extends WebApplication {
         .setUnauthorizedComponentInstantiationListener(authStrat);
 
     // securitySettings.setEnforceMounts(true);
-    mountBookmarkablePage("/discounts", DiscountsPage.class);
     mountBookmarkablePage("/signin", SigninPage.class);
 
     mountBookmarkablePage("/chapter-6/links", LinksPage.class);

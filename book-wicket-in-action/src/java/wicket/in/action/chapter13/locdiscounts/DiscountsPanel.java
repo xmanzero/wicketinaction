@@ -1,34 +1,25 @@
 package wicket.in.action.chapter13.locdiscounts;
 
-import wicket.in.action.common.AdminOnly;
-import wicket.in.action.common.DataBase;
 import org.apache.wicket.markup.html.WebResource;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.link.ResourceLink;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
-import org.apache.wicket.model.IModel;
 import org.apache.wicket.protocol.http.WebResponse;
 import org.apache.wicket.util.resource.IResourceStream;
 import org.apache.wicket.util.resource.StringResourceStream;
+
+import wicket.in.action.common.AdminOnly;
+import wicket.in.action.common.DataBase;
 
 public final class DiscountsPanel extends Panel {
 
   @AdminOnly
   private class ModeLink extends Link {
 
-    ModeLink(String id) {
+    private ModeLink(String id) {
       super(id);
-      IModel linkLabelModel = new AbstractReadOnlyModel() {
-        @Override
-        public Object getObject() {
-          String key = (inEditMode) ? "display" : "edit";
-          return "[" + getLocalizer().getString(key, ModeLink.this)
-              + "]";
-        }
-      };
-      add(new Label("linkLabel", linkLabelModel));
     }
 
     @Override
@@ -46,7 +37,17 @@ public final class DiscountsPanel extends Panel {
 
     add(new DiscountsList("content"));
 
-    add(new ModeLink("modeLink"));
+    ModeLink modeLink = new ModeLink("modeLink");
+    add(modeLink);
+    modeLink.add(new Label("linkLabel", new AbstractReadOnlyModel() {
+      @Override
+      public Object getObject() {
+        String key = (inEditMode) ? "display" : "edit";
+        return "["
+            + getLocalizer().getString(key, DiscountsPanel.this)
+            + "]";
+      }
+    }));
 
     WebResource export = new WebResource() {
 

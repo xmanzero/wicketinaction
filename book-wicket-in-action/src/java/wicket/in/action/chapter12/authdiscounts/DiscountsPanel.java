@@ -1,11 +1,11 @@
 package wicket.in.action.chapter12.authdiscounts;
 
-import wicket.in.action.common.AdminOnly;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
-import org.apache.wicket.model.IModel;
+
+import wicket.in.action.common.AdminOnly;
 
 public final class DiscountsPanel extends Panel {
 
@@ -14,13 +14,6 @@ public final class DiscountsPanel extends Panel {
 
     ModeLink(String id) {
       super(id);
-      IModel linkLabelModel = new AbstractReadOnlyModel() {
-        @Override
-        public Object getObject() {
-          return inEditMode ? "[display]" : "[edit]";
-        }
-      };
-      add(new Label("linkLabel", linkLabelModel));
     }
 
     @Override
@@ -37,7 +30,14 @@ public final class DiscountsPanel extends Panel {
     super(id);
 
     add(new DiscountsList("content"));
-    add(new ModeLink("modeLink"));
+    ModeLink modeLink = new ModeLink("modeLink");
+    add(modeLink);
+    modeLink.add(new Label("linkLabel", new AbstractReadOnlyModel() {
+      @Override
+      public Object getObject() {
+        return inEditMode ? "[display]" : "[edit]";
+      }
+    }));
   }
 
   void setContentPanel() {
