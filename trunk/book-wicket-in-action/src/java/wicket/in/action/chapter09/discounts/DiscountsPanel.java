@@ -12,7 +12,7 @@ public class DiscountsPanel extends Panel {
   public DiscountsPanel(String id) {
     super(id);
     add(new DiscountsList("content"));
-    final Link modeLink = new Link("modeLink") {
+    Link modeLink = new Link("modeLink") {
       @Override
       public void onClick() {
         inEditMode = !inEditMode;
