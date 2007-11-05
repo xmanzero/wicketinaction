@@ -3,7 +3,6 @@ package wicket.in.action.chapter12.authdiscounts;
 import org.apache.wicket.Page;
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.RestartResponseAtInterceptPageException;
-import org.apache.wicket.Session;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
@@ -35,7 +34,6 @@ public class UserPanel extends Panel {
 
       @Override
       public void onClick() {
-        //Session.get().setMetaData(key, object);
         throw new RestartResponseAtInterceptPageException(
             SigninPage.class);
       }
