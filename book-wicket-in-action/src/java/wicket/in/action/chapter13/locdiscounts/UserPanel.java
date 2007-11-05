@@ -5,42 +5,50 @@ import java.util.Locale;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.PageParameters;
+import org.apache.wicket.RestartResponseAtInterceptPageException;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.model.PropertyModel;
 
 import wicket.in.action.chapter09.locales.LocaleDropDown;
 import wicket.in.action.common.SignOutPage;
-import wicket.in.action.common.User;
+import wicket.in.action.common.SigninPage;
 import wicket.in.action.common.WiaSession;
-import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
-import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.LoadableDetachableModel;
-import org.apache.wicket.model.PropertyModel;
 
 public class UserPanel extends Panel {
 
-  public UserPanel(String id, Class<? extends Page> logoutToPageClass) {
+  public UserPanel(String id, Class<? extends Page> logoutPageClass) {
 
     super(id);
-    IModel userModel = new LoadableDetachableModel() {
-      @Override
-      protected User load() {
-        return WiaSession.get().getUser();
-      }
-    };
-    IModel nameModel = new PropertyModel(userModel, "fullname");
-    add(new Label("fullname", nameModel));
+    add(new Label("fullname", new PropertyModel(this,
+        "session.user.fullname")));
     PageParameters parameters = new PageParameters();
-    parameters.add(SignOutPage.REDIRECTPAGE_PARAM, logoutToPageClass
+    parameters.add(SignOutPage.REDIRECTPAGE_PARAM, logoutPageClass
         .getName());
-    add(new BookmarkablePageLink("signout", SignOutPage.class, parameters));
+    add(new BookmarkablePageLink("signout", SignOutPage.class,
+        parameters) {
+      @Override
+      public boolean isVisible() {
+        return WiaSession.get().isAuthenticated();
+      }
+    });
+    add(new Link("signin") {
+
+      @Override
+      public void onClick() {
+        throw new RestartResponseAtInterceptPageException(
+            SigninPage.class);
+      }
+
+      @Override
+      public boolean isVisible() {
+        return !WiaSession.get().isAuthenticated();
+      }
+    });
     add(new LocaleDropDown("localeSelect", Arrays
         .asList(new Locale[] { Locale.ENGLISH, new Locale("nl"),
             new Locale("th") })));
-  }
-
-  @Override
-  public boolean isVisible() {
-    return WiaSession.get().isAuthenticated();
   }
 }
