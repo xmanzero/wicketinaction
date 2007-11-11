@@ -16,12 +16,15 @@ import org.apache.wicket.model.PropertyModel;
  * @author dashorst
  */
 public class FeedbackPage extends WebPage {
+  private FeedbackPanel panel;
+
   public FeedbackPage() {
     /* Section 7.7.1 */
     Form form = new Form("form");
     form.add(new TextField("name").setRequired(true));
     form.add(new PasswordTextField("password").setRequired(true));
     form.add(new TextField("phonenumber").setRequired(true));
+    form.add(new FeedbackPanel("feedback", new ContainerFeedbackMessageFilter(form)));
     add(form);
 
     /* Section 7.7.2 */
@@ -40,16 +43,16 @@ public class FeedbackPage extends WebPage {
         this.name = name;
       }
     }
-    
+
     Person person = new Person();
-    
+
     form = new Form("form2", new Model(person)) {
       @Override
       protected void onSubmit() {
         Person p = (Person) getModelObject();
         try {
           p.save();
-          
+
           // generate flash message
           getSession().info("Person " + p.getName() + " was saved.");
 
@@ -61,15 +64,24 @@ public class FeedbackPage extends WebPage {
       }
     };
     add(form);
-    form.add(new TextField("name", new PropertyModel(person, "name")));
-    form.add(new FeedbackPanel("feedback", new ContainerFeedbackMessageFilter(form)));
+    form
+        .add(new TextField("name", new PropertyModel(person, "name")));
+    form.add(new FeedbackPanel("feedback",
+        new ContainerFeedbackMessageFilter(form)));
 
-    /* Section 7.7.3 */
-    FeedbackPanel panel = new FeedbackPanel("feedback");
+    panel = new FeedbackPanel("feedback");
     panel.setFilter(new ComponentFeedbackMessageFilter(panel));
+
+    // added the messages in onBeforeRender because they will be
+    // cleared once rendered. This way they keep getting added.
     add(panel);
+  }
+
+  @Override
+  protected void onBeforeRender() {
     panel.info("Info level message");
     panel.warn("Warning level message");
     panel.error("Error level message");
+    super.onBeforeRender();
   }
 }
