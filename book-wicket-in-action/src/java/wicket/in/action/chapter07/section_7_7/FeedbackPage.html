@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<wicket:head>
+<style type="text/css">
+.example.feedback .feedbackPanelERROR {
+	color : #FF0000;
+}
+.example.feedback .feedbackPanelWARNING {
+	color : #FFA040;
+}
+.example.feedback .feedbackPanelINFO {
+	color : #000080;
+}
+
+</style>
+</wicket:head>
+</head>
+<body>
+	<h2>7.7 Providing feedback</h2>
+	<div class="section">
+	  	<h3>7.7.1 Feedback messages</h3>
+	  	<p></p>
+	  	<div class="example">
+			<form wicket:id="form">
+			<table>
+			    <tr><td>Name:</td><td><input type="text" wicket:id="name" /></td></tr>
+			    <tr><td>Password:</td><td><input type="password" wicket:id="password" /></td></tr>
+			    <tr><td>Phone number:</td><td><input type="text" wicket:id="phonenumber" /></td></tr>
+			    <tr><td><input type="submit" value="Send to server" /></td></tr>
+			</table>
+			</form>
+	  	</div>
+	</div>
+	<div class="section">
+	  	<h3>7.7.2 Using info, error and warn methods for general messages</h3>
+	  	<p></p>
+	  	<div class="example">
+			<form wicket:id="form2">
+			    Person name: <input type="text" wicket:id="name" />
+			    <input type="submit" value="Save" />
+			    
+			    <h4>Feedback messages</h4>
+			    <div wicket:id="feedback"></div>
+			</form>
+	  	</div>
+	</div>
+	<div class="section">
+	  	<h3>7.7.3 Display feedback messages using a FeedbackPanel</h3>
+	  	<p></p>
+	  	<div class="example feedback" wicket:id="feedback">
+	  	</div>
+	</div>
+</body>
+</html>
+
