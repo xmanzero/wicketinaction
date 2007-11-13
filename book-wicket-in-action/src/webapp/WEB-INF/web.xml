@@ -43,32 +43,6 @@
 		<url-pattern>/app/*</url-pattern>
 	</filter-mapping>
 
-	<servlet>
-		<servlet-name>EchoServlet</servlet-name>
-		<servlet-class>
-			wicket.in.action.chapter01.section_1_1_2.listing01.EchoServlet
-		</servlet-class>
-	</servlet>
-
-	<!-- servlet>
-		<servlet-name>maverickdispatcher</servlet-name>
-		<display-name>Maverick Dispatcher</display-name>
-		<servlet-class>
-			org.infohazard.maverick.Dispatcher
-		</servlet-class>
-		<load-on-startup>2</load-on-startup>
-	</servlet-->
-
-	<servlet-mapping>
-		<servlet-name>EchoServlet</servlet-name>
-		<url-pattern>/echoservlet</url-pattern>
-	</servlet-mapping>
-
-	<!-- servlet-mapping>
-		<servlet-name>maverickdispatcher</servlet-name>
-		<url-pattern>*.m</url-pattern>
-	</servlet-mapping-->
-
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
