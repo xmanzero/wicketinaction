@@ -1,6 +1,6 @@
 <projectDescription>
   <name>cheesr</name>
-  <comment></comment>
+  <comment>Online example cheese store for the book Wicket in Action.</comment>
   <projects/>
   <buildSpec>
     <buildCommand>
