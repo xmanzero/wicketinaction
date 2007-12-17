@@ -1,25 +1,9 @@
 <wicket:panel>
-  <table wicket:id="rows">
-    <thead>
-      <tr>
-        <th>name</th>
-        <th>age</th>
-        <th>discount</th>
-        <th>description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr wicket:id="discounts">
-        <td nowrap="nowrap"><span wicket:id="cheese.name">name</span></td>
-        <td><span wicket:id="discount">discount</span></td>
-        <td><span wicket:id="description">description</span></td>
-        <td><a href="#" wicket:id="remove">[remove]</a></td>
-      </tr>
-      <tr>
-        <td colspan="4">
-          <span wicket:id="feedback">[any feedback here]</span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <li wicket:id="discounts">
+    <strong><span wicket:id="cheese.name">name</span></strong>,
+    <span wicket:id="description">description</span>:
+    <span wicket:id="discount">discount</span> off!&nbsp;
+    (valid until <span wicket:id="until">until</span>)
+  </li>
+  <div wicket:id="feedback">[any feedback here]</div>
 </wicket:panel>
