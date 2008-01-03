@@ -36,18 +36,18 @@ import org.apache.wicket.util.string.JavascriptUtils;
 import org.apache.wicket.validation.IValidator;
 
 public class AjaxEditableLabel extends Panel {
+
   private FormComponent editor;
 
   private Component label;
 
   protected class EditorAjaxBehavior extends
       AbstractDefaultAjaxBehavior {
-    public EditorAjaxBehavior() {
-    }
 
     @Override
     protected void onComponentTag(ComponentTag tag) {
       super.onComponentTag(tag);
+
       final String saveCall = "{"
           + generateCallbackScript("wicketAjaxGet('"
               + getCallbackUrl()
@@ -66,7 +66,6 @@ public class AjaxEditableLabel extends Panel {
 
       tag.put("onblur", saveCall);
       tag.put("onkeypress", keypress);
-
     }
 
     @Override
@@ -90,16 +89,16 @@ public class AjaxEditableLabel extends Panel {
     }
   }
 
-protected class LabelAjaxBehavior extends AjaxEventBehavior {
-  public LabelAjaxBehavior(String event) {
-    super(event);
-  }
+  protected class LabelAjaxBehavior extends AjaxEventBehavior {
+    public LabelAjaxBehavior(String event) {
+      super(event);
+    }
 
-  @Override
-  protected void onEvent(AjaxRequestTarget target) {
-    onEdit(target);
+    @Override
+    protected void onEvent(AjaxRequestTarget target) {
+      onEdit(target);
+    }
   }
-}
 
   public AjaxEditableLabel(String id) {
     super(id);
@@ -146,24 +145,13 @@ protected class LabelAjaxBehavior extends AjaxEventBehavior {
 
   protected FormComponent newEditor(MarkupContainer parent,
       String componentId, IModel model) {
+
     TextField editor = new TextField(componentId, model) {
 
       @Override
       public IConverter getConverter(Class type) {
         IConverter c = AjaxEditableLabel.this.getConverter(type);
         return c != null ? c : super.getConverter(type);
-      }
-
-      @Override
-      protected void onModelChanged() {
-        super.onModelChanged();
-        AjaxEditableLabel.this.onModelChanged();
-      }
-
-      @Override
-      protected void onModelChanging() {
-        super.onModelChanging();
-        AjaxEditableLabel.this.onModelChanging();
       }
     };
     editor.setOutputMarkupId(true);
@@ -172,32 +160,33 @@ protected class LabelAjaxBehavior extends AjaxEventBehavior {
     return editor;
   }
 
-protected Component newLabel(MarkupContainer parent,
-    String componentId, IModel model) {
-  Label label = new Label(componentId, model) {
+  protected Component newLabel(MarkupContainer parent,
+      String componentId, IModel model) {
 
-    @Override
-    public IConverter getConverter(Class type) {
-      IConverter c = AjaxEditableLabel.this.getConverter(type);
-      return c != null ? c : super.getConverter(type);
-    }
+    Label label = new Label(componentId, model) {
 
-    @Override
-    protected void onComponentTagBody(MarkupStream markupStream,
-        ComponentTag openTag) {
-      Object modelObject = getModelObject();
-      if (modelObject == null || "".equals(modelObject)) {
-        replaceComponentTagBody(markupStream, openTag,
-            defaultNullLabel());
-      } else {
-        super.onComponentTagBody(markupStream, openTag);
+      @Override
+      public IConverter getConverter(Class type) {
+        IConverter c = AjaxEditableLabel.this.getConverter(type);
+        return c != null ? c : super.getConverter(type);
       }
-    }
-  };
-  label.setOutputMarkupId(true);
-  label.add(new LabelAjaxBehavior("onclick"));
-  return label;
-}
+
+      @Override
+      protected void onComponentTagBody(MarkupStream markupStream,
+          ComponentTag openTag) {
+        Object modelObject = getModelObject();
+        if (modelObject == null || "".equals(modelObject)) {
+          replaceComponentTagBody(markupStream, openTag,
+              defaultNullLabel());
+        } else {
+          super.onComponentTagBody(markupStream, openTag);
+        }
+      }
+    };
+    label.setOutputMarkupId(true);
+    label.add(new LabelAjaxBehavior("onclick"));
+    return label;
+  }
 
   protected final FormComponent getEditor() {
     if (editor == null) {
