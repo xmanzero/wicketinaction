@@ -1,10 +1,10 @@
 package wicket.in.action.chapter11.ajaxdiscounts;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.extensions.ajax.markup.html.AjaxEditableLabel;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.util.convert.IConverter;
 
+import wicket.in.action.common.AjaxEditableLabel;
 import wicket.in.action.common.DataBase;
 import wicket.in.action.common.Discount;
 import wicket.in.action.common.PercentageConverter;
@@ -13,7 +13,8 @@ public class EditablePercentageLabel extends AjaxEditableLabel {
 
   private final FeedbackPanel feedbackPanel;
 
-  public EditablePercentageLabel(String id, FeedbackPanel feedbackPanel) {
+  public EditablePercentageLabel(String id,
+      FeedbackPanel feedbackPanel) {
     super(id);
     feedbackPanel.setOutputMarkupId(true);
     this.feedbackPanel = feedbackPanel;
