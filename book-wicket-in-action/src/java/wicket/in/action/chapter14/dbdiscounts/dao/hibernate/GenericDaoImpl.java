@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 
 import wicket.in.action.chapter14.dbdiscounts.dao.GenericDao;
 
-public abstract class GenericDaoImpl implements GenericDao {
+public class GenericDaoImpl implements GenericDao {
 
   private SessionFactory sessionFactory;
 

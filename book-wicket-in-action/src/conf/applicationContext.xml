@@ -105,8 +105,29 @@
 		class="wicket.in.action.WicketInActionApplication">
 	</bean>
 
-	<bean id="TestDataInitializer" class="wicket.in.action.chapter14.dbdiscounts.TestDataInitializer">
-		<property name="sessionFactory" ref="sessionFactory"/>
+	<bean id="TestDataInitializer"
+		class="wicket.in.action.chapter14.dbdiscounts.TestDataInitializer">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="GenericDao"
+		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.GenericDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="CheeseDao"
+		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.CheeseDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="DiscountDao"
+		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.DiscountDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="UserDao"
+		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 </beans>
