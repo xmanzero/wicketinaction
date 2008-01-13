@@ -2,9 +2,11 @@ package wicket.in.action.chapter14.dbdiscounts;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -15,10 +17,14 @@ public final class Cheese implements Serializable {
   @GeneratedValue
   private Long id;
 
+  @Lob
+  @Column(name = "description")
   private String description;
 
+  @Column(name = "name", length = 100)
   private String name;
 
+  @Column(name = "price")
   private double price;
 
   public Cheese() {
@@ -30,7 +36,7 @@ public final class Cheese implements Serializable {
     this.description = description;
     this.price = price;
   }
-  
+
   public Long getId() {
     return id;
   }

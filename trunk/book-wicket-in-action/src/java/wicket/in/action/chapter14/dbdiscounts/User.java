@@ -2,6 +2,7 @@ package wicket.in.action.chapter14.dbdiscounts;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,12 +16,16 @@ public class User implements Serializable {
   @GeneratedValue
   private Long id;
 
+  @Column(name = "is_admin")
   private boolean admin = false;
 
+  @Column(name = "full_name")
   private String fullname;
 
+  @Column(name = "pwd")
   private String wiaPassword;
 
+  @Column(name = "uid")
   private String wiaUsername;
 
   public User() {
