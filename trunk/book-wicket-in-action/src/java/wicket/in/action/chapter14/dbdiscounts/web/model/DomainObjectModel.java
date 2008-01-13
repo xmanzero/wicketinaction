@@ -1,4 +1,4 @@
-package wicket.in.action.chapter14.dbdiscounts.model;
+package wicket.in.action.chapter14.dbdiscounts.web.model;
 
 import org.apache.wicket.injection.web.InjectorHolder;
 import org.apache.wicket.model.LoadableDetachableModel;

@@ -1,4 +1,4 @@
-package wicket.in.action.chapter14.dbdiscounts.model;
+package wicket.in.action.chapter14.dbdiscounts.web.model;
 
 import java.util.Iterator;
 

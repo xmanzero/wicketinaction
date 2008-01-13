@@ -1,7 +1,7 @@
 /*
  * Copyright Teachscape
  */
-package wicket.in.action.chapter14.dbdiscounts.model;
+package wicket.in.action.chapter14.dbdiscounts.web.model;
 
 import java.io.Serializable;
 import java.util.Iterator;
