@@ -1,6 +1,7 @@
 package wicket.in.action.chapter14.dbdiscounts.web;
 
 import org.apache.wicket.markup.html.form.Button;
+import org.apache.wicket.markup.html.form.ChoiceRenderer;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
@@ -17,10 +18,10 @@ import wicket.in.action.common.RequiredTextField;
 public final class NewDiscountForm extends Panel {
 
   @SpringBean
-  CheeseDao cheeseDao;
+  private CheeseDao cheeseDao;
 
   @SpringBean
-  DiscountDao discountDao;
+  private DiscountDao discountDao;
 
   public NewDiscountForm(String id) {
 
@@ -28,8 +29,8 @@ public final class NewDiscountForm extends Panel {
     final Form form = new Form("form", new CompoundPropertyModel(
         new Discount()));
     add(form);
-    form.add(new DropDownChoice("cheese", cheeseDao.findAll())
-        .setRequired(true));
+    form.add(new DropDownChoice("cheese", cheeseDao.findAll(),
+        new ChoiceRenderer("name")).setRequired(true));
     form.add(new PercentageField("discount"));
     form.add(new RequiredTextField("description"));
     form.add(new FeedbackPanel("feedback"));
