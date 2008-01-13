@@ -1,7 +1,11 @@
 package wicket.in.action.chapter14.dbdiscounts.dao.hibernate;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 
 import wicket.in.action.chapter14.dbdiscounts.dao.Dao;
 import wicket.in.action.chapter14.dbdiscounts.domain.DomainObject;
@@ -36,6 +40,20 @@ public abstract class AbstractHibernateDaoImpl<T extends DomainObject>
 
   public void save(T object) {
     getCurrentSession().save(object);
+  }
+
+  @SuppressWarnings("unchecked")
+  public List<T> findAll() {
+    Criteria criteria = getCurrentSession().createCriteria(
+        domainClass);
+    return (List<T>) criteria.list();
+  }
+
+  public int countAll() {
+    Criteria criteria = getCurrentSession().createCriteria(
+        domainClass);
+    criteria.setProjection(Projections.rowCount());
+    return (Integer) criteria.uniqueResult();
   }
 
   public Session getCurrentSession() {
