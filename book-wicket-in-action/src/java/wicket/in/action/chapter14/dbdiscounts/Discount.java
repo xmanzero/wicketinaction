@@ -4,9 +4,11 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -21,12 +23,17 @@ public class Discount implements Serializable {
   @ManyToOne
   private Cheese cheese;
 
+  @Lob
+  @Column(name = "description")
   private String description;
 
+  @Column(name = "discount", nullable = false)
   private double discount;
 
+  @Column(name = "from_date")
   private Date from;
 
+  @Column(name = "until_date")
   private Date until;
 
   public Discount() {

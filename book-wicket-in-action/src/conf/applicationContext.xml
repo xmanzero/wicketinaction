@@ -105,4 +105,8 @@
 		class="wicket.in.action.WicketInActionApplication">
 	</bean>
 
+	<bean id="TestDataInitializer" class="wicket.in.action.chapter14.dbdiscounts.TestDataInitializer">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
 </beans>
