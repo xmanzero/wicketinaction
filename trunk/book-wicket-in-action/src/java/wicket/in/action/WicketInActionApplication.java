@@ -13,9 +13,9 @@ import org.apache.wicket.request.target.coding.IndexedHybridUrlCodingStrategy;
 import org.apache.wicket.request.target.coding.IndexedParamUrlCodingStrategy;
 import org.apache.wicket.request.target.coding.MixedParamUrlCodingStrategy;
 import org.apache.wicket.settings.ISecuritySettings;
+import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.apache.wicket.util.io.IObjectStreamFactory;
 import org.apache.wicket.util.lang.Objects;
-import org.apache.wicket.util.lang.PackageName;
 
 import wicket.in.action.chapter06.links.BookmarkableMountedCheeseDetailsPage;
 import wicket.in.action.chapter06.links.HybridMountedCheeseDetailsPage;
@@ -23,7 +23,6 @@ import wicket.in.action.chapter06.links.IndexedHybridMountedCheeseDetailsPage;
 import wicket.in.action.chapter06.links.IndexedMountedCheeseDetailsPage;
 import wicket.in.action.chapter06.links.LinksPage;
 import wicket.in.action.chapter06.links.MixedMountedCheeseDetailsPage;
-import wicket.in.action.chapter07.Chapter07;
 import wicket.in.action.chapter07.section_7_1.FormsPage;
 import wicket.in.action.chapter07.section_7_2.FormProcessingPage;
 import wicket.in.action.chapter07.section_7_3.TextComponentsPage;
@@ -69,26 +68,36 @@ public class WicketInActionApplication extends WebApplication {
     mountBookmarkablePage("/examples-7.1", FormsPage.class);
     mountBookmarkablePage("/examples-7.2", FormProcessingPage.class);
     mountBookmarkablePage("/examples-7.3", TextComponentsPage.class);
-    mountBookmarkablePage("/examples-7.4", SelectionComponentsPage.class);
+    mountBookmarkablePage("/examples-7.4",
+        SelectionComponentsPage.class);
     mountBookmarkablePage("/examples-7.5", SubmitComponentsPage.class);
     mountBookmarkablePage("/examples-7.6", ValidationsPage.class);
     mountBookmarkablePage("/examples-7.7", FeedbackPage.class);
 
     mountBookmarkablePage("/chapter-6/links", LinksPage.class);
-    mount(new BookmarkablePageRequestTargetUrlCodingStrategy("/chapter-6/details1", BookmarkableMountedCheeseDetailsPage.class, null));
-    mount(new IndexedParamUrlCodingStrategy("/chapter-6/details2", IndexedMountedCheeseDetailsPage.class));
-    mount(new MixedParamUrlCodingStrategy("/chapter-6/details3", MixedMountedCheeseDetailsPage.class, new String[]{"id"}));
-    mount(new HybridUrlCodingStrategy("/chapter-6/details4", HybridMountedCheeseDetailsPage.class));
-    mount(new IndexedHybridUrlCodingStrategy("/chapter-6/details5", IndexedHybridMountedCheeseDetailsPage.class));
-      addComponentInstantiationListener(new IComponentInstantiationListener() {
-        public void onInstantiation(final Component component) {
-          if (!getSecuritySettings().getAuthorizationStrategy()
-              .isInstantiationAuthorized(component.getClass())) {
-            getSecuritySettings()
-                .getUnauthorizedComponentInstantiationListener()
-                .onUnauthorizedInstantiation(component);
-          }
+    mount(new BookmarkablePageRequestTargetUrlCodingStrategy(
+        "/chapter-6/details1",
+        BookmarkableMountedCheeseDetailsPage.class, null));
+    mount(new IndexedParamUrlCodingStrategy("/chapter-6/details2",
+        IndexedMountedCheeseDetailsPage.class));
+    mount(new MixedParamUrlCodingStrategy("/chapter-6/details3",
+        MixedMountedCheeseDetailsPage.class, new String[] { "id" }));
+    mount(new HybridUrlCodingStrategy("/chapter-6/details4",
+        HybridMountedCheeseDetailsPage.class));
+    mount(new IndexedHybridUrlCodingStrategy("/chapter-6/details5",
+        IndexedHybridMountedCheeseDetailsPage.class));
+    addComponentInstantiationListener(new IComponentInstantiationListener() {
+      public void onInstantiation(final Component component) {
+        if (!getSecuritySettings().getAuthorizationStrategy()
+            .isInstantiationAuthorized(component.getClass())) {
+          getSecuritySettings()
+              .getUnauthorizedComponentInstantiationListener()
+              .onUnauthorizedInstantiation(component);
         }
-      });
+      }
+    });
+
+    addComponentInstantiationListener(new SpringComponentInjector(
+        this));
   }
 }
