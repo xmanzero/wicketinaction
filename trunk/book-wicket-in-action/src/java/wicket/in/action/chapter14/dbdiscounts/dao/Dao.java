@@ -1,5 +1,7 @@
 package wicket.in.action.chapter14.dbdiscounts.dao;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import wicket.in.action.chapter14.dbdiscounts.domain.DomainObject;
@@ -13,4 +15,8 @@ public interface Dao<T extends DomainObject> {
 
   @Transactional
   void save(T o);
+
+  List<T> findAll();
+
+  int countAll();
 }
