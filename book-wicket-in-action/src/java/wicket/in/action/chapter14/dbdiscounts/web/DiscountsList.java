@@ -12,7 +12,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import wicket.in.action.chapter14.dbdiscounts.dao.DiscountDao;
 import wicket.in.action.chapter14.dbdiscounts.domain.Discount;
-import wicket.in.action.chapter14.dbdiscounts.model.DomainModelIteratorAdaptor;
+import wicket.in.action.chapter14.dbdiscounts.web.model.DomainModelIteratorAdaptor;
 import wicket.in.action.common.DateFmtLabel;
 import wicket.in.action.common.PercentLabel;
 
