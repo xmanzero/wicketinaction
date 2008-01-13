@@ -1,6 +1,5 @@
-package wicket.in.action.chapter14.dbdiscounts;
+package wicket.in.action.chapter14.dbdiscounts.domain;
 
-import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -14,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "discount")
-public class Discount implements Serializable {
+public class Discount implements DomainObject {
 
   @Id
   @GeneratedValue
@@ -105,10 +104,5 @@ public class Discount implements Serializable {
 
   public void setUntil(Date until) {
     this.until = until;
-  }
-
-  @Override
-  public String toString() {
-    return cheese + ", " + discount;
   }
 }

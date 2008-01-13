@@ -1,6 +1,4 @@
-package wicket.in.action.chapter14.dbdiscounts;
-
-import java.io.Serializable;
+package wicket.in.action.chapter14.dbdiscounts.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class User implements Serializable {
+public class User implements DomainObject {
 
   @Id
   @GeneratedValue
