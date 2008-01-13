@@ -110,11 +110,6 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<bean id="GenericDao"
-		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.GenericDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-
 	<bean id="CheeseDao"
 		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.CheeseDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -128,6 +123,19 @@
 	<bean id="UserDao"
 		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="GenericDao"
+		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.GenericDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="DicountsService"
+		class="wicket.in.action.chapter14.dbdiscounts.services.DiscountsServiceImpl">
+		<property name="cheeseDao" ref="CheeseDao" />
+		<property name="discountDao" ref="DiscountDao" />
+		<property name="userDao" ref="UserDao" />
+		<property name="genericDao" ref="GenericDao" />
 	</bean>
 
 </beans>

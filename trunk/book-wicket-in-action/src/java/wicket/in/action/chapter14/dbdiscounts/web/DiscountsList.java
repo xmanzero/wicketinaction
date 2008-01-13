@@ -10,8 +10,8 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-import wicket.in.action.chapter14.dbdiscounts.dao.DiscountDao;
 import wicket.in.action.chapter14.dbdiscounts.domain.Discount;
+import wicket.in.action.chapter14.dbdiscounts.services.DiscountsService;
 import wicket.in.action.chapter14.dbdiscounts.web.model.DomainModelIteratorAdaptor;
 import wicket.in.action.common.DateFmtLabel;
 import wicket.in.action.common.PercentLabel;
@@ -19,7 +19,7 @@ import wicket.in.action.common.PercentLabel;
 public class DiscountsList extends Panel {
 
   @SpringBean
-  private DiscountDao discountDao;
+  private DiscountsService service;
 
   public DiscountsList(String id) {
 
@@ -28,8 +28,8 @@ public class DiscountsList extends Panel {
 
       @Override
       protected Iterator getItemModels() {
-        return new DomainModelIteratorAdaptor<Discount>(discountDao
-            .findAll().iterator()) {
+        return new DomainModelIteratorAdaptor<Discount>(service
+            .findAllDiscounts().iterator()) {
           @Override
           protected IModel model(Object object) {
             return new CompoundPropertyModel((Discount) object);

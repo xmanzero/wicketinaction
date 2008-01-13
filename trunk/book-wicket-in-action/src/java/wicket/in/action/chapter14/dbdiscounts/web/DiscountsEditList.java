@@ -16,8 +16,8 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-import wicket.in.action.chapter14.dbdiscounts.dao.DiscountDao;
 import wicket.in.action.chapter14.dbdiscounts.domain.Discount;
+import wicket.in.action.chapter14.dbdiscounts.services.DiscountsService;
 import wicket.in.action.chapter14.dbdiscounts.web.model.DomainModelIteratorAdaptor;
 import wicket.in.action.common.DateTimeField;
 import wicket.in.action.common.EqualsDecorator;
@@ -27,7 +27,7 @@ import wicket.in.action.common.RequiredTextField;
 public final class DiscountsEditList extends Panel {
 
   @SpringBean
-  private DiscountDao discountDao;
+  private DiscountsService service;
 
   public DiscountsEditList(String id) {
     super(id);
@@ -55,8 +55,8 @@ public final class DiscountsEditList extends Panel {
 
       @Override
       protected Iterator getItemModels() {
-        return new DomainModelIteratorAdaptor<Discount>(discountDao
-            .findAll().iterator()) {
+        return new DomainModelIteratorAdaptor<Discount>(service
+            .findAllDiscounts().iterator()) {
           @Override
           protected IModel model(Object object) {
             return EqualsDecorator
@@ -77,7 +77,7 @@ public final class DiscountsEditList extends Panel {
         final Link removeLink = new Link("remove") {
           @Override
           public void onClick() {
-            discountDao.delete(discount);
+            service.deleteDiscount(discount);
           }
         };
         item.add(removeLink);
