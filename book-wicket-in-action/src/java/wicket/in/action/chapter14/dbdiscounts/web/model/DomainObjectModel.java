@@ -4,15 +4,15 @@ import org.apache.wicket.injection.web.InjectorHolder;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-import wicket.in.action.chapter14.dbdiscounts.dao.GenericDao;
 import wicket.in.action.chapter14.dbdiscounts.domain.DomainObject;
+import wicket.in.action.chapter14.dbdiscounts.services.DiscountsService;
 import wicket.in.action.common.Objects;
 
 public class DomainObjectModel<T extends DomainObject> extends
     LoadableDetachableModel {
 
   @SpringBean
-  private GenericDao dao;
+  private DiscountsService service;
 
   private final Class<T> type;
 
@@ -44,6 +44,6 @@ public class DomainObjectModel<T extends DomainObject> extends
 
   @Override
   protected T load() {
-    return dao.load(type, id);
+    return service.load(type, id);
   }
 }

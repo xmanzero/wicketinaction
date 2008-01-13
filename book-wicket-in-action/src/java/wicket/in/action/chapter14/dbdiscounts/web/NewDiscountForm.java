@@ -9,19 +9,15 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-import wicket.in.action.chapter14.dbdiscounts.dao.CheeseDao;
-import wicket.in.action.chapter14.dbdiscounts.dao.DiscountDao;
 import wicket.in.action.chapter14.dbdiscounts.domain.Discount;
+import wicket.in.action.chapter14.dbdiscounts.services.DiscountsService;
 import wicket.in.action.common.PercentageField;
 import wicket.in.action.common.RequiredTextField;
 
 public final class NewDiscountForm extends Panel {
 
   @SpringBean
-  private CheeseDao cheeseDao;
-
-  @SpringBean
-  private DiscountDao discountDao;
+  private DiscountsService service;
 
   public NewDiscountForm(String id) {
 
@@ -29,7 +25,7 @@ public final class NewDiscountForm extends Panel {
     final Form form = new Form("form", new CompoundPropertyModel(
         new Discount()));
     add(form);
-    form.add(new DropDownChoice("cheese", cheeseDao.findAll(),
+    form.add(new DropDownChoice("cheese", service.findAllCheeses(),
         new ChoiceRenderer("name")).setRequired(true));
     form.add(new PercentageField("discount"));
     form.add(new RequiredTextField("description"));
@@ -39,7 +35,7 @@ public final class NewDiscountForm extends Panel {
       @Override
       public void onSubmit() {
         Discount discount = (Discount) form.getModelObject();
-        discountDao.save(discount);
+        service.saveDiscount(discount);
         DiscountsPanel discountsPanel = (DiscountsPanel) NewDiscountForm.this
             .getParent();
         discountsPanel.info("saved new discount " + discount);
