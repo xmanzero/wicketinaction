@@ -11,6 +11,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.orm.hibernate3.LocalSessionFactoryBean;
 
+import wicket.in.action.chapter14.dbdiscounts.domain.Cheese;
+import wicket.in.action.chapter14.dbdiscounts.domain.Discount;
+import wicket.in.action.chapter14.dbdiscounts.domain.User;
+
 public final class TestDataInitializer implements InitializingBean,
     ApplicationContextAware {
 

@@ -70,13 +70,13 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>
-					wicket.in.action.chapter14.dbdiscounts.User
+					wicket.in.action.chapter14.dbdiscounts.domain.User
 				</value>
 				<value>
-					wicket.in.action.chapter14.dbdiscounts.Cheese
+					wicket.in.action.chapter14.dbdiscounts.domain.Cheese
 				</value>
 				<value>
-					wicket.in.action.chapter14.dbdiscounts.Discount
+					wicket.in.action.chapter14.dbdiscounts.domain.Discount
 				</value>
 			</list>
 		</property>

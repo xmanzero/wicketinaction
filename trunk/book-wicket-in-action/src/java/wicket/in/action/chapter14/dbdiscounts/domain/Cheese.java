@@ -1,6 +1,4 @@
-package wicket.in.action.chapter14.dbdiscounts;
-
-import java.io.Serializable;
+package wicket.in.action.chapter14.dbdiscounts.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "cheese")
-public final class Cheese implements Serializable {
+public final class Cheese implements DomainObject {
 
   @Id
   @GeneratedValue
@@ -67,10 +65,5 @@ public final class Cheese implements Serializable {
 
   public void setPrice(double price) {
     this.price = price;
-  }
-
-  @Override
-  public String toString() {
-    return name;
   }
 }
