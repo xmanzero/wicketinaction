@@ -66,7 +66,6 @@
 		<property name="dataSource">
 			<ref bean="dataSource" />
 		</property>
-
 		<property name="annotatedClasses">
 			<list>
 				<value>
@@ -80,7 +79,6 @@
 				</value>
 			</list>
 		</property>
-
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">
@@ -88,7 +86,6 @@
 				</prop>
 			</props>
 		</property>
-
 	</bean>
 
 	<!-- setup transaction manager	-->
@@ -129,8 +126,8 @@
 		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.GenericDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
-	<bean id="DicountsService"
+
+	<bean id="DiscountsService"
 		class="wicket.in.action.chapter14.dbdiscounts.services.DiscountsServiceImpl">
 		<property name="cheeseDao" ref="CheeseDao" />
 		<property name="discountDao" ref="DiscountDao" />

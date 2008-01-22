@@ -17,10 +17,10 @@ import org.apache.wicket.markup.repeater.util.ModelIteratorAdapter;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 
+import wicket.in.action.chapter14.dbdiscounts.web.model.EqualsDecorator;
 import wicket.in.action.common.DataBase;
 import wicket.in.action.common.DateTimeField;
 import wicket.in.action.common.Discount;
-import wicket.in.action.common.EqualsDecorator;
 import wicket.in.action.common.PercentageField;
 import wicket.in.action.common.RequiredTextField;
 

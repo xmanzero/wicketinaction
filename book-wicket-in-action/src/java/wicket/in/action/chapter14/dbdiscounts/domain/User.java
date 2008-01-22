@@ -76,4 +76,9 @@ public class User implements DomainObject {
   public void setWiaUsername(String username) {
     this.wiaUsername = username;
   }
+
+  @Override
+  public String toString() {
+    return "User[" + id + "]";
+  }
 }

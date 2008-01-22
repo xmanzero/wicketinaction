@@ -47,6 +47,15 @@ public class DiscountsServiceImpl implements DiscountsService {
     discountDao.save(discount);
   }
 
+  public void saveDiscounts(List<Discount> discounts) {
+    if (discounts == null) {
+      return;
+    }
+    for (Discount discount : discounts) {
+      discountDao.save(discount);
+    }
+  }
+
   public void saveUser(User user) {
     userDao.save(user);
   }

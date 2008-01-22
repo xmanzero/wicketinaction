@@ -15,50 +15,48 @@ public abstract class AbstractHibernateDaoImpl<T extends DomainObject>
 
   private Class<T> domainClass;
 
-  private SessionFactory sessionFactory;
+  private SessionFactory sf;
 
   public AbstractHibernateDaoImpl(Class<T> domainClass) {
     this.domainClass = domainClass;
   }
 
   public SessionFactory getSessionFactory() {
-    return sessionFactory;
+    return sf;
   }
 
   public void setSessionFactory(SessionFactory sf) {
-    this.sessionFactory = sf;
+    this.sf = sf;
   }
 
   public void delete(T object) {
-    getCurrentSession().delete(object);
+    getSession().delete(object);
   }
 
   @SuppressWarnings("unchecked")
   public T load(long id) {
-    return (T) getCurrentSession().get(domainClass, id);
+    return (T) getSession().get(domainClass, id);
   }
 
   public void save(T object) {
-    getCurrentSession().save(object);
+    getSession().saveOrUpdate(object);
   }
 
   @SuppressWarnings("unchecked")
   public List<T> findAll() {
-    Criteria criteria = getCurrentSession().createCriteria(
-        domainClass);
+    Criteria criteria = getSession().createCriteria(domainClass);
     return (List<T>) criteria.list();
   }
 
   public int countAll() {
-    Criteria criteria = getCurrentSession().createCriteria(
-        domainClass);
+    Criteria criteria = getSession().createCriteria(domainClass);
     criteria.setProjection(Projections.rowCount());
     return (Integer) criteria.uniqueResult();
   }
 
-  public Session getCurrentSession() {
+  public Session getSession() {
     // presumes a current session, which we have through the
     // OpenSessionInViewFilter; doesn't work without that
-    return sessionFactory.getCurrentSession();
+    return sf.getCurrentSession();
   }
 }

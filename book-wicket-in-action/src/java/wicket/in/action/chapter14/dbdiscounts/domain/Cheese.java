@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
+import wicket.in.action.common.Objects;
+
 @Entity
 @Table(name = "cheese")
 public final class Cheese implements DomainObject {
@@ -19,7 +21,7 @@ public final class Cheese implements DomainObject {
   @Column(name = "description")
   private String description;
 
-  @Column(name = "name", length = 100)
+  @Column(name = "name", length = 100, unique = true)
   private String name;
 
   @Column(name = "price")
@@ -65,5 +67,33 @@ public final class Cheese implements DomainObject {
 
   public void setPrice(double price) {
     this.price = price;
+  }
+
+  // I'll burn in hell for doing this according to the Hibernate
+  // docs, but guess what, it's the only thing that consistently
+  // works
+
+  @Override
+  public int hashCode() {
+    if (id == null) {
+      return super.hashCode();
+    }
+    return Objects.hashCode(id);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (id == null) {
+      return super.equals(obj);
+    }
+    if (obj instanceof Cheese) {
+      return Objects.equal(id, ((Cheese) obj).id);
+    }
+    return false;
+  }
+
+  @Override
+  public String toString() {
+    return "Cheese[" + id + "]";
   }
 }

@@ -6,7 +6,6 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import wicket.in.action.chapter14.dbdiscounts.domain.DomainObject;
 import wicket.in.action.chapter14.dbdiscounts.services.DiscountsService;
-import wicket.in.action.common.Objects;
 
 public class DomainObjectModel<T extends DomainObject> extends
     LoadableDetachableModel {
@@ -30,16 +29,6 @@ public class DomainObjectModel<T extends DomainObject> extends
     InjectorHolder.getInjector().inject(this);
     this.type = (Class<T>) domainObject.getClass();
     this.id = domainObject.getId();
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    return Objects.equal(obj, getObject());
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hashCode(getObject());
   }
 
   @Override

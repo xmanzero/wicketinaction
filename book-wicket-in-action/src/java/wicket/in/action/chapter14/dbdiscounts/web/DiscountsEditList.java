@@ -1,6 +1,7 @@
 package wicket.in.action.chapter14.dbdiscounts.web;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.wicket.behavior.SimpleAttributeModifier;
 import org.apache.wicket.markup.html.basic.Label;
@@ -12,15 +13,14 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.RefreshingView;
 import org.apache.wicket.markup.repeater.ReuseIfModelsEqualStrategy;
-import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import wicket.in.action.chapter14.dbdiscounts.domain.Discount;
 import wicket.in.action.chapter14.dbdiscounts.services.DiscountsService;
 import wicket.in.action.chapter14.dbdiscounts.web.model.DomainModelIteratorAdaptor;
+import wicket.in.action.chapter14.dbdiscounts.web.model.HashcodeEnabledCompoundPropertyModel;
 import wicket.in.action.common.DateTimeField;
-import wicket.in.action.common.EqualsDecorator;
 import wicket.in.action.common.PercentageField;
 import wicket.in.action.common.RequiredTextField;
 
@@ -28,6 +28,8 @@ public final class DiscountsEditList extends Panel {
 
   @SpringBean
   private DiscountsService service;
+
+  private List<Discount> discounts;
 
   public DiscountsEditList(String id) {
     super(id);
@@ -43,9 +45,7 @@ public final class DiscountsEditList extends Panel {
     form.add(new Button("saveButton") {
       @Override
       public void onSubmit() {
-
-        // TODO !!!!!!!
-        // DataBase.getInstance().update(discounts);
+        service.saveDiscounts(discounts);
         info("discounts updated");
       }
     });
@@ -55,12 +55,13 @@ public final class DiscountsEditList extends Panel {
 
       @Override
       protected Iterator getItemModels() {
-        return new DomainModelIteratorAdaptor<Discount>(service
-            .findAllDiscounts().iterator()) {
+        discounts = service.findAllDiscounts();
+        return new DomainModelIteratorAdaptor<Discount>(discounts
+            .iterator()) {
           @Override
           protected IModel model(Object object) {
-            return EqualsDecorator
-                .decorate(new CompoundPropertyModel((Discount) object));
+            return new HashcodeEnabledCompoundPropertyModel(
+                (Discount) object);
           }
         };
       }

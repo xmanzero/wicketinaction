@@ -16,6 +16,9 @@ import org.apache.wicket.settings.ISecuritySettings;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.apache.wicket.util.io.IObjectStreamFactory;
 import org.apache.wicket.util.lang.Objects;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 import wicket.in.action.chapter06.links.BookmarkableMountedCheeseDetailsPage;
 import wicket.in.action.chapter06.links.HybridMountedCheeseDetailsPage;
@@ -34,16 +37,15 @@ import wicket.in.action.common.SigninPage;
 import wicket.in.action.common.WiaAuthorizationStrategy;
 import wicket.in.action.common.WiaSession;
 
-public class WicketInActionApplication extends WebApplication {
+public class WicketInActionApplication extends WebApplication
+    implements ApplicationContextAware {
 
-  @Override
-  public Class<? extends Page> getHomePage() {
-    return Index.class;
-  }
+  @SuppressWarnings("unused")
+  private ApplicationContext ctx;
 
-  @Override
-  public Session newSession(Request request, Response response) {
-    return new WiaSession(request);
+  public void setApplicationContext(
+      ApplicationContext applicationContext) throws BeansException {
+    this.ctx = applicationContext;
   }
 
   @Override
@@ -99,5 +101,15 @@ public class WicketInActionApplication extends WebApplication {
 
     addComponentInstantiationListener(new SpringComponentInjector(
         this));
+  }
+
+  @Override
+  public Class<? extends Page> getHomePage() {
+    return Index.class;
+  }
+
+  @Override
+  public Session newSession(Request request, Response response) {
+    return new WiaSession(request);
   }
 }
