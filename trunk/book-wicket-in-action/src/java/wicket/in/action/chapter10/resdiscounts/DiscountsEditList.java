@@ -24,10 +24,10 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
 
 import wicket.in.action.chapter09.discounts.NewDiscountForm;
+import wicket.in.action.chapter14.dbdiscounts.web.model.EqualsDecorator;
 import wicket.in.action.common.DataBase;
 import wicket.in.action.common.DateTimeField;
 import wicket.in.action.common.Discount;
-import wicket.in.action.common.EqualsDecorator;
 import wicket.in.action.common.PercentageField;
 import wicket.in.action.common.RequiredTextField;
 

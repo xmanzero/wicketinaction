@@ -1,4 +1,4 @@
-package wicket.in.action.common;
+package wicket.in.action.chapter14.dbdiscounts.web.model;
 
 import java.io.ObjectStreamException;
 import java.io.Serializable;

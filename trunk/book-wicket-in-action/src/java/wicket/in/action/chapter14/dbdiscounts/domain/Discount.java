@@ -11,6 +11,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import wicket.in.action.common.Objects;
+
 @Entity
 @Table(name = "discount")
 public class Discount implements DomainObject {
@@ -104,5 +106,33 @@ public class Discount implements DomainObject {
 
   public void setUntil(Date until) {
     this.until = until;
+  }
+
+  // I'll burn in hell for doing this according to the Hibernate
+  // docs, but guess what, it's the only thing that consistently
+  // works
+
+  @Override
+  public int hashCode() {
+    if (id == null) {
+      return super.hashCode();
+    }
+    return Objects.hashCode(id);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (id == null) {
+      return super.equals(obj);
+    }
+    if (obj instanceof Discount) {
+      return Objects.equal(id, ((Discount) obj).id);
+    }
+    return false;
+  }
+
+  @Override
+  public String toString() {
+    return "Discount[" + id + "]";
   }
 }

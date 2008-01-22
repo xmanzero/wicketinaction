@@ -2,6 +2,10 @@ package wicket.in.action.chapter09.discounts;
 
 import java.util.Iterator;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.Item;
@@ -24,8 +28,16 @@ public class DiscountsList extends Panel {
 
       @Override
       protected Iterator getItemModels() {
-        return new ModelIteratorAdapter(DataBase.getInstance()
-            .listDiscounts().iterator()) {
+
+        final DataBase database;
+        try {
+          Context ctx = new InitialContext();
+          database = (DataBase) ctx.lookup("database");
+        } catch (NamingException e) {
+          throw new RuntimeException(e);
+        }
+        return new ModelIteratorAdapter(database.listDiscounts()
+            .iterator()) {
           @Override
           protected IModel model(Object object) {
             return new CompoundPropertyModel((Discount) object);

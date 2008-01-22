@@ -2,6 +2,8 @@ package wicket.in.action.chapter14.dbdiscounts.services;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import wicket.in.action.chapter14.dbdiscounts.domain.Cheese;
 import wicket.in.action.chapter14.dbdiscounts.domain.Discount;
 import wicket.in.action.chapter14.dbdiscounts.domain.User;
@@ -21,6 +23,9 @@ public interface DiscountsService {
   void saveUser(User user);
 
   void saveDiscount(Discount discount);
+
+  @Transactional
+  void saveDiscounts(List<Discount> discounts);
 
   void deleteCheese(Cheese cheese);
 
