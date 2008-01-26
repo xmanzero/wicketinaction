@@ -10,9 +10,11 @@ body{text-align:center;}#ft{clear:both;}#doc,#doc2,#doc3,#doc4,.yui-t1,.yui-t2,.
 html        { min-height : 100%; background-color : #6f6f6f;}
 body        { min-height : 100%; background-color : #6f6f6f; font: 12px "Lucida Grande", "Arial", "Helvetica", "Verdana", "sans-serif"; line-height : 1.5em; color: #192745; }
 #doc { min-height : 100%; background:white url(background.png) repeat-y top left;padding-bottom:25px;}
+*html #doc{width:750px;}
 
 #hd         { display : none;}
 #bd         { background : transparent; min-height: 666px }
+*html .front #bd { background : transparent; height: 800px }
 
 /* Custom yui-t2 definition for the menu, which should be 200px width, it is a pain to make this flexible */
 .yui-t2 .yui-b {float:left;width:200px;*width:200px;}
@@ -31,16 +33,17 @@ div.menu { height: 100%; background-color :#7c252e; width:200px;}
 div.menu dl { width:185px; padding-right:15px;}
 .menu, .menu dt { color:#fff;border:none;text-align: right; font-weight: normal;}
 .menu dt.active { background-color: white;color:#192745; padding-right:15px;width:185px}
-.menu a {color:#fff;border:none;font-weight: normal;}
+.menu a, .menu a:hover, .menu a:active, .menu a:visited {color:#fff;border:none;font-weight: normal;}
 .menu dt { font-size:18px;padding:0.5em 0;}
 
 #bigmenu { z-index:1; position:absolute; margin-top : 350px; margin-left : 175px; width: 350px;font-size:16px}
+*html #bigmenu { z-index:1; position:absolute; margin-top : 300px; margin-left : 100px; width: 350px;font-size:16px}
 #bigmenu a { text-decoration : none; }
 #bigmenu h3 { text-transform : uppercase; color:#192745; font-weight : bold;}
 #bigmenu p { font-size : 0.8em; color : #6c788d;}
 #bigmenu .authors { padding-top : 2em; padding-right: 2em;}
 #bigmenu .authors p { font-size : 1em; color : #192745; text-align:right; line-height:1.5em; }
 
-table.book-details { width:100%;}
+table.book-details { width:60%;}
 table.book-details tr { border-bottom : 1px solid #eee; }
 table.book-details th { font-weight : bold; }
