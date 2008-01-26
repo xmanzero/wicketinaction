@@ -24,11 +24,13 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.util.value.ValueMap;
 
+import wicket.in.action.AbstractBasePage;
+
 /**
  * @author dashorst
  */
 @SuppressWarnings("unused")
-public class SelectionComponentsPage extends WebPage {
+public class SelectionComponentsPage extends AbstractBasePage {
   public SelectionComponentsPage() {
     class MilkType implements Serializable {
       private final long id;

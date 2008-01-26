@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import org.apache.wicket.feedback.ComponentFeedbackMessageFilter;
 import org.apache.wicket.feedback.ContainerFeedbackMessageFilter;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.TextField;
@@ -12,10 +11,12 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
+import wicket.in.action.AbstractBasePage;
+
 /**
  * @author dashorst
  */
-public class FeedbackPage extends WebPage {
+public class FeedbackPage extends AbstractBasePage {
   private FeedbackPanel panel;
 
   public FeedbackPage() {

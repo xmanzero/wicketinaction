@@ -5,10 +5,12 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.Model;
 
+import wicket.in.action.AbstractBasePage;
+
 /**
  * @author dashorst
  */
-public class FormsPage extends WebPage {
+public class FormsPage extends AbstractBasePage {
   public FormsPage() {
     Form form = new Form("form") {
       @Override

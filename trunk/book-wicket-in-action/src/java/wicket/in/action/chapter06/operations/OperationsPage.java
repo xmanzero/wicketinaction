@@ -9,10 +9,12 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 
+import wicket.in.action.AbstractBasePage;
+
 /**
  * This page shows the examples for section 6.4
  */
-public class OperationsPage extends WebPage {
+public class OperationsPage extends AbstractBasePage {
   public OperationsPage() {
     createExample6_4_1();
     createExample6_4_2();

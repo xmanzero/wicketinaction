@@ -1,13 +1,11 @@
 package wicket.in.action.chapter07.section_7_5;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
@@ -19,10 +17,12 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.Model;
 
+import wicket.in.action.AbstractBasePage;
+
 /**
  * @author dashorst
  */
-public class SubmitComponentsPage extends WebPage {
+public class SubmitComponentsPage extends AbstractBasePage {
   public SubmitComponentsPage() {
     /* Section 7.5.1 */
     Form form = new Form("form751") {
@@ -72,29 +72,30 @@ public class SubmitComponentsPage extends WebPage {
 
     /* Section 7.5.3 */
     final List<String> comments = new ArrayList<String>();
-    final WebMarkupContainer parent = new WebMarkupContainer("comments");
+    final WebMarkupContainer parent = new WebMarkupContainer(
+        "comments");
     parent.setOutputMarkupId(true);
     add(parent);
     parent.add(new ListView("list", comments) {
-            @Override
-            protected void populateItem(ListItem item) {
-                item.add(new Label("comment", item.getModel()));
-            }
-        });
+      @Override
+      protected void populateItem(ListItem item) {
+        item.add(new Label("comment", item.getModel()));
+      }
+    });
 
     form = new Form("form753");
     final TextArea editor = new TextArea("editor", new Model(""));
     editor.setOutputMarkupId(true);
     form.add(editor);
     form.add(new AjaxSubmitLink("save") {
-            @Override
-            protected void onSubmit(AjaxRequestTarget target, Form form) {
-                comments.add(editor.getModelObjectAsString());
-                editor.setModel(new Model(""));
-                target.addComponent(parent);
-                target.focusComponent(editor);
-            }
-        });
+      @Override
+      protected void onSubmit(AjaxRequestTarget target, Form form) {
+        comments.add(editor.getModelObjectAsString());
+        editor.setModel(new Model(""));
+        target.addComponent(parent);
+        target.focusComponent(editor);
+      }
+    });
     parent.add(form);
 
     /* Section 7.5.4 */
@@ -102,13 +103,14 @@ public class SubmitComponentsPage extends WebPage {
     add(form);
     form.add(new TextField("q", new Model(), Integer.class));// #1
     Button b = new Button("do") {
-            @Override public void onSubmit() {
-                setResponsePage(new Page2(SubmitComponentsPage.this));// #2
-            }
-        };
-    b.setDefaultFormProcessing(false); //#3
+      @Override
+      public void onSubmit() {
+        setResponsePage(new Page2(SubmitComponentsPage.this));// #2
+      }
+    };
+    b.setDefaultFormProcessing(false); // #3
     form.add(b);
     form.add(new FeedbackPanel("feedback"));// #4
-    
+
   }
 }

@@ -1,14 +1,15 @@
 package wicket.in.action.chapter07.section_7_7;
 
 import org.apache.wicket.Page;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
+
+import wicket.in.action.AbstractBasePage;
 
 /**
  * @author dashorst
  */
-public class Page2 extends WebPage {
+public class Page2 extends AbstractBasePage {
   public Page2(final Page returnTo) {
     add(new FeedbackPanel("feedback"));
     add(new Link("returnLink") {

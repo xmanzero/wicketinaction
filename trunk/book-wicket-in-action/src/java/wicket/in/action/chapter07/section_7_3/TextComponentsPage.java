@@ -8,11 +8,13 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
+import wicket.in.action.AbstractBasePage;
+
 /**
  * @author dashorst
  */
 @SuppressWarnings("unused")
-public class TextComponentsPage extends WebPage {
+public class TextComponentsPage extends AbstractBasePage {
   public TextComponentsPage() {
     /* section 7.3.1 */
     class Person {

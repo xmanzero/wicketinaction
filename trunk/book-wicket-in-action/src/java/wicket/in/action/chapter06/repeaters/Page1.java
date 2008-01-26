@@ -1,6 +1,8 @@
 package wicket.in.action.chapter06.repeaters;
 
-import org.apache.wicket.markup.html.WebPage;
+import wicket.in.action.AbstractBasePage;
 
-public class Page1 extends WebPage {
+public class Page1 extends AbstractBasePage {
+  public Page1() {
+  }
 }

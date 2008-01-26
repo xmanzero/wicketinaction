@@ -3,12 +3,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <body>
-<h1>Page2</h1>
-<p>This page was constructed during a form submission with the
-default form processing turned off. Click this <a href="#"
-	wicket:id="returnLink">link</a> to return to the previous page with all input
-still available. Note that this does a serverside redirect, not a back
-button.</p>
+<wicket:extend>
+	<h2>Page2</h2>
+	<p>This page was constructed during a form submission with the
+	default form processing turned off. Click this <a href="#"
+		wicket:id="returnLink">link</a> to return to the previous page with
+	all input still available. Note that this does a serverside redirect,
+	not a back button.</p>
+</wicket:extend>
 </body>
 </html>
 

@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.apache.wicket.Application;
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
@@ -18,7 +17,9 @@ import org.apache.wicket.markup.repeater.RefreshingView;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.Model;
 
-public class RepeatersPage extends WebPage {
+import wicket.in.action.AbstractBasePage;
+
+public class RepeatersPage extends AbstractBasePage {
   public class MenuItem implements Serializable {
     private String caption;
 

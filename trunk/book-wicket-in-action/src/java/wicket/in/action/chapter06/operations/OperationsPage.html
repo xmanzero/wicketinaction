@@ -1,5 +1,6 @@
 <html xmlns:wicket="">
 <body>
+<wicket:extend>
 <h1>6.4 Basic operations on components</h1>
 <h2>6.4.1 Changing the visibility</h2>
 
@@ -57,6 +58,6 @@ link.add(new SimpleAttributeModifier("onclick",
 add(new Label("message", "Hello, World!").setRenderBodyOnly(true));</pre></td><td><h1 wicket:id="message"></h1></td></tr>
 	</table>
 </div>
-
+</wicket:extend>
 </body>
 </html>
