@@ -19,10 +19,12 @@ import org.apache.wicket.validation.validator.PatternValidator;
 import org.apache.wicket.validation.validator.StringValidator;
 import org.apache.wicket.validation.validator.UrlValidator;
 
+import wicket.in.action.AbstractBasePage;
+
 /**
  * @author dashorst
  */
-public class ValidationsPage extends WebPage {
+public class ValidationsPage extends AbstractBasePage {
   public ValidationsPage() {
     Form form = new Form("form", new CompoundPropertyModel(
         new ValueMap()));

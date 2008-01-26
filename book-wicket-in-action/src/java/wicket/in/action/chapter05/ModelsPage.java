@@ -6,6 +6,8 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.Model;
 
+import wicket.in.action.AbstractBasePage;
+
 import java.util.Date;
 
 /**
@@ -15,7 +17,7 @@ import java.util.Date;
  * Time: 8:27:57 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ModelsPage extends WebPage {
+public class ModelsPage extends AbstractBasePage {
     public ModelsPage(){
         WebMarkupContainer clocks = new WebMarkupContainer("clocks");
         add(clocks);

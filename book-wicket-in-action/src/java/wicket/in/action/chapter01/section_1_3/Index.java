@@ -11,10 +11,12 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
+import wicket.in.action.AbstractBasePage;
+
 /**
  * @author dashorst
  */
-public class Index extends WebPage {
+public class Index extends AbstractBasePage {
   /** counter of clicks from section 1.3.2 */
   private int counter;
 

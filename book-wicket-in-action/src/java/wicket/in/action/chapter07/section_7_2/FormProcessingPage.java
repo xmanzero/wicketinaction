@@ -11,10 +11,12 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.util.value.ValueMap;
 import org.apache.wicket.validation.validator.NumberValidator;
 
+import wicket.in.action.AbstractBasePage;
+
 /**
  * @author dashorst
  */
-public class FormProcessingPage extends WebPage {
+public class FormProcessingPage extends AbstractBasePage {
   public FormProcessingPage() {
     Form form = new Form("search") {
       @Override

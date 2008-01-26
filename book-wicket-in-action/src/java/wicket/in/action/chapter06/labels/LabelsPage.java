@@ -7,11 +7,13 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.model.ResourceModel;
 
+import wicket.in.action.AbstractBasePage;
+
 import java.io.Serializable;
 
 /**
  */
-public class LabelsPage extends WebPage {
+public class LabelsPage extends AbstractBasePage {
     public static class Person implements Serializable {
         private String name = "Johnson";
 

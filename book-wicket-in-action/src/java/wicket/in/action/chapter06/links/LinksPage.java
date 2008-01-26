@@ -6,6 +6,8 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.markup.html.link.Link;
 
+import wicket.in.action.AbstractBasePage;
+
 /**
  * Created by IntelliJ IDEA.
  * User: dashorst
@@ -13,7 +15,7 @@ import org.apache.wicket.markup.html.link.Link;
  * Time: 4:20:39 PM
  * To change this template use File | Settings | File Templates.
  */
-public class LinksPage extends WebPage {
+public class LinksPage extends AbstractBasePage {
     public LinksPage() {
         add(new ExternalLink("recipelink", "http://www.basic-recipes.com/meatsmd/lasag/index.htm"));
 
