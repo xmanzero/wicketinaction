@@ -3,15 +3,14 @@ package wicket.in.action;
 import org.apache.wicket.Component;
 import org.apache.wicket.Page;
 import org.apache.wicket.Request;
+import org.apache.wicket.RequestCycle;
 import org.apache.wicket.Response;
 import org.apache.wicket.Session;
 import org.apache.wicket.application.IComponentInstantiationListener;
+import org.apache.wicket.protocol.http.IRequestLogger;
 import org.apache.wicket.protocol.http.WebApplication;
-import org.apache.wicket.request.target.coding.BookmarkablePageRequestTargetUrlCodingStrategy;
-import org.apache.wicket.request.target.coding.HybridUrlCodingStrategy;
-import org.apache.wicket.request.target.coding.IndexedHybridUrlCodingStrategy;
-import org.apache.wicket.request.target.coding.IndexedParamUrlCodingStrategy;
-import org.apache.wicket.request.target.coding.MixedParamUrlCodingStrategy;
+import org.apache.wicket.protocol.http.WebRequest;
+import org.apache.wicket.protocol.http.WebResponse;
 import org.apache.wicket.settings.ISecuritySettings;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.apache.wicket.util.io.IObjectStreamFactory;
@@ -20,25 +19,22 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-import wicket.in.action.chapter06.links.BookmarkableMountedCheeseDetailsPage;
-import wicket.in.action.chapter06.links.HybridMountedCheeseDetailsPage;
-import wicket.in.action.chapter06.links.IndexedHybridMountedCheeseDetailsPage;
-import wicket.in.action.chapter06.links.IndexedMountedCheeseDetailsPage;
-import wicket.in.action.chapter06.links.LinksPage;
-import wicket.in.action.chapter06.links.MixedMountedCheeseDetailsPage;
-import wicket.in.action.chapter07.section_7_1.FormsPage;
-import wicket.in.action.chapter07.section_7_2.FormProcessingPage;
-import wicket.in.action.chapter07.section_7_3.TextComponentsPage;
-import wicket.in.action.chapter07.section_7_4.SelectionComponentsPage;
-import wicket.in.action.chapter07.section_7_5.SubmitComponentsPage;
-import wicket.in.action.chapter07.section_7_6.ValidationsPage;
-import wicket.in.action.chapter07.section_7_7.FeedbackPage;
+import wicket.in.action.chapter15.section_15_3.CheesrRequestCycle;
 import wicket.in.action.common.SigninPage;
 import wicket.in.action.common.WiaAuthorizationStrategy;
 import wicket.in.action.common.WiaSession;
 
 public class WicketInActionApplication extends WebApplication
     implements ApplicationContextAware {
+
+  /**
+   * Boolean for the examples of section 15.3, when true, the
+   * CheesrRequestCycle is created by the newRequestCycle factory
+   * method.
+   * 
+   * @see #newRequestCycle(Request, Response)
+   */
+  private boolean cheesrRequestCycle = false;
 
   @SuppressWarnings("unused")
   private ApplicationContext ctx;
@@ -64,30 +60,48 @@ public class WicketInActionApplication extends WebApplication
     securitySettings
         .setUnauthorizedComponentInstantiationListener(authStrat);
 
+    // apply general mounts for the application
+
+    mountBookmarkablePage("/home", Index.class);
+    mountBookmarkablePage("/book", Book.class);
+    mountBookmarkablePage("/examples", Examples.class);
+    mountBookmarkablePage("/shop", Shop.class);
+    mountBookmarkablePage("/support", Support.class);
+
+    // apply chapter specific mounts
+
+    mountBookmarkablePage("/examples-1.3", wicket.in.action.chapter01.section_1_3.Index.class);
+
+    mountBookmarkablePage("/examples-4.1", wicket.in.action.chapter04.section_4_1.Index.class);
+    mountBookmarkablePage("/examples-4.2", wicket.in.action.chapter04.section_4_2.Index.class);
+    mountBookmarkablePage("/examples-4.3", wicket.in.action.chapter04.section_4_3.Index.class);
+
+    mountBookmarkablePage("/examples-5.1", wicket.in.action.chapter05.ModelsPage.class);
+
+    mountBookmarkablePage("/examples-6.1", wicket.in.action.chapter06.labels.LabelsPage.class);
+    mountBookmarkablePage("/examples-6.2", wicket.in.action.chapter06.links.LinksPage.class);
+    mountBookmarkablePage("/examples-6.3", wicket.in.action.chapter06.repeaters.RepeatersPage.class);
+    mountBookmarkablePage("/examples-6.4", wicket.in.action.chapter06.operations.OperationsPage.class);
+
+    mountBookmarkablePage("/examples-7.1", wicket.in.action.chapter07.section_7_1.FormsPage.class);
+    mountBookmarkablePage("/examples-7.2", wicket.in.action.chapter07.section_7_2.FormProcessingPage.class);
+    mountBookmarkablePage("/examples-7.3", wicket.in.action.chapter07.section_7_3.TextComponentsPage.class);
+    mountBookmarkablePage("/examples-7.4", wicket.in.action.chapter07.section_7_4.SelectionComponentsPage.class);
+    mountBookmarkablePage("/examples-7.5", wicket.in.action.chapter07.section_7_5.SubmitComponentsPage.class);
+    mountBookmarkablePage("/examples-7.6", wicket.in.action.chapter07.section_7_6.ValidationsPage.class);
+    mountBookmarkablePage("/examples-7.7", wicket.in.action.chapter07.section_7_7.FeedbackPage.class);
+
+    mountBookmarkablePage("/examples-8.1", wicket.in.action.chapter08.section_8_1.Index.class);
+    mountBookmarkablePage("/examples-8.2", wicket.in.action.chapter08.section_8_2.Index.class);
+
+    mountBookmarkablePage("/examples-15.1", wicket.in.action.chapter15.section_15_1.Index.class);
+    mountBookmarkablePage("/examples-15.2", wicket.in.action.chapter15.section_15_2.Index.class);
+    mountBookmarkablePage("/examples-15.3", wicket.in.action.chapter15.section_15_3.Index.class);
+    mountBookmarkablePage("/examples-15.4", wicket.in.action.chapter15.section_15_4.Index.class);
+
     // securitySettings.setEnforceMounts(true);
     mountBookmarkablePage("/signin", SigninPage.class);
 
-    mountBookmarkablePage("/examples-7.1", FormsPage.class);
-    mountBookmarkablePage("/examples-7.2", FormProcessingPage.class);
-    mountBookmarkablePage("/examples-7.3", TextComponentsPage.class);
-    mountBookmarkablePage("/examples-7.4",
-        SelectionComponentsPage.class);
-    mountBookmarkablePage("/examples-7.5", SubmitComponentsPage.class);
-    mountBookmarkablePage("/examples-7.6", ValidationsPage.class);
-    mountBookmarkablePage("/examples-7.7", FeedbackPage.class);
-
-    mountBookmarkablePage("/chapter-6/links", LinksPage.class);
-    mount(new BookmarkablePageRequestTargetUrlCodingStrategy(
-        "/chapter-6/details1",
-        BookmarkableMountedCheeseDetailsPage.class, null));
-    mount(new IndexedParamUrlCodingStrategy("/chapter-6/details2",
-        IndexedMountedCheeseDetailsPage.class));
-    mount(new MixedParamUrlCodingStrategy("/chapter-6/details3",
-        MixedMountedCheeseDetailsPage.class, new String[] { "id" }));
-    mount(new HybridUrlCodingStrategy("/chapter-6/details4",
-        HybridMountedCheeseDetailsPage.class));
-    mount(new IndexedHybridUrlCodingStrategy("/chapter-6/details5",
-        IndexedHybridMountedCheeseDetailsPage.class));
     addComponentInstantiationListener(new IComponentInstantiationListener() {
       public void onInstantiation(final Component component) {
         if (!getSecuritySettings().getAuthorizationStrategy()
@@ -103,13 +117,62 @@ public class WicketInActionApplication extends WebApplication
         this));
   }
 
+  /**
+   * Gets the home page for the application.
+   */
   @Override
   public Class<? extends Page> getHomePage() {
     return Index.class;
   }
 
+  /**
+   * Factory method for creating a new session.
+   */
   @Override
   public Session newSession(Request request, Response response) {
     return new WiaSession(request);
+  }
+
+  /**
+   * Factory method for creating a new request cycle. This method is
+   * overridden for use in the examples of section 15.3 where the
+   * request cycle is used to generate specific error pages.
+   * 
+   * @See {@link wicket.in.action.chapter15.section_15_3.Index}
+   */
+  @Override
+  public RequestCycle newRequestCycle(Request request,
+      Response response) {
+
+    if (isCheesrRequestCycle()) {
+      return new CheesrRequestCycle(this, (WebRequest) request,
+          (WebResponse) response);
+    }
+    return super.newRequestCycle(request, response);
+  }
+
+  /**
+   * Sets the flag that determines whether to create a cheesr
+   * request cycle or a normal Wicket request cycle.
+   * 
+   * @param cheesrRequestCycle
+   *          true when the {@link CheesrRequestCycle} must be
+   *          created.
+   * @See {@link wicket.in.action.chapter15.section_15_3.Index}
+   */
+  public void setCheesrRequestCycle(boolean cheesrRequestCycle) {
+    this.cheesrRequestCycle = cheesrRequestCycle;
+  }
+
+  /**
+   * Gets the flag that determines whether to create a cheesr
+   * request cycle or a normal Wicket request cycle.
+   * 
+   * @return true when the {@link CheesrRequestCycle} must be
+   *         created.
+   * @See {@link wicket.in.action.chapter15.section_15_3.Index}
+   */
+  public boolean isCheesrRequestCycle() {
+    return cheesrRequestCycle;
   }
 }

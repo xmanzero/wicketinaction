@@ -1,8 +1,13 @@
 package wicket.in.action;
 
+import org.apache.wicket.markup.html.WebPage;
 
-public class Index extends AbstractBasePage {
+
+/**
+ * @author dashorst
+ */
+public class Index extends WebPage {
+
   public Index() {
-    super("");
   }
 }
