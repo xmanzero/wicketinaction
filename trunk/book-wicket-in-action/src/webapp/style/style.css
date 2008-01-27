@@ -23,12 +23,16 @@ body        { min-height : 100%; background-color : #6f6f6f; font: 12px "Lucida 
 #yui-main .yui-b { padding-top : 20px; padding-right : 20px;}
 div.menu { padding-top: 20px;}
 
+#yui-main ol, #yui-main ul, #yui-main dl { margin-left:2em; }
+#yui-main ol li { list-style: decimal outside; }
+#yui-main ul li {  list-style: disc outside; } 
+
 h2          { font-size : 18px; padding-top:0.5em;padding-bottom:1em;}
-h3          { font-size : 15px; padding-top:0.5em;padding-bottom:0.5em;}
+h3          { font-size : 18px; padding-top:0.5em;padding-bottom:1em;}
 
 p           { padding-bottom : 1em;}
 a, a:visited, a:hover, a:active { color: #7c252e; font-weight:bold;text-decoration:none;border-bottom:1px dashed;}
-
+/*giving UL's LIs generated disc markers*/
 div.menu { height: 100%; background-color :#7c252e; width:200px;}
 div.menu dl { width:185px; padding-right:15px;}
 .menu, .menu dt { color:#fff;border:none;text-align: right; font-weight: normal;}
