@@ -46,7 +46,7 @@ public class Start {
     server.addConnector(connector);
 
     WebAppContext web = new WebAppContext();
-    web.setContextPath("/wia");
+    web.setContextPath("/");
     web.setWar("src/webapp");
     server.addHandler(web);
 
@@ -57,7 +57,12 @@ public class Start {
     mBeanContainer.start();
 
     try {
+      System.out.println(">>> STARTING EMBEDDED JETTY SERVER, PRESS ANY KEY TO STOP");
       server.start();
+      while (System.in.available() == 0) {
+        Thread.sleep(5000);
+      }
+      server.stop();
       server.join();
     } catch (Exception e) {
       e.printStackTrace();
