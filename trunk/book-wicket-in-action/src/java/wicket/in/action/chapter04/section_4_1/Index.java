@@ -1,4 +1,4 @@
-package wicket.in.action.chapter05;
+package wicket.in.action.chapter04.section_4_1;
 
 import org.apache.wicket.datetime.markup.html.basic.DateLabel;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -17,8 +17,8 @@ import java.util.Date;
  * Time: 8:27:57 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ModelsPage extends AbstractBasePage {
-    public ModelsPage(){
+public class Index extends AbstractBasePage {
+    public Index(){
         WebMarkupContainer clocks = new WebMarkupContainer("clocks");
         add(clocks);
 //        clocks.setOutputMarkupId(true);
