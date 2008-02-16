@@ -1,4 +1,4 @@
-package wicket.in.action.chapter04.section_4_1;
+package wicket.in.action.chapter03.section_3_1;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,9 +11,14 @@ import org.apache.wicket.Page;
 import org.apache.wicket.Request;
 import org.apache.wicket.Response;
 import org.apache.wicket.Session;
-import org.apache.wicket.protocol.http.WebApplication;
 
-public class CheesrApplication extends WebApplication {
+import wicket.in.action.WicketInActionApplication;
+
+/*
+ * Extends WicketInActionApplication instead of WebApplication, to
+ * ensure the Cheesr pages work inside these examples.
+ */
+public class CheesrApplication extends WicketInActionApplication {
   private List<Cheese> cheeses = new ArrayList<Cheese>();
 
   /**
@@ -24,17 +29,10 @@ public class CheesrApplication extends WebApplication {
 
   @Override
   protected void init() {
+    super.init();
+
     // read the list of cheeses from a properties file
     readCheeses();
-
-    // some mount magic to make the transition from the wicket in
-    // action application to the cheesr application seemless.
-    mountBookmarkablePage("/section_4_1",
-        wicket.in.action.chapter04.section_4_1.Index.class);
-    mountBookmarkablePage("/section_4_2",
-        wicket.in.action.chapter04.section_4_2.Index.class);
-    mountBookmarkablePage("/section_4_3",
-        wicket.in.action.chapter04.section_4_3.Index.class);
   }
 
   public static CheesrApplication get() {
@@ -46,10 +44,10 @@ public class CheesrApplication extends WebApplication {
     return new CheesrSession(request);
   }
 
-  @Override
-  public Class<? extends Page> getHomePage() {
-    return Index.class;
-  }
+  /*
+   * Removed the getHomePage() override, as this application does not match
+   * the cheese store 100% to fit the overall examples.
+   */
 
   public List<Cheese> getCheeses() {
     return Collections.unmodifiableList(cheeses);

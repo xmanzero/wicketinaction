@@ -1,4 +1,4 @@
-package wicket.in.action.chapter04.section_4_3;
+package wicket.in.action.chapter03.section_3_3;
 
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
@@ -7,9 +7,9 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 
-import wicket.in.action.chapter04.section_4_1.Address;
-import wicket.in.action.chapter04.section_4_1.Cart;
-import wicket.in.action.chapter04.section_4_1.CheesrPage;
+import wicket.in.action.chapter03.section_3_1.Address;
+import wicket.in.action.chapter03.section_3_1.Cart;
+import wicket.in.action.chapter03.section_3_1.CheesrPage;
 
 public class Checkout extends CheesrPage {
   public Checkout() {
