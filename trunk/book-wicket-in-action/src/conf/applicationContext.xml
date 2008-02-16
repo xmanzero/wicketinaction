@@ -99,7 +99,7 @@
 	<tx:annotation-driven />
 
 	<bean id="wicketApplication"
-		class="wicket.in.action.WicketInActionApplication">
+		class="wicket.in.action.chapter03.section_3_1.CheesrApplication">
 	</bean>
 
 	<bean id="TestDataInitializer"

@@ -42,23 +42,6 @@
 	</filter>
 
 	<filter>
-		<filter-name>Cheesr</filter-name>
-		<filter-class>
-			org.apache.wicket.protocol.http.WicketFilter
-		</filter-class>
-		<init-param>
-			<param-name>applicationClassName</param-name>
-			<param-value>
-				wicket.in.action.chapter04.section_4_1.CheesrApplication
-			</param-value>
-		</init-param>
-		<init-param>
-			<param-name>filterPath</param-name>
-			<param-value>chapter04</param-value>
-		</init-param>
-	</filter>
-
-	<filter>
 		<filter-name>opensessioninview</filter-name>
 		<filter-class>
 			org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
@@ -67,17 +50,12 @@
 
 	<filter-mapping>
 		<filter-name>opensessioninview</filter-name>
-		<url-pattern>/app/*</url-pattern>
-	</filter-mapping>
-
-	<filter-mapping>
-		<filter-name>Cheesr</filter-name>
-		<url-pattern>/chapter04/*</url-pattern>
+		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
 	<filter-mapping>
 		<filter-name>WicketInAction</filter-name>
-		<url-pattern>/app/*</url-pattern>
+		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
 	<listener>
@@ -89,5 +67,4 @@
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
-
 </web-app>
