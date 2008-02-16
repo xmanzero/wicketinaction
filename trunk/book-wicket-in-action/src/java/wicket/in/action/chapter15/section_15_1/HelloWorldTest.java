@@ -15,12 +15,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import wicket.in.action.chapter04.section_4_1.Cart;
-import wicket.in.action.chapter04.section_4_1.Cheese;
-import wicket.in.action.chapter04.section_4_1.CheesrApplication;
-import wicket.in.action.chapter04.section_4_1.CheesrSession;
-import wicket.in.action.chapter04.section_4_3.Checkout;
-import wicket.in.action.chapter04.section_4_3.ShoppingCartPanel;
+import wicket.in.action.chapter03.section_3_1.Cart;
+import wicket.in.action.chapter03.section_3_1.Cheese;
+import wicket.in.action.chapter03.section_3_1.CheesrApplication;
+import wicket.in.action.chapter03.section_3_1.CheesrSession;
+import wicket.in.action.chapter03.section_3_3.Checkout;
+import wicket.in.action.chapter03.section_3_3.ShoppingCartPanel;
 
 public class HelloWorldTest {
   private static WicketTester tester;
