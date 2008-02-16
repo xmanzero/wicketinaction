@@ -1,8 +1,67 @@
 <html>
 <body>
 <wicket:extend>
-<h2>4.1 What are models?</h2>
-<p>This section does not have 
+	<h2>4.2 A taste of the standard models</h2>
+	<p>These examples show how Wicket's standard models work.</p>
+	<div class="section">
+	<h3>4.2.1 Using the simple Model</h3>
+	<p>The following examples demonstrate the simple <code>Model</code>
+	class.</p>
+	<div class="example">
+	<h4>Static models</h4>
+	<table style="width: 100%">
+		<tr>
+			<td><code>add(new Label("firstname",
+			customer.getFirstName()));</code></td>
+			<td wicket:id="firstname0"></td>
+		</tr>
+		<tr>
+			<td><code>add(new Label("lastname",
+			customer.getLastName()));</code></td>
+			<td wicket:id="lastname0"></td>
+		</tr>
+		<tr>
+			<td><code>add(new Label("street",
+			customer.getAddress().getStreet()));</code></td>
+			<td wicket:id="street0"></td>
+		</tr>
+		<tr>
+			<td><code>add(new Label("firstname", new
+			Model(customer.getFirstName())));</code></td>
+			<td wicket:id="firstname1"></td>
+		</tr>
+		<tr>
+			<td><code>add(new Label("lastname1", new
+			Model(customer.getLastName())));</code></td>
+			<td wicket:id="lastname1"></td>
+		</tr>
+		<tr>
+			<td><code>add(new Label("street1", new
+			Model(customer.getAddress().getStreet())));</code></td>
+			<td wicket:id="street1"></td>
+		</tr>
+	</table>
+	</div>
+	<div class="example">
+	<h4>Dynamic versus static models</h4>
+	<p>The following examples show the difference between a static and
+	dynamic model. Notice how one model refreshes itself, while the other
+	remains constant.</p>
+	<table>
+		<tr>
+			<td>Static time:</td>
+			<td wicket:id="static"></td>
+		</tr>
+		<tr>
+			<td>Dynamic time:</td>
+			<td wicket:id="dynamic"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><a href="#" wicket:id="refresh">Refresh</a></td>
+		</tr>
+	</table>
+	</div>
+	</div>
 </wicket:extend>
 </body>
 </html>
