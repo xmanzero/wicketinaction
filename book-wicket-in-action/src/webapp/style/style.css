@@ -29,6 +29,7 @@ div.menu { padding-top: 20px;}
 
 h2          { font-size : 18px; padding-top:0.5em;padding-bottom:1em;}
 h3          { font-size : 18px; padding-top:0.5em;padding-bottom:1em;}
+h4          { font-size : 15px; padding-top:0.5em;padding-bottom:0.5em;}
 
 p           { padding-bottom : 1em;}
 a, a:visited, a:hover, a:active { color: #7c252e; font-weight:bold;text-decoration:none;border-bottom:1px dashed;}
