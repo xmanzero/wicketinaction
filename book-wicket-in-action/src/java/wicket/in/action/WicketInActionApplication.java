@@ -7,7 +7,6 @@ import org.apache.wicket.RequestCycle;
 import org.apache.wicket.Response;
 import org.apache.wicket.Session;
 import org.apache.wicket.application.IComponentInstantiationListener;
-import org.apache.wicket.protocol.http.IRequestLogger;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.protocol.http.WebRequest;
 import org.apache.wicket.protocol.http.WebResponse;
@@ -24,8 +23,8 @@ import wicket.in.action.common.SigninPage;
 import wicket.in.action.common.WiaAuthorizationStrategy;
 import wicket.in.action.common.WiaSession;
 
-public class WicketInActionApplication extends WebApplication
-    implements ApplicationContextAware {
+public abstract class WicketInActionApplication extends
+    WebApplication implements ApplicationContextAware {
 
   /**
    * Boolean for the examples of section 15.3, when true, the
@@ -72,16 +71,18 @@ public class WicketInActionApplication extends WebApplication
 
     mountBookmarkablePage("/examples-1.3", wicket.in.action.chapter01.section_1_3.Index.class);
 
+    mountBookmarkablePage("/examples-3.1", wicket.in.action.chapter03.section_3_1.Index.class);
+    mountBookmarkablePage("/examples-3.2", wicket.in.action.chapter03.section_3_2.Index.class);
+    mountBookmarkablePage("/examples-3.3", wicket.in.action.chapter03.section_3_3.Index.class);
+
     mountBookmarkablePage("/examples-4.1", wicket.in.action.chapter04.section_4_1.Index.class);
-    mountBookmarkablePage("/examples-4.2", wicket.in.action.chapter04.section_4_2.Index.class);
-    mountBookmarkablePage("/examples-4.3", wicket.in.action.chapter04.section_4_3.Index.class);
+    mountBookmarkablePage("/examples-4.2", wicket.in.action.chapter04.section_4_1.Index.class);
+    mountBookmarkablePage("/examples-4.3", wicket.in.action.chapter04.section_4_1.Index.class);
 
-    mountBookmarkablePage("/examples-5.1", wicket.in.action.chapter05.ModelsPage.class);
-
-    mountBookmarkablePage("/examples-6.1", wicket.in.action.chapter06.labels.LabelsPage.class);
-    mountBookmarkablePage("/examples-6.2", wicket.in.action.chapter06.links.LinksPage.class);
-    mountBookmarkablePage("/examples-6.3", wicket.in.action.chapter06.repeaters.RepeatersPage.class);
-    mountBookmarkablePage("/examples-6.4", wicket.in.action.chapter06.operations.OperationsPage.class);
+    mountBookmarkablePage("/examples-5.1", wicket.in.action.chapter06.labels.LabelsPage.class);
+    mountBookmarkablePage("/examples-5.2", wicket.in.action.chapter06.links.LinksPage.class);
+    mountBookmarkablePage("/examples-5.3", wicket.in.action.chapter06.repeaters.RepeatersPage.class);
+    mountBookmarkablePage("/examples-5.4", wicket.in.action.chapter06.operations.OperationsPage.class);
 
     mountBookmarkablePage("/examples-7.1", wicket.in.action.chapter07.section_7_1.FormsPage.class);
     mountBookmarkablePage("/examples-7.2", wicket.in.action.chapter07.section_7_2.FormProcessingPage.class);
@@ -126,12 +127,12 @@ public class WicketInActionApplication extends WebApplication
   }
 
   /**
-   * Factory method for creating a new session.
+   * Factory method for creating a new session, overridden in
+   * CheesrApplication.
    */
   @Override
-  public Session newSession(Request request, Response response) {
-    return new WiaSession(request);
-  }
+  public abstract Session newSession(Request request,
+      Response response);
 
   /**
    * Factory method for creating a new request cycle. This method is
