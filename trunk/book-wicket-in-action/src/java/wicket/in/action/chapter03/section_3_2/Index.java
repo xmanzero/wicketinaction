@@ -1,4 +1,4 @@
-package wicket.in.action.chapter04.section_4_3;
+package wicket.in.action.chapter03.section_3_2;
 
 import java.text.NumberFormat;
 
@@ -11,8 +11,8 @@ import org.apache.wicket.markup.html.navigation.paging.PagingNavigator;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
-import wicket.in.action.chapter04.section_4_1.Cheese;
-import wicket.in.action.chapter04.section_4_1.CheesrPage;
+import wicket.in.action.chapter03.section_3_1.Cheese;
+import wicket.in.action.chapter03.section_3_1.CheesrPage;
 
 public class Index extends CheesrPage {
   public Index() {

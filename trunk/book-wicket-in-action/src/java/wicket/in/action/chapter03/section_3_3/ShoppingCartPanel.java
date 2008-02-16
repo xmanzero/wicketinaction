@@ -1,4 +1,4 @@
-package wicket.in.action.chapter04.section_4_3;
+package wicket.in.action.chapter03.section_3_3;
 
 import java.text.NumberFormat;
 
@@ -9,8 +9,8 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
-import wicket.in.action.chapter04.section_4_1.Cart;
-import wicket.in.action.chapter04.section_4_1.Cheese;
+import wicket.in.action.chapter03.section_3_1.Cart;
+import wicket.in.action.chapter03.section_3_1.Cheese;
 
 public class ShoppingCartPanel extends Panel {
   private Cart cart;
