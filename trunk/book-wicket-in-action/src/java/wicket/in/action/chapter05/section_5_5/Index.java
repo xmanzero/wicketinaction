@@ -19,14 +19,14 @@ import org.apache.wicket.model.Model;
 
 import wicket.in.action.AbstractBasePage;
 
-public class RepeatersPage extends AbstractBasePage {
+public class Index extends AbstractBasePage {
   public class MenuItem implements Serializable {
     private String caption;
 
     private Class destination;
   }
 
-  public RepeatersPage() {
+  public Index() {
     Application.get().getMarkupSettings().setStripWicketTags(false);
     RepeatingView rv1 = new RepeatingView("rv1");
     add(rv1);

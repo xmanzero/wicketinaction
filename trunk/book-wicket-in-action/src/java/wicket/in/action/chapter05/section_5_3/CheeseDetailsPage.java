@@ -23,7 +23,7 @@ public class CheeseDetailsPage extends WebPage {
 
         add(new Label("name", cheese.getName()));
         add(new Label("description", cheese.getDescription()));
-        add(new BookmarkablePageLink("back", LinksPage.class));
+        add(new BookmarkablePageLink("back", Index.class));
     }
     /** Retrieves a cheese object based on the ‘id’ parameter. */
     public static Cheese getCheese(PageParameters parameters) {

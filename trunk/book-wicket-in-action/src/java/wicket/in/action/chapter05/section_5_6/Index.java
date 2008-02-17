@@ -14,8 +14,8 @@ import wicket.in.action.AbstractBasePage;
 /**
  * This page shows the examples for section 6.4
  */
-public class OperationsPage extends AbstractBasePage {
-  public OperationsPage() {
+public class Index extends AbstractBasePage {
+  public Index() {
     createExample6_4_1();
     createExample6_4_2();
     createExample6_4_3();

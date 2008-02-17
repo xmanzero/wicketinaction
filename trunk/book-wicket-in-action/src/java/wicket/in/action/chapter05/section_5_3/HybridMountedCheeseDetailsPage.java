@@ -15,7 +15,7 @@ public class HybridMountedCheeseDetailsPage extends CheeseDetailsPage {
         super(parameters);
         add(new Link("link") {
             public void onClick() {
-                setResponsePage(new LinksPage());
+                setResponsePage(new Index());
             }
 
             protected boolean getStatelessHint() {
