@@ -13,8 +13,8 @@ import org.apache.wicket.request.target.coding.MixedParamUrlCodingStrategy;
 import org.apache.wicket.request.target.coding.QueryStringUrlCodingStrategy;
 
 import wicket.in.action.AbstractBasePage;
-import wicket.in.action.chapter06.links.Cheese;
-import wicket.in.action.chapter06.links.CheeseDetailsPage;
+import wicket.in.action.chapter05.links.Cheese;
+import wicket.in.action.chapter05.links.CheeseDetailsPage;
 
 /**
  * @author dashorst
