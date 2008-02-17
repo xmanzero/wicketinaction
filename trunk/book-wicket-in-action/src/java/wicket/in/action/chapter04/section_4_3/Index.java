@@ -4,8 +4,8 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 
 import wicket.in.action.AbstractBasePage;
-import wicket.in.action.chapter06.links.Cheese;
-import wicket.in.action.chapter06.links.CheeseDao;
+import wicket.in.action.chapter05.links.Cheese;
+import wicket.in.action.chapter05.links.CheeseDao;
 
 public class Index extends AbstractBasePage {
   public Index() {

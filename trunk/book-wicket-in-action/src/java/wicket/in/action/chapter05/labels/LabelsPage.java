@@ -1,4 +1,4 @@
-package wicket.in.action.chapter06.labels;
+package wicket.in.action.chapter05.labels;
 
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;

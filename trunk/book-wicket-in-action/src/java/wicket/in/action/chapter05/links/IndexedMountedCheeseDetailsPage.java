@@ -1,4 +1,4 @@
-package wicket.in.action.chapter06.links;
+package wicket.in.action.chapter05.links;
 
 import org.apache.wicket.PageParameters;
 
@@ -9,8 +9,8 @@ import org.apache.wicket.PageParameters;
  * Time: 12:34:32 AM
  * To change this template use File | Settings | File Templates.
  */
-public class IndexedHybridMountedCheeseDetailsPage extends CheeseDetailsPage {
-    public IndexedHybridMountedCheeseDetailsPage(PageParameters parameters) {
+public class IndexedMountedCheeseDetailsPage extends CheeseDetailsPage {
+    public IndexedMountedCheeseDetailsPage(PageParameters parameters) {
         super(parameters);
     }
 }

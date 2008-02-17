@@ -1,4 +1,4 @@
-package wicket.in.action.chapter06.operations;
+package wicket.in.action.chapter05.operations;
 
 import java.util.Calendar;
 

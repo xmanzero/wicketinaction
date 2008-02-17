@@ -1,4 +1,4 @@
-package wicket.in.action.chapter06.links;
+package wicket.in.action.chapter05.links;
 
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
