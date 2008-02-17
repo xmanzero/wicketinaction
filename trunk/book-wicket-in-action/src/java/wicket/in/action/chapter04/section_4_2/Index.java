@@ -238,5 +238,23 @@ public class Index extends AbstractBasePage {
       }
     }
     add(new MyForm3("myform3"));
+    
+    class MyForm4 extends Form {
+      public MyForm4(String id) {
+        super(id);
+        CompoundPropertyModel model = new CompoundPropertyModel(new Customer());
+        setModel(model);
+        add(new TextField("firstName"));
+        add(new TextField("street", model.bind("address.street")));
+      }
+
+      protected void onSubmit() {
+        Customer customer = (Customer) getModelObject();
+        String street = customer.getAddress().getStreet();
+        // do something with the value of the street property
+      }
+    }
+    add(new MyForm4("myform4"));
+
   }
 }
