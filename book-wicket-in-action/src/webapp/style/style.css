@@ -54,7 +54,8 @@ table.book-details tr { border-bottom : 1px solid #eee; }
 table.book-details th { font-weight : bold; }
 
 div.example form table td { padding : 0 1em 0.25em 0; }
-div.example table { width:100%;}
+div.example table { width:100%; }
+div.example form table { width:100%; }
 div.example table thead th { padding : 0.5em 0 0 0; font-weight:bold; border-bottom : 1px solid #aaa;}
 div.example table td { padding-bottom : 0.5em;}
 div.section { padding-bottom : 1em; }
