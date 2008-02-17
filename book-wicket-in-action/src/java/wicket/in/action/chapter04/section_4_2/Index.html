@@ -140,7 +140,7 @@
 				</tr>
 			</table>
 		</div>
-			<div class="example">
+		<div class="example">
 			<h4>Listing 4.3 Using CompoundPropertyModel to store form values</h4>
 			<p>The next example shows how to use a <code>CompoundPropertyModel</code> to store 
 			and retrieve form values.</p>
@@ -148,6 +148,18 @@
 			<table>
 				<tr><td>Name</td><td><input type="text" wicket:id="firstName" /></td></tr>
 				<tr><td>Street</td><td><input type="text" wicket:id="address.street" /></td></tr>
+				<tr><td colspan="2"><input type="submit" value="Submit" /></td></tr>
+			</table>
+			</form> 
+		</div>
+		<div class="example">
+			<h4>Listing 4.6 Using bind() for alternative bindings</h4>
+			<p>The next example shows how to use <code>CompoundPropertyModel#bind</code> to 
+				bind different expressions to the compound property model.</p>
+			<form wicket:id="myform4">
+			<table>
+				<tr><td>Name</td><td><input type="text" wicket:id="firstName" /></td></tr>
+				<tr><td>Street</td><td><input type="text" wicket:id="street" /></td></tr>
 				<tr><td colspan="2"><input type="submit" value="Submit" /></td></tr>
 			</table>
 			</form> 
