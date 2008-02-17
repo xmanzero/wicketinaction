@@ -1,4 +1,4 @@
-package wicket.in.action.chapter05.repeaters;
+package wicket.in.action.chapter05.section_5_5;
 
 import java.io.Serializable;
 import java.util.ArrayList;

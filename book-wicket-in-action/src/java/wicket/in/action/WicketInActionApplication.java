@@ -79,10 +79,10 @@ public abstract class WicketInActionApplication extends
     mountBookmarkablePage("/examples-4.3", wicket.in.action.chapter04.section_4_3.Index.class);
     mountBookmarkablePage("/examples-4.4", wicket.in.action.chapter04.section_4_4.Index.class);
 
-    mountBookmarkablePage("/examples-5.1", wicket.in.action.chapter05.labels.LabelsPage.class);
-    mountBookmarkablePage("/examples-5.2", wicket.in.action.chapter05.links.LinksPage.class);
-    mountBookmarkablePage("/examples-5.3", wicket.in.action.chapter05.repeaters.RepeatersPage.class);
-    mountBookmarkablePage("/examples-5.4", wicket.in.action.chapter05.operations.OperationsPage.class);
+    mountBookmarkablePage("/examples-5.1", wicket.in.action.chapter05.section_5_2.LabelsPage.class);
+    mountBookmarkablePage("/examples-5.2", wicket.in.action.chapter05.section_5_3.LinksPage.class);
+    mountBookmarkablePage("/examples-5.3", wicket.in.action.chapter05.section_5_5.RepeatersPage.class);
+    mountBookmarkablePage("/examples-5.4", wicket.in.action.chapter05.section_5_6.OperationsPage.class);
 
     mountBookmarkablePage("/examples-6.1", wicket.in.action.chapter07.section_7_1.FormsPage.class);
     mountBookmarkablePage("/examples-6.2", wicket.in.action.chapter07.section_7_2.FormProcessingPage.class);
