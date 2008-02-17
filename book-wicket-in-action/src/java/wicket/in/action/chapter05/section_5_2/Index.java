@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 /**
  */
-public class LabelsPage extends AbstractBasePage {
+public class Index extends AbstractBasePage {
     public static class Person implements Serializable {
         private String name = "Johnson";
 
@@ -26,7 +26,7 @@ public class LabelsPage extends AbstractBasePage {
         }
     }
 
-    public LabelsPage() {
+    public Index() {
         // add label to span tags in the body
         add(new Label("message", "Hello, World!"));
 

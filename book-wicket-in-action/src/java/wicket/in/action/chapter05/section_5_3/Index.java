@@ -15,8 +15,8 @@ import wicket.in.action.AbstractBasePage;
  * Time: 4:20:39 PM
  * To change this template use File | Settings | File Templates.
  */
-public class LinksPage extends AbstractBasePage {
-    public LinksPage() {
+public class Index extends AbstractBasePage {
+    public Index() {
         add(new ExternalLink("recipelink", "http://www.basic-recipes.com/meatsmd/lasag/index.htm"));
 
         add(new BookmarkablePageLink("cheese1", CheeseDetailsPage.class, new PageParameters("id=1,name=gouda")));
@@ -34,7 +34,7 @@ public class LinksPage extends AbstractBasePage {
 
         add(new Link("link"){
             public void onClick() {
-                setResponsePage(LinksPage.this);
+                setResponsePage(Index.this);
             }
             @Override
             protected boolean getStatelessHint() {
@@ -43,7 +43,7 @@ public class LinksPage extends AbstractBasePage {
         });
         add(new Link("stateless"){
           public void onClick() {
-              setResponsePage(LinksPage.this);
+              setResponsePage(Index.this);
           }
           @Override
           protected boolean getStatelessHint() {
