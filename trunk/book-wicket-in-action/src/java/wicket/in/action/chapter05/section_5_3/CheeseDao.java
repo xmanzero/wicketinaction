@@ -1,4 +1,4 @@
-package wicket.in.action.chapter05.links;
+package wicket.in.action.chapter05.section_5_3;
 
 import java.util.HashMap;
 import java.util.Map;
