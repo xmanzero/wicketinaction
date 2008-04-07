@@ -7,7 +7,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.util.lang.Objects;
+
+import wicket.in.action.common.Objects;
 
 public final class EqualsDecorator {
 
@@ -39,7 +40,7 @@ public final class EqualsDecorator {
         }
       } else if (methodName.equals("hashCode")) {
         Object val = model.getObject();
-        return 37 + (val != null ? val.hashCode() : 0);
+        return Objects.hashCode(val);
       } else if (methodName.equals("writeReplace")) {
         return new SerializableReplacement(model);
       }
