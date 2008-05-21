@@ -19,15 +19,16 @@ public class WiaSession extends WebSession {
     setLocale(Locale.ENGLISH);
   }
 
-  public User getUser() {
+  public synchronized User getUser() {
     return user;
   }
 
-  public boolean isAuthenticated() {
+  public synchronized boolean isAuthenticated() {
     return (user != null);
   }
 
-  public void setUser(User user) {
+  public synchronized void setUser(User user) {
     this.user = user;
+    dirty();
   }
 }
