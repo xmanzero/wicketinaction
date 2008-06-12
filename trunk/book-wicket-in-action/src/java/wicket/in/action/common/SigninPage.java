@@ -1,13 +1,14 @@
 package wicket.in.action.common;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.StatelessForm;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 
-public class SigninPage extends WebPage {
+import wicket.in.action.AbstractBasePage;
+
+public class SigninPage extends AbstractBasePage {
 
   
   

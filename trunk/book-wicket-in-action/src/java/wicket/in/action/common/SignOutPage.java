@@ -20,9 +20,10 @@ package wicket.in.action.common;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.PageParameters;
-import org.apache.wicket.markup.html.WebPage;
 
-public class SignOutPage extends WebPage {
+import wicket.in.action.AbstractBasePage;
+
+public class SignOutPage extends AbstractBasePage {
 
   public static final String REDIRECTPAGE_PARAM = "redirectpage";
 
