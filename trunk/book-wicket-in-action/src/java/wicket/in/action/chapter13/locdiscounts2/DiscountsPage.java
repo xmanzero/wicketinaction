@@ -1,8 +1,8 @@
 package wicket.in.action.chapter13.locdiscounts2;
 
-import org.apache.wicket.markup.html.WebPage;
+import wicket.in.action.AbstractBasePage;
 
-public class DiscountsPage extends WebPage {
+public class DiscountsPage extends AbstractBasePage {
 
   public DiscountsPage() {
     add(new UserPanel("userPanel", DiscountsPage.class));
