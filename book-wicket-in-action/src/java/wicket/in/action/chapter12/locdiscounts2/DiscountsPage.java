@@ -1,4 +1,4 @@
-package wicket.in.action.chapter13.locdiscounts2;
+package wicket.in.action.chapter12.locdiscounts2;
 
 import wicket.in.action.AbstractBasePage;
 

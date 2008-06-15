@@ -1,4 +1,4 @@
-package wicket.in.action.chapter13.customresourcelocator;
+package wicket.in.action.chapter12.customresourcelocator;
 
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.util.file.Folder;

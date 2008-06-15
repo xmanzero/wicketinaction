@@ -1,4 +1,4 @@
-package wicket.in.action.chapter13.locdiscounts;
+package wicket.in.action.chapter12.locdiscounts;
 
 import java.util.Arrays;
 import java.util.Locale;

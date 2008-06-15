@@ -1,4 +1,4 @@
-package wicket.in.action.chapter13.customresourcelocator;
+package wicket.in.action.chapter12.customresourcelocator;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.Locale;
 
 import org.apache.wicket.IConverterLocator;
-import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.util.convert.ConversionException;
 import org.apache.wicket.util.convert.ConverterLocator;

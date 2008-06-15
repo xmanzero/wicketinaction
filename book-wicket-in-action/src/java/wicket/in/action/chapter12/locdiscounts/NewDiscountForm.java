@@ -1,4 +1,4 @@
-package wicket.in.action.chapter13.locdiscounts2;
+package wicket.in.action.chapter12.locdiscounts;
 
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.DropDownChoice;

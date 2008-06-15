@@ -1,6 +1,4 @@
-package wicket.in.action.chapter13.locdiscounts;
-
-import org.apache.wicket.markup.html.WebPage;
+package wicket.in.action.chapter12.locdiscounts;
 
 import wicket.in.action.AbstractBasePage;
 
