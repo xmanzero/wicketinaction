@@ -1,4 +1,4 @@
-package wicket.in.action.chapter11.ajaxdiscounts;
+package wicket.in.action.chapter10.ajaxdiscounts;
 
 import java.util.Iterator;
 
