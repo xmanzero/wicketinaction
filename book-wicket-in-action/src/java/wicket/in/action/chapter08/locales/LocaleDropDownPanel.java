@@ -1,4 +1,4 @@
-package wicket.in.action.chapter09.locales;
+package wicket.in.action.chapter08.locales;
 
 import java.util.List;
 import java.util.Locale;

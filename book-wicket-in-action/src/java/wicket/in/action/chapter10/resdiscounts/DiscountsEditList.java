@@ -23,7 +23,7 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
 
-import wicket.in.action.chapter09.discounts.NewDiscountForm;
+import wicket.in.action.chapter08.discounts.NewDiscountForm;
 import wicket.in.action.chapter14.dbdiscounts.web.model.EqualsDecorator;
 import wicket.in.action.common.DataBase;
 import wicket.in.action.common.DateTimeField;

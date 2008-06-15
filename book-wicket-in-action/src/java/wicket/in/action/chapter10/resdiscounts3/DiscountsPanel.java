@@ -7,7 +7,7 @@ import org.apache.wicket.markup.html.link.ResourceLink;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 
-import wicket.in.action.chapter09.discounts.DiscountsList;
+import wicket.in.action.chapter08.discounts.DiscountsList;
 import wicket.in.action.chapter12.authdiscounts.DiscountsEditList;
 
 public final class DiscountsPanel extends Panel {
