@@ -1,4 +1,4 @@
-package wicket.in.action.chapter07.section_7_4;
+package wicket.in.action.chapter06.section_6_4;
 
 import java.io.Serializable;
 import java.util.ArrayList;

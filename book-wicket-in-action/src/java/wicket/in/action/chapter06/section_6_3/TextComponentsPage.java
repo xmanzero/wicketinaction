@@ -1,4 +1,4 @@
-package wicket.in.action.chapter07.section_7_3;
+package wicket.in.action.chapter06.section_6_3;
 
 import org.apache.wicket.behavior.SimpleAttributeModifier;
 import org.apache.wicket.markup.html.WebPage;
