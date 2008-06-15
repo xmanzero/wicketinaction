@@ -1,4 +1,4 @@
-package wicket.in.action.chapter11.ajax.dojo;
+package wicket.in.action.chapter10.ajax.dojo;
 
 import org.apache.wicket.ResourceReference;
 import org.apache.wicket.behavior.HeaderContributor;

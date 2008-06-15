@@ -1,4 +1,4 @@
-package wicket.in.action.chapter11.ajax.etc;
+package wicket.in.action.chapter10.ajax.etc;
 
 import org.apache.wicket.behavior.AbstractBehavior;
 import org.apache.wicket.markup.html.IHeaderContributor;

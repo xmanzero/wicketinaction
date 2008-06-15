@@ -1,4 +1,4 @@
-package wicket.in.action.chapter11.ajax.scriptaculous;
+package wicket.in.action.chapter10.ajax.scriptaculous;
 
 import org.apache.wicket.RequestCycle;
 import org.apache.wicket.ResourceReference;

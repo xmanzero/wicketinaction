@@ -1,4 +1,4 @@
-package wicket.in.action.chapter11.ajax.etc;
+package wicket.in.action.chapter10.ajax.etc;
 
 import java.text.DateFormat;
 import java.util.Date;
