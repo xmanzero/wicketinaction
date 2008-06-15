@@ -1,10 +1,9 @@
-package wicket.in.action.chapter08.section_8_2;
+package wicket.in.action.chapter07.section_7_2;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.markup.html.basic.Label;
 
 /**
  * @author dashorst
