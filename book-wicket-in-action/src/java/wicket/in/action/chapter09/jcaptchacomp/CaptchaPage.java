@@ -18,12 +18,12 @@
  */
 package wicket.in.action.chapter09.jcaptchacomp;
 
-import org.apache.wicket.markup.html.WebPage;
+import wicket.in.action.AbstractBasePage;
 
 import com.octo.captcha.service.image.DefaultManageableImageCaptchaService;
 import com.octo.captcha.service.image.ImageCaptchaService;
 
-public class CaptchaPage extends WebPage {
+public class CaptchaPage extends AbstractBasePage {
 
   private static final ImageCaptchaService captchaService = new DefaultManageableImageCaptchaService();
 

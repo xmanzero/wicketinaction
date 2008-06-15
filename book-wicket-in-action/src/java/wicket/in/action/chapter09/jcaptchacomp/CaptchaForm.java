@@ -33,6 +33,7 @@ public abstract class CaptchaForm extends Panel {
 
   private final class CaptchaInputForm extends Form {
 
+    @SuppressWarnings("unused")
     private String challengeResponse;
 
     public CaptchaInputForm(String id) {
