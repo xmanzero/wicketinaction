@@ -1,7 +1,6 @@
-package wicket.in.action.chapter07.section_7_2;
+package wicket.in.action.chapter06.section_6_2;
 
 import org.apache.wicket.feedback.ContainerFeedbackMessageFilter;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;

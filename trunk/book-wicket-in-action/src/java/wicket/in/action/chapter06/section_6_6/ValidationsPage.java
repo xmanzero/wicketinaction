@@ -1,8 +1,7 @@
-package wicket.in.action.chapter07.section_7_6;
+package wicket.in.action.chapter06.section_6_6;
 
 import java.util.Map;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.TextField;
