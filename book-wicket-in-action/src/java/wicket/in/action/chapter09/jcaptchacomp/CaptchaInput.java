@@ -1,4 +1,4 @@
-package wicket.in.action.chapter10.jcaptchacomp;
+package wicket.in.action.chapter09.jcaptchacomp;
 
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.form.TextField;

@@ -1,4 +1,4 @@
-package wicket.in.action.chapter10.resdiscounts3;
+package wicket.in.action.chapter09.resdiscounts3;
 
 import org.apache.wicket.ResourceReference;
 import org.apache.wicket.markup.html.basic.Label;

@@ -16,7 +16,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package wicket.in.action.chapter10.jcaptchacomp;
+package wicket.in.action.chapter09.jcaptchacomp;
 
 import java.util.UUID;
 

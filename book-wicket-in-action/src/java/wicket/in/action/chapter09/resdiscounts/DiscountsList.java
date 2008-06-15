@@ -1,4 +1,4 @@
-package wicket.in.action.chapter10.resdiscounts;
+package wicket.in.action.chapter09.resdiscounts;
 
 import java.util.Iterator;
 
