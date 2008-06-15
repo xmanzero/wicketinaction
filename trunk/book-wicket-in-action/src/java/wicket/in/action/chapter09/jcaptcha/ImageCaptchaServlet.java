@@ -1,4 +1,4 @@
-package wicket.in.action.chapter10.jcaptcha;
+package wicket.in.action.chapter09.jcaptcha;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;

@@ -1,4 +1,4 @@
-package wicket.in.action.chapter10.resdiscounts2;
+package wicket.in.action.chapter09.resdiscounts2;
 
 import org.apache.wicket.markup.html.WebPage;
 
