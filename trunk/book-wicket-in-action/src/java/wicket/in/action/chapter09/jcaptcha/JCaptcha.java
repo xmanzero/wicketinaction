@@ -23,9 +23,7 @@ import java.io.ByteArrayOutputStream;
 import java.rmi.server.UID;
 
 import org.apache.wicket.Session;
-import wicket.in.action.common.RequiredTextField;
 import org.apache.wicket.markup.ComponentTag;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.markup.html.image.resource.DynamicImageResource;
@@ -34,12 +32,15 @@ import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.validation.IValidatable;
 import org.apache.wicket.validation.validator.AbstractValidator;
 
+import wicket.in.action.AbstractBasePage;
+import wicket.in.action.common.RequiredTextField;
+
 import com.octo.captcha.service.image.DefaultManageableImageCaptchaService;
 import com.octo.captcha.service.image.ImageCaptchaService;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
-public class JCaptcha extends WebPage {
+public class JCaptcha extends AbstractBasePage {
 
   private static final class CaptchaForm extends Form {
 
