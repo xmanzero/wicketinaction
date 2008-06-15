@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package wicket.in.action.chapter13.customresourcelocator;
+package wicket.in.action.chapter12.customresourcelocator;
 
 import org.apache.wicket.IClusterable;
 

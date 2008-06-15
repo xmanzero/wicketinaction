@@ -1,4 +1,4 @@
-package wicket.in.action.chapter13.locdiscounts;
+package wicket.in.action.chapter12.locdiscounts2;
 
 import org.apache.wicket.markup.html.WebResource;
 import org.apache.wicket.markup.html.basic.Label;

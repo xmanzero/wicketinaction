@@ -1,4 +1,4 @@
-package wicket.in.action.chapter13.customresourcelocator;
+package wicket.in.action.chapter12.customresourcelocator;
 
 import java.net.MalformedURLException;
 import java.net.URL;

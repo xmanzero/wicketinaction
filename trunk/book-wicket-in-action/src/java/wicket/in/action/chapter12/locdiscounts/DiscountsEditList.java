@@ -1,4 +1,4 @@
-package wicket.in.action.chapter13.locdiscounts2;
+package wicket.in.action.chapter12.locdiscounts;
 
 import java.io.IOException;
 import java.util.List;
