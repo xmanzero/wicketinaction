@@ -1,4 +1,4 @@
-package wicket.in.action.chapter12.authdiscounts;
+package wicket.in.action.chapter11.authdiscounts;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
