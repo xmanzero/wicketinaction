@@ -1,4 +1,4 @@
-package wicket.in.action.chapter08.section_8_2;
+package wicket.in.action.chapter07.section_7_2;
 
 import org.apache.wicket.markup.html.panel.Panel;
 
