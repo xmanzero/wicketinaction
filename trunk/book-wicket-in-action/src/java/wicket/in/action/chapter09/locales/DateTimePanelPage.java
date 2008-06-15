@@ -2,16 +2,16 @@ package wicket.in.action.chapter09.locales;
 
 import java.util.Date;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.validation.validator.DateValidator;
 
+import wicket.in.action.AbstractBasePage;
 import wicket.in.action.common.DateTimeField;
 
-public class DateTimePanelPage extends WebPage {
+public class DateTimePanelPage extends AbstractBasePage {
 
   private Date date = new Date();
 

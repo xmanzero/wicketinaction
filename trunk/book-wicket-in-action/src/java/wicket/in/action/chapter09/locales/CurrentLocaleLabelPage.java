@@ -1,8 +1,8 @@
 package wicket.in.action.chapter09.locales;
 
-import org.apache.wicket.markup.html.WebPage;
+import wicket.in.action.AbstractBasePage;
 
-public class CurrentLocaleLabelPage extends WebPage {
+public class CurrentLocaleLabelPage extends AbstractBasePage {
 
   public CurrentLocaleLabelPage() {
     add(new CurrentLocaleLabel("label"));
