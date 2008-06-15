@@ -3,9 +3,9 @@ package wicket.in.action.chapter09.locales;
 import java.util.Arrays;
 import java.util.Locale;
 
-import org.apache.wicket.markup.html.WebPage;
+import wicket.in.action.AbstractBasePage;
 
-public class SelectLocalePage extends WebPage {
+public class SelectLocalePage extends AbstractBasePage {
 
   public SelectLocalePage() {
     add(new LocaleDropDown("localeSelect", Arrays

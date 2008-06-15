@@ -1,8 +1,8 @@
 package wicket.in.action.chapter09.discounts;
 
-import org.apache.wicket.markup.html.WebPage;
+import wicket.in.action.AbstractBasePage;
 
-public class Index extends WebPage {
+public class Index extends AbstractBasePage {
 
   public Index() {
     add(new DiscountsPanel("discounts"));
