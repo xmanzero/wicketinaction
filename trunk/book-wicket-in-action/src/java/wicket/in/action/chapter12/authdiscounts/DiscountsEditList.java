@@ -16,7 +16,7 @@ import org.apache.wicket.markup.repeater.util.ModelIteratorAdapter;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 
-import wicket.in.action.chapter09.discounts.NewDiscountForm;
+import wicket.in.action.chapter08.discounts.NewDiscountForm;
 import wicket.in.action.common.DataBase;
 import wicket.in.action.common.DateTimeField;
 import wicket.in.action.common.Discount;

@@ -1,4 +1,4 @@
-package wicket.in.action.chapter09.discounts;
+package wicket.in.action.chapter08.discounts;
 
 import java.util.Iterator;
 import java.util.List;

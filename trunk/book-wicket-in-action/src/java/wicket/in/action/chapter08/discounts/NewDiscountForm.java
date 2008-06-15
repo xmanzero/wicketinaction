@@ -1,4 +1,4 @@
-package wicket.in.action.chapter09.discounts;
+package wicket.in.action.chapter08.discounts;
 
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.DropDownChoice;

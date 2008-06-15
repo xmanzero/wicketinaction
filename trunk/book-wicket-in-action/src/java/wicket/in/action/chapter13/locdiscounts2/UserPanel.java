@@ -6,7 +6,7 @@ import java.util.Locale;
 import org.apache.wicket.Page;
 import org.apache.wicket.PageParameters;
 
-import wicket.in.action.chapter09.locales.LocaleDropDown;
+import wicket.in.action.chapter08.locales.LocaleDropDown;
 import wicket.in.action.common.SignOutPage;
 import wicket.in.action.common.User;
 import wicket.in.action.common.WiaSession;

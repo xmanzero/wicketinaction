@@ -12,7 +12,7 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.PropertyModel;
 
-import wicket.in.action.chapter09.locales.LocaleDropDown;
+import wicket.in.action.chapter08.locales.LocaleDropDown;
 import wicket.in.action.common.SignOutPage;
 import wicket.in.action.common.SigninPage;
 import wicket.in.action.common.WiaSession;
