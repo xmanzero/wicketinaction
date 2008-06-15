@@ -21,7 +21,6 @@ import org.springframework.context.ApplicationContextAware;
 import wicket.in.action.chapter15.section_15_3.CheesrRequestCycle;
 import wicket.in.action.common.SigninPage;
 import wicket.in.action.common.WiaAuthorizationStrategy;
-import wicket.in.action.common.WiaSession;
 
 public abstract class WicketInActionApplication extends
     WebApplication implements ApplicationContextAware {
