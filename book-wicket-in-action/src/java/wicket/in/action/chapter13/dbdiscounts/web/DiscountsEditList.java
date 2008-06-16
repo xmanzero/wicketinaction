@@ -1,76 +1,37 @@
-package wicket.in.action.chapter09.resdiscounts;
+package wicket.in.action.chapter13.dbdiscounts.web;
 
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.wicket.ResourceReference;
 import org.apache.wicket.behavior.SimpleAttributeModifier;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.form.upload.FileUpload;
-import org.apache.wicket.markup.html.form.upload.FileUploadField;
-import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.RefreshingView;
 import org.apache.wicket.markup.repeater.ReuseIfModelsEqualStrategy;
-import org.apache.wicket.markup.repeater.util.ModelIteratorAdapter;
-import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 
-import wicket.in.action.chapter08.discounts.NewDiscountForm;
-import wicket.in.action.chapter13.dbdiscounts.web.model.EqualsDecorator;
-import wicket.in.action.common.DataBase;
+import wicket.in.action.chapter13.dbdiscounts.domain.Discount;
+import wicket.in.action.chapter13.dbdiscounts.services.DiscountsService;
+import wicket.in.action.chapter13.dbdiscounts.web.model.DomainModelIteratorAdaptor;
+import wicket.in.action.chapter13.dbdiscounts.web.model.HashcodeEnabledCompoundPropertyModel;
 import wicket.in.action.common.DateTimeField;
-import wicket.in.action.common.Discount;
 import wicket.in.action.common.PercentageField;
 import wicket.in.action.common.RequiredTextField;
 
 public final class DiscountsEditList extends Panel {
 
-  private final class ImportForm extends Form {
-
-    private transient FileUpload file;
-
-    public ImportForm(String id) {
-      super(id);
-      setMultiPart(true);
-      add(new FileUploadField("file", new PropertyModel(this, "file")));
-    }
-
-    public FileUpload getFile() {
-      return file;
-    }
-
-    public void setFile(FileUpload file) {
-      this.file = file;
-    }
-
-    @Override
-    protected void onSubmit() {
-      if (file != null) {
-        try {
-          int count = DataBase.getInstance().importDiscounts(
-              file.getInputStream());
-          info(count + " discounts imported");
-        } catch (IOException e) {
-          error(e.getMessage());
-        }
-      } else {
-        warn("nothing imported; nothing was uploaded");
-      }
-    }
-  }
+  @SpringBean
+  private DiscountsService service;
 
   private List<Discount> discounts;
 
   public DiscountsEditList(String id) {
-
     super(id);
     Form form = new Form("form");
     add(form);
@@ -84,7 +45,7 @@ public final class DiscountsEditList extends Panel {
     form.add(new Button("saveButton") {
       @Override
       public void onSubmit() {
-        DataBase.getInstance().update(discounts);
+        service.saveDiscounts(discounts);
         info("discounts updated");
       }
     });
@@ -94,14 +55,13 @@ public final class DiscountsEditList extends Panel {
 
       @Override
       protected Iterator getItemModels() {
-        if (discounts == null) {
-          discounts = DataBase.getInstance().listDiscounts();
-        }
-        return new ModelIteratorAdapter(discounts.iterator()) {
+        discounts = service.findAllDiscounts();
+        return new DomainModelIteratorAdaptor<Discount>(discounts
+            .iterator()) {
           @Override
           protected IModel model(Object object) {
-            return EqualsDecorator
-                .decorate(new CompoundPropertyModel((Discount) object));
+            return new HashcodeEnabledCompoundPropertyModel(
+                (Discount) object);
           }
         };
       }
@@ -118,12 +78,10 @@ public final class DiscountsEditList extends Panel {
         final Link removeLink = new Link("remove") {
           @Override
           public void onClick() {
-            DataBase.getInstance().remove(discount);
+            service.deleteDiscount(discount);
           }
         };
         item.add(removeLink);
-        removeLink.add(new Image("icon", new ResourceReference(
-            DiscountsEditList.class, "remove_icon.gif")));
         removeLink.add(new SimpleAttributeModifier("onclick",
             "if(!confirm('remove discount for "
                 + discount.getCheese().getName()
@@ -133,6 +91,5 @@ public final class DiscountsEditList extends Panel {
     discountsView.setItemReuseStrategy(ReuseIfModelsEqualStrategy
         .getInstance());
     form.add(discountsView);
-    add(new ImportForm("importForm"));
   }
 }
