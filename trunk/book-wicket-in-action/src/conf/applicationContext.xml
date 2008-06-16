@@ -69,13 +69,13 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>
-					wicket.in.action.chapter14.dbdiscounts.domain.User
+					wicket.in.action.chapter13.dbdiscounts.domain.User
 				</value>
 				<value>
-					wicket.in.action.chapter14.dbdiscounts.domain.Cheese
+					wicket.in.action.chapter13.dbdiscounts.domain.Cheese
 				</value>
 				<value>
-					wicket.in.action.chapter14.dbdiscounts.domain.Discount
+					wicket.in.action.chapter13.dbdiscounts.domain.Discount
 				</value>
 			</list>
 		</property>
@@ -103,32 +103,32 @@
 	</bean>
 
 	<bean id="TestDataInitializer"
-		class="wicket.in.action.chapter14.dbdiscounts.TestDataInitializer">
+		class="wicket.in.action.chapter13.dbdiscounts.TestDataInitializer">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<bean id="CheeseDao"
-		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.CheeseDaoImpl">
+		class="wicket.in.action.chapter13.dbdiscounts.dao.hibernate.CheeseDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<bean id="DiscountDao"
-		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.DiscountDaoImpl">
+		class="wicket.in.action.chapter13.dbdiscounts.dao.hibernate.DiscountDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<bean id="UserDao"
-		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.UserDaoImpl">
+		class="wicket.in.action.chapter13.dbdiscounts.dao.hibernate.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<bean id="GenericDao"
-		class="wicket.in.action.chapter14.dbdiscounts.dao.hibernate.GenericDaoImpl">
+		class="wicket.in.action.chapter13.dbdiscounts.dao.hibernate.GenericDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<bean id="DiscountsService"
-		class="wicket.in.action.chapter14.dbdiscounts.services.DiscountsServiceImpl">
+		class="wicket.in.action.chapter13.dbdiscounts.services.DiscountsServiceImpl">
 		<property name="cheeseDao" ref="CheeseDao" />
 		<property name="discountDao" ref="DiscountDao" />
 		<property name="userDao" ref="UserDao" />
