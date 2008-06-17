@@ -1,5 +1,6 @@
 package wicket.in.action;
 
+import org.apache.wicket.Application;
 import org.apache.wicket.Component;
 import org.apache.wicket.Page;
 import org.apache.wicket.Request;
@@ -24,6 +25,10 @@ import wicket.in.action.common.WiaAuthorizationStrategy;
 
 public abstract class WicketInActionApplication extends
     WebApplication implements ApplicationContextAware {
+
+  public static WicketInActionApplication get() {
+    return (WicketInActionApplication) Application.get();
+  }
 
   /**
    * Boolean for the examples of section 15.3, when true, the
@@ -68,36 +73,64 @@ public abstract class WicketInActionApplication extends
 
     // apply chapter specific mounts
 
-    mountBookmarkablePage("/examples-1.3", wicket.in.action.chapter01.section_1_3.Index.class);
+    mountBookmarkablePage("/examples-1.3",
+        wicket.in.action.chapter01.section_1_3.Index.class);
 
-    mountBookmarkablePage("/examples-3.1", wicket.in.action.chapter03.section_3_1.Index.class);
-    mountBookmarkablePage("/examples-3.2", wicket.in.action.chapter03.section_3_2.Index.class);
-    mountBookmarkablePage("/examples-3.3", wicket.in.action.chapter03.section_3_3.Index.class);
+    mountBookmarkablePage("/examples-3.1",
+        wicket.in.action.chapter03.section_3_1.Index.class);
+    mountBookmarkablePage("/examples-3.2",
+        wicket.in.action.chapter03.section_3_2.Index.class);
+    mountBookmarkablePage("/examples-3.3",
+        wicket.in.action.chapter03.section_3_3.Index.class);
 
-    mountBookmarkablePage("/examples-4.2", wicket.in.action.chapter04.section_4_2.Index.class);
-    mountBookmarkablePage("/examples-4.3", wicket.in.action.chapter04.section_4_3.Index.class);
-    mountBookmarkablePage("/examples-4.4", wicket.in.action.chapter04.section_4_4.Index.class);
+    mountBookmarkablePage("/examples-4.2",
+        wicket.in.action.chapter04.section_4_2.Index.class);
+    mountBookmarkablePage("/examples-4.3",
+        wicket.in.action.chapter04.section_4_3.Index.class);
+    mountBookmarkablePage("/examples-4.4",
+        wicket.in.action.chapter04.section_4_4.Index.class);
 
-    mountBookmarkablePage("/examples-5.1", wicket.in.action.chapter05.section_5_2.Index.class);
-    mountBookmarkablePage("/examples-5.2", wicket.in.action.chapter05.section_5_3.Index.class);
-    mountBookmarkablePage("/examples-5.3", wicket.in.action.chapter05.section_5_5.Index.class);
-    mountBookmarkablePage("/examples-5.4", wicket.in.action.chapter05.section_5_6.Index.class);
+    mountBookmarkablePage("/examples-5.1",
+        wicket.in.action.chapter05.section_5_2.Index.class);
+    mountBookmarkablePage("/examples-5.2",
+        wicket.in.action.chapter05.section_5_3.Index.class);
+    mountBookmarkablePage("/examples-5.3",
+        wicket.in.action.chapter05.section_5_5.Index.class);
+    mountBookmarkablePage("/examples-5.4",
+        wicket.in.action.chapter05.section_5_6.Index.class);
 
-    mountBookmarkablePage("/examples-6.1", wicket.in.action.chapter06.section_6_1.FormsPage.class);
-    mountBookmarkablePage("/examples-6.2", wicket.in.action.chapter06.section_6_2.FormProcessingPage.class);
-    mountBookmarkablePage("/examples-6.3", wicket.in.action.chapter06.section_6_3.TextComponentsPage.class);
-    mountBookmarkablePage("/examples-6.4", wicket.in.action.chapter06.section_6_4.SelectionComponentsPage.class);
-    mountBookmarkablePage("/examples-6.5", wicket.in.action.chapter06.section_6_5.SubmitComponentsPage.class);
-    mountBookmarkablePage("/examples-6.6", wicket.in.action.chapter06.section_6_6.ValidationsPage.class);
-    mountBookmarkablePage("/examples-6.7", wicket.in.action.chapter06.section_6_7.FeedbackPage.class);
+    mountBookmarkablePage("/examples-6.1",
+        wicket.in.action.chapter06.section_6_1.FormsPage.class);
+    mountBookmarkablePage(
+        "/examples-6.2",
+        wicket.in.action.chapter06.section_6_2.FormProcessingPage.class);
+    mountBookmarkablePage(
+        "/examples-6.3",
+        wicket.in.action.chapter06.section_6_3.TextComponentsPage.class);
+    mountBookmarkablePage(
+        "/examples-6.4",
+        wicket.in.action.chapter06.section_6_4.SelectionComponentsPage.class);
+    mountBookmarkablePage(
+        "/examples-6.5",
+        wicket.in.action.chapter06.section_6_5.SubmitComponentsPage.class);
+    mountBookmarkablePage("/examples-6.6",
+        wicket.in.action.chapter06.section_6_6.ValidationsPage.class);
+    mountBookmarkablePage("/examples-6.7",
+        wicket.in.action.chapter06.section_6_7.FeedbackPage.class);
 
-    mountBookmarkablePage("/examples-7.1", wicket.in.action.chapter07.section_7_1.Index.class);
-    mountBookmarkablePage("/examples-7.2", wicket.in.action.chapter07.section_7_2.Index.class);
+    mountBookmarkablePage("/examples-7.1",
+        wicket.in.action.chapter07.section_7_1.Index.class);
+    mountBookmarkablePage("/examples-7.2",
+        wicket.in.action.chapter07.section_7_2.Index.class);
 
-    mountBookmarkablePage("/examples-15.1", wicket.in.action.chapter15.section_15_1.Index.class);
-    mountBookmarkablePage("/examples-15.2", wicket.in.action.chapter15.section_15_2.Index.class);
-    mountBookmarkablePage("/examples-15.3", wicket.in.action.chapter15.section_15_3.Index.class);
-    mountBookmarkablePage("/examples-15.4", wicket.in.action.chapter15.section_15_4.Index.class);
+    mountBookmarkablePage("/examples-15.1",
+        wicket.in.action.chapter15.section_15_1.Index.class);
+    mountBookmarkablePage("/examples-15.2",
+        wicket.in.action.chapter15.section_15_2.Index.class);
+    mountBookmarkablePage("/examples-15.3",
+        wicket.in.action.chapter15.section_15_3.Index.class);
+    mountBookmarkablePage("/examples-15.4",
+        wicket.in.action.chapter15.section_15_4.Index.class);
 
     // securitySettings.setEnforceMounts(true);
     mountBookmarkablePage("/signin", SigninPage.class);
