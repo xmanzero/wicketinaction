@@ -17,14 +17,12 @@ import wicket.in.action.common.Discount;
 
 public final class DiscountsPanel extends Panel {
 
-  private RefreshingView discounts;
-
   public DiscountsPanel(String id) {
 
     super(id);
     final FeedbackPanel feedbackPanel = new FeedbackPanel("feedback");
     add(feedbackPanel);
-    add(discounts = new RefreshingView("discounts") {
+    add(new RefreshingView("discounts") {
 
       @Override
       protected Iterator getItemModels() {
@@ -46,6 +44,5 @@ public final class DiscountsPanel extends Panel {
         item.add(new DateFmtLabel("until"));
       }
     });
-    discounts.setOutputMarkupId(true);
   }
 }
