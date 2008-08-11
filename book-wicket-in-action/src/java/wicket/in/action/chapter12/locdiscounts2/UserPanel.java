@@ -5,17 +5,17 @@ import java.util.Locale;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.PageParameters;
-
-import wicket.in.action.chapter08.locales.LocaleDropDown;
-import wicket.in.action.common.SignOutPage;
-import wicket.in.action.common.User;
-import wicket.in.action.common.WiaSession;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.PropertyModel;
+
+import wicket.in.action.chapter08.locales.LocaleDropDown;
+import wicket.in.action.common.SignOutPage;
+import wicket.in.action.common.User;
+import wicket.in.action.common.WiaSession;
 
 public class UserPanel extends Panel {
 
