@@ -3,11 +3,12 @@ package wicket.in.action.chapter09.resdiscounts3;
 import org.apache.wicket.Application;
 import org.apache.wicket.IInitializer;
 import org.apache.wicket.SharedResources;
-import wicket.in.action.common.DataBase;
 import org.apache.wicket.markup.html.WebResource;
 import org.apache.wicket.protocol.http.WebResponse;
 import org.apache.wicket.util.resource.IResourceStream;
 import org.apache.wicket.util.resource.StringResourceStream;
+
+import wicket.in.action.common.DataBase;
   
 public class DiscountsExport extends WebResource {
 

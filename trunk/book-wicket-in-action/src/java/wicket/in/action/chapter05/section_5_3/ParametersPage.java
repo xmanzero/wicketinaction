@@ -1,5 +1,8 @@
 package wicket.in.action.chapter05.section_5_3;
 
+import java.util.Map;
+import java.util.Set;
+
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
@@ -7,9 +10,6 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.util.string.StringList;
-
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by IntelliJ IDEA.

@@ -1,10 +1,11 @@
 package wicket.in.action.chapter12.locdiscounts2;
 
-import wicket.in.action.common.DataBase;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 import org.apache.wicket.markup.html.panel.Panel;
+
+import wicket.in.action.common.DataBase;
 
 public final class DiscountsList extends Panel {
 
