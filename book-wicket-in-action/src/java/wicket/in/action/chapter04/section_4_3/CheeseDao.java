@@ -1,7 +1,9 @@
-package wicket.in.action.chapter05.section_5_3;
+package wicket.in.action.chapter04.section_4_3;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import wicket.in.action.chapter05.section_5_3.Cheese;
 
 /**
  * Created by IntelliJ IDEA.

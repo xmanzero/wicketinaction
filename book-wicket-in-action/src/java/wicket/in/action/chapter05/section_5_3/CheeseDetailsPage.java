@@ -5,31 +5,43 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 
-/**
- * Created by IntelliJ IDEA.
- * User: dashorst
- * Date: Sep 16, 2007
- * Time: 10:51:17 PM
- * To change this template use File | Settings | File Templates.
- */
-public class CheeseDetailsPage extends WebPage {
-    // bookmarkable constructor
-    public CheeseDetailsPage(PageParameters parameters) {
-        this(getCheese(parameters));
-    }
-    // non-bookmarkable constructor
-    public CheeseDetailsPage(Cheese cheese) {
-        // do cheesy stuff with the cheese
+import wicket.in.action.AbstractBasePage;
 
-        add(new Label("name", cheese.getName()));
-        add(new Label("description", cheese.getDescription()));
-        add(new BookmarkablePageLink("back", Index.class));
-    }
-    /** Retrieves a cheese object based on the ‘id’ parameter. */
-    public static Cheese getCheese(PageParameters parameters) {
-        Long id = parameters.getLong("id", -1);
-        CheeseDao dao = new CheeseDao();
-        if(id < 0) return new Cheese();
-        return dao.getCheese(id);
-    }
+/**
+ */
+public class CheeseDetailsPage extends AbstractBasePage {
+  /**
+   * Constructor for bookmarkable URLs.
+   * 
+   * @param parameters
+   */
+  public CheeseDetailsPage(PageParameters parameters) {
+    super(parameters);
+
+    // look up cheese
+    Cheese cheese = new Cheese();
+    cheese.setName("Edam");
+    cheese.setDescription("Edam (Dutch Edammer) is a Dutch cheese that is traditionally sold as spheres with pale yellow interior and a coat of paraffin. Its Spanish name is queso de bola, literally 'ball cheese'. It is named after the town of Edam in the province of North Holland[1], where the cheese is coated for export and for tourist high season. Edam which has aged for at least 17 weeks is coated with black wax, rather than the usual red or yellow.");
+
+    createComponents(cheese);
+  }
+
+  /**
+   * Session relative constructor.
+   * 
+   * @param cheese
+   */
+  public CheeseDetailsPage(Cheese cheese) {
+    createComponents(cheese);
+  }
+
+  /**
+   * Creates and adds the components to the page.
+   * 
+   * @param cheese
+   */
+  private void createComponents(Cheese cheese) {
+    add(new Label("name", cheese.getName()));
+    add(new Label("description", cheese.getDescription()));
+  }
 }

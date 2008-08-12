@@ -5,7 +5,6 @@ import org.apache.wicket.model.Model;
 
 import wicket.in.action.AbstractBasePage;
 import wicket.in.action.chapter05.section_5_3.Cheese;
-import wicket.in.action.chapter05.section_5_3.CheeseDao;
 
 public class Index extends AbstractBasePage {
   public Index() {

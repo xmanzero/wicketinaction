@@ -1,6 +1,7 @@
 package wicket.in.action;
 
 import org.apache.wicket.Component;
+import org.apache.wicket.PageParameters;
 import org.apache.wicket.behavior.AbstractBehavior;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -8,7 +9,9 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 
 public abstract class AbstractBasePage extends WebPage {
-  public AbstractBasePage() {
+  public AbstractBasePage(PageParameters pars) {
+    super(pars);
+
     WebMarkupContainer menu = new WebMarkupContainer("abp-menu");
     addMenuItem(menu, "index", Index.class);
     addMenuItem(menu, "book", Book.class);
@@ -16,6 +19,10 @@ public abstract class AbstractBasePage extends WebPage {
     addMenuItem(menu, "shop", Shop.class);
     addMenuItem(menu, "support", Support.class);
     add(menu);
+  }
+
+  public AbstractBasePage() {
+    this(null);
   }
 
   private void addMenuItem(WebMarkupContainer menu, final String id,
@@ -34,6 +41,7 @@ public abstract class AbstractBasePage extends WebPage {
         super.onComponentTag(component, tag);
       }
     });
-    container.add(new BookmarkablePageLink(id, page).setAutoEnable(true));
+    container.add(new BookmarkablePageLink(id, page)
+        .setAutoEnable(true));
   }
 }
