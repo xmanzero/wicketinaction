@@ -152,6 +152,11 @@ public abstract class WicketInActionApplication extends
       }
     });
 
+    // template method for overriding in a unit test, see examples of section 14.1
+    initSpringInjector();
+  }
+
+  protected void initSpringInjector() {
     addComponentInstantiationListener(new SpringComponentInjector(
         this));
   }
