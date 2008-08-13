@@ -6,11 +6,6 @@ import java.util.Map;
 import wicket.in.action.chapter05.section_5_3.Cheese;
 
 /**
- * Created by IntelliJ IDEA.
- * User: dashorst
- * Date: Sep 16, 2007
- * Time: 10:54:22 PM
- * To change this template use File | Settings | File Templates.
  */
 public class CheeseDao {
     private static final Map<Long, Cheese> cheeses = new HashMap<Long, Cheese>();
