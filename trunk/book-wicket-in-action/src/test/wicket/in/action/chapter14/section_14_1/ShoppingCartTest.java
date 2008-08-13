@@ -1,5 +1,6 @@
 package wicket.in.action.chapter14.section_14_1;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -48,11 +49,11 @@ public class ShoppingCartTest {
     });
     tester.assertComponent("panel:cart", ListView.class);
     tester.assertListView("panel:cart", Arrays.asList(gouda, edam));
-    tester.assertLabel("panel:total", "$4.98");
+    tester.assertLabel("panel:total", NumberFormat.getCurrencyInstance().format(4.98));
 
     tester.clickLink("panel:cart:0:remove");
     tester.assertListView("panel:cart", Arrays.asList(edam));
-    tester.assertLabel("panel:total", "$2.99");
+    tester.assertLabel("panel:total", NumberFormat.getCurrencyInstance().format(2.99));
   }
 
   @Test

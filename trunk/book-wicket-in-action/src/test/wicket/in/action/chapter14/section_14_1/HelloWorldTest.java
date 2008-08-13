@@ -2,6 +2,7 @@ package wicket.in.action.chapter14.section_14_1;
 
 import static org.junit.Assert.assertEquals;
 
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Locale;
@@ -52,6 +53,7 @@ public class HelloWorldTest {
   public void setupTest() {
     tester = new WicketTester();
     tester.setupRequestAndResponse();
+    tester.getWicketSession().setLocale(Locale.US);
   }
 
   @Test
@@ -197,7 +199,8 @@ public class HelloWorldTest {
     });
 
     tester.assertListView("panel:cart", Collections.EMPTY_LIST);
-    tester.assertLabel("panel:total", "$0.00");
+    String zeroBucks = NumberFormat.getCurrencyInstance().format(0);
+    tester.assertLabel("panel:total", zeroBucks);
   }
 
   @Test
@@ -215,13 +218,13 @@ public class HelloWorldTest {
     });
 
     tester.assertListView("panel:cart", Arrays.asList(gouda, edam));
-    tester.assertLabel("panel:total", "$4.98");
+    tester.assertLabel("panel:total", NumberFormat.getCurrencyInstance().format(4.98));
     tester.assertLabel("panel:cart:0:name", "Gouda");
 
     tester.clickLink("panel:cart:0:remove");
 
     tester.assertListView("panel:cart", Arrays.asList(edam));
-    tester.assertLabel("panel:total", "$2.99");
+    tester.assertLabel("panel:total", NumberFormat.getCurrencyInstance().format(2.99));
     tester.assertLabel("panel:cart:0:name", "Edam");
   }
 
