@@ -1,32 +1,25 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
-
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>wicket</groupId>
 	<artifactId>wicket-in-action</artifactId>
 	<packaging>jar</packaging>
 	<version>2.0-SNAPSHOT</version>
 	<name>Wicket In Action</name>
-	<description>
-		Wicket in Action is a book concerning Wicket. Wicket is a Java
-		web application framework that takes simplicity, separation of
-		concerns and ease of development to a whole new level. Wicket
-		pages can be mocked up, previewed and later revised using
-		standard WYSIWYG HTML design tools. Dynamic content processing
-		and form handling is all handled in Java code using a
-		first-class component model backed by POJO data beans that can
-		easily be persisted using your favourite technology.
-	</description>
+	<description> Wicket in Action is a book concerning Wicket. Wicket is a
+		Java web application framework that takes simplicity, separation of
+		concerns and ease of development to a whole new level. Wicket pages
+		can be mocked up, previewed and later revised using standard WYSIWYG
+		HTML design tools. Dynamic content processing and form handling is all
+		handled in Java code using a first-class component model backed by
+		POJO data beans that can easily be persisted using your favourite
+		technology. </description>
 	<url>http://manning.com/dashorst</url>
 	<inceptionYear>2005</inceptionYear>
-
 	<organization>
 		<name>Wicket in Action authors</name>
 		<url>http://wicketinaction.googlecode.com</url>
 	</organization>
-
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
@@ -34,7 +27,6 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-
 	<issueManagement>
 		<url>http://code.google.com/p/wicketinaction/issues/list</url>
 	</issueManagement>
@@ -51,14 +43,11 @@
 		<slf4j.version>1.4.3</slf4j.version>
 	</properties>
 	<dependencies>
-		<!-- 
+		<!--
 			no idea how to do relative jars with friggnin' Maven. My god, how
-			difficult is it to imagine that sometimes, there just is
-			no friggin' jar available!
-			<dependency>
-			<groupId>maverick</groupId>
-			<artifactId>maverick</artifactId>
-			<version>2.2.4</version>
+			difficult is it to imagine that sometimes, there just is no friggin'
+			jar available! <dependency> <groupId>maverick</groupId>
+			<artifactId>maverick</artifactId> <version>2.2.4</version>
 			<scope>system</scope>
 			<systemPath>${project.home}/libs/maverick-2.2.4.jar</systemPath>
 			</dependency>
@@ -93,23 +82,23 @@
 			<artifactId>wicket-auth-roles</artifactId>
 			<version>${wicket.version}</version>
 		</dependency>
-        <dependency>
-            <groupId>org.apache.wicket</groupId>
-            <artifactId>wicket-spring</artifactId>
-            <version>${wicket.version}</version>
-            <type>jar</type>
-            <scope>compile</scope>
-	        <exclusions>
-		        <exclusion>
-                	<groupId>cglib</groupId>
-			    	<artifactId>cglib-nodep</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-spring</artifactId>
+			<version>${wicket.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>cglib</groupId>
+					<artifactId>cglib-nodep</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket-spring-annot</artifactId>
@@ -199,30 +188,28 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.0.4</version>
 		</dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.4</version>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+		</dependency>
 	</dependencies>
-
 	<build>
 		<sourceDirectory>src/java</sourceDirectory>
 		<testSourceDirectory>src/test</testSourceDirectory>
-
 		<resources>
-            <resource>
-                <filtering>false</filtering>
-                <directory>src/conf</directory>
-                <includes>
-                    <include>**</include>
-                </includes>
-            </resource>
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/conf</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
 			<resource>
 				<filtering>false</filtering>
 				<directory>src/java</directory>
@@ -234,7 +221,6 @@
 				</excludes>
 			</resource>
 		</resources>
-
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -260,7 +246,11 @@
 					<webAppSourceDirectory>src/webapp</webAppSourceDirectory>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.3</version>
+			</plugin>
 		</plugins>
 	</build>
-
 </project>
