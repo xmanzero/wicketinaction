@@ -7,26 +7,45 @@ import java.util.Collections;
 import java.util.Locale;
 
 import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
+import org.apache.wicket.spring.injection.annot.test.AnnotApplicationContextMock;
 import org.apache.wicket.util.tester.FormTester;
 import org.apache.wicket.util.tester.TagTester;
 import org.apache.wicket.util.tester.TestPanelSource;
 import org.apache.wicket.util.tester.WicketTester;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
 
 import wicket.in.action.chapter03.section_3_1.Cart;
 import wicket.in.action.chapter03.section_3_1.Cheese;
 import wicket.in.action.chapter03.section_3_1.CheesrApplication;
-import wicket.in.action.chapter03.section_3_1.CheesrSession;
 import wicket.in.action.chapter03.section_3_3.Checkout;
 import wicket.in.action.chapter03.section_3_3.ShoppingCartPanel;
 
 public class HelloWorldTest {
+  /**
+   * Test Wicket application class for mocking out the Spring web
+   * context.
+   */
+  private final class TestCheesrApplication extends CheesrApplication {
+    @Override
+    protected void initSpringInjector() {
+      addComponentInstantiationListener(new SpringComponentInjector(
+          this, ctx));
+    }
+  }
+
   private static WicketTester tester;
+
+  private static ApplicationContext ctx;
 
   @BeforeClass
   public static void setupTester() {
+
+    ctx = new AnnotApplicationContextMock();
   }
 
   @Before
@@ -115,11 +134,9 @@ public class HelloWorldTest {
     assertEquals("", formTester.getTextComponentValue("field"));
   }
 
-  private CheesrSession session;
-
   @Test
   public void checkoutTest() {
-    tester = new WicketTester(new CheesrApplication());
+    tester = new WicketTester(new TestCheesrApplication());
     tester.startPage(Checkout.class);
 
     FormTester formTester = tester.newFormTester("form");
@@ -137,7 +154,7 @@ public class HelloWorldTest {
 
   @Test
   public void checkoutTestNl() {
-    tester = new WicketTester(new CheesrApplication());
+    tester = new WicketTester(new TestCheesrApplication());
     tester.setupRequestAndResponse();
     tester.getWicketSession().setLocale(new Locale("nl"));
     tester.startPage(Checkout.class);
@@ -157,7 +174,7 @@ public class HelloWorldTest {
 
   @Test
   public void checkoutTest2() {
-    tester = new WicketTester(new CheesrApplication());
+    tester = new WicketTester(new TestCheesrApplication());
     tester.startPage(Checkout.class);
     FormTester formTester = tester.newFormTester("form");
     formTester.setValue("name", "Pietje Puk");
@@ -200,7 +217,7 @@ public class HelloWorldTest {
     tester.assertListView("panel:cart", Arrays.asList(gouda, edam));
     tester.assertLabel("panel:total", "$4.98");
     tester.assertLabel("panel:cart:0:name", "Gouda");
-    
+
     tester.clickLink("panel:cart:0:remove");
 
     tester.assertListView("panel:cart", Arrays.asList(edam));
@@ -213,9 +230,9 @@ public class HelloWorldTest {
     tester.setupRequestAndResponse();
     tester.startPage(AutoLinksPage.class);
     TagTester tagTester = tester.getTagById("menu");
-    TagTester child = tagTester
+    Assert.assertNotNull(tagTester
         .getChild(
             "href",
-            "?wicket:bookmarkablePage=%3Awicket.in.action.chapter15.section_15_1.HelloWorld");
+            "?wicket:bookmarkablePage=%3Awicket.in.action.chapter14.section_14_1.HelloWorld"));
   }
 }
