@@ -20,7 +20,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 import wicket.in.action.chapter05.section_5_3.CheeseDetailsPage;
-import wicket.in.action.chapter15.section_15_3.CheesrRequestCycle;
+import wicket.in.action.chapter14.section_14_3.CheesrRequestCycle;
 import wicket.in.action.common.SigninPage;
 import wicket.in.action.common.WiaAuthorizationStrategy;
 
@@ -129,14 +129,14 @@ public abstract class WicketInActionApplication extends
     mountBookmarkablePage("/examples-7.2",
         wicket.in.action.chapter07.section_7_2.Index.class);
 
-    mountBookmarkablePage("/examples-15.1",
-        wicket.in.action.chapter15.section_15_1.Index.class);
-    mountBookmarkablePage("/examples-15.2",
-        wicket.in.action.chapter15.section_15_2.Index.class);
-    mountBookmarkablePage("/examples-15.3",
-        wicket.in.action.chapter15.section_15_3.Index.class);
-    mountBookmarkablePage("/examples-15.4",
-        wicket.in.action.chapter15.section_15_4.Index.class);
+    mountBookmarkablePage("/examples-14.1",
+        wicket.in.action.chapter14.section_14_1.Index.class);
+    mountBookmarkablePage("/examples-14.2",
+        wicket.in.action.chapter14.section_14_2.Index.class);
+    mountBookmarkablePage("/examples-14.3",
+        wicket.in.action.chapter14.section_14_3.Index.class);
+    mountBookmarkablePage("/examples-14.4",
+        wicket.in.action.chapter14.section_14_4.Index.class);
 
     // securitySettings.setEnforceMounts(true);
     mountBookmarkablePage("/signin", SigninPage.class);

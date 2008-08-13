@@ -1,4 +1,4 @@
-package wicket.in.action.chapter15.section_15_4;
+package wicket.in.action.chapter14.section_14_4;
 
 import java.util.Arrays;
 import java.util.Collections;
