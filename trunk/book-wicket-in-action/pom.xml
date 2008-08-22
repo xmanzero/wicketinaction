@@ -17,7 +17,7 @@
 		easily be persisted using your favourite technology.
 	</description>
 	<url>http://manning.com/dashorst</url>
-	<inceptionYear>2005</inceptionYear>
+	<inceptionYear>2008</inceptionYear>
 	<organization>
 		<name>Wicket in Action authors</name>
 		<url>http://wicketinaction.googlecode.com</url>
@@ -32,6 +32,11 @@
 	<issueManagement>
 		<url>http://code.google.com/p/wicketinaction/issues/list</url>
 	</issueManagement>
+	<scm>
+		<connection>scm:svn:http://wicketinaction.googlecode.com/svn/trunk/book-wicket-in-action</connection>
+		<developerConnection>scm:svn:https://wicketinaction.googlecode.com/svn/trunk/book-wicket-in-action</developerConnection>
+		<url>http://code.google.com/p/wicketinaction/source/browse/#svn/trunk/book-wicket-in-action</url>
+	</scm>
 	<repositories>
 		<repository>
 			<id>org.wicketstuff</id>

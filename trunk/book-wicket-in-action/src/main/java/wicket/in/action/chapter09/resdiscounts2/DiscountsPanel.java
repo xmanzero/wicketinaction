@@ -26,6 +26,8 @@ public final class DiscountsPanel extends Panel {
 
     super(id);
 
+    //dit moet nog goed gemaakt worden zodat het de 9.2 structuur volgt.
+
     add(new DiscountsList("content"));
 
     Link modeLink = new Link("modeLink") {

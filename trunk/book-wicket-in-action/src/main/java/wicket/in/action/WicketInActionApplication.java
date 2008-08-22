@@ -20,6 +20,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 import wicket.in.action.chapter05.section_5_3.CheeseDetailsPage;
+import wicket.in.action.chapter09.resdiscounts.DiscountsPage;
 import wicket.in.action.chapter14.section_14_3.CheesrRequestCycle;
 import wicket.in.action.common.SigninPage;
 import wicket.in.action.common.WiaAuthorizationStrategy;
@@ -129,6 +130,7 @@ public abstract class WicketInActionApplication extends
     mountBookmarkablePage("/examples-7.2",
         wicket.in.action.chapter07.section_7_2.Index.class);
 
+    mountBookmarkablePage("/examples-9.1", DiscountsPage.class);
     mountBookmarkablePage("/examples-14.1",
         wicket.in.action.chapter14.section_14_1.Index.class);
     mountBookmarkablePage("/examples-14.2",
