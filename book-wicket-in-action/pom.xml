@@ -4,7 +4,7 @@
 	<groupId>wicket</groupId>
 	<artifactId>wicket-in-action</artifactId>
 	<packaging>war</packaging>
-	<version>0.10-SNAPSHOT</version>
+	<version>1.0-SNAPSHOT</version>
 	<name>Wicket In Action</name>
 	<description>
 		Wicket in Action is a book concerning Wicket. Wicket is a Java
@@ -370,6 +370,7 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<configuration>
 					<tagBase>https://wicketinaction.googlecode.com/svn/tags</tagBase>
+					<goals>clean, assembly:assembly</goals>
 				</configuration>
 			</plugin>
 			<plugin>
