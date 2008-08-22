@@ -33,9 +33,9 @@
 		<url>http://code.google.com/p/wicketinaction/issues/list</url>
 	</issueManagement>
 	<scm>
-		<connection>scm:svn:http://wicketinaction.googlecode.com/svn/branches/book-wicket-in-action-0.9</connection>
-		<developerConnection>scm:svn:http://wicketinaction.googlecode.com/svn/branches/book-wicket-in-action-0.9</developerConnection>
-		<url>http://wicketinaction.googlecode.com/svn/branches/book-wicket-in-action-0.9</url>
+		<connection>scm:svn:http://wicketinaction.googlecode.com/svn/trunk/book-wicket-in-action</connection>
+		<developerConnection>scm:svn:https://wicketinaction.googlecode.com/svn/trunk/book-wicket-in-action</developerConnection>
+		<url>http://code.google.com/p/wicketinaction/source/browse/#svn/trunk/book-wicket-in-action</url>
 	</scm>
 	<repositories>
 		<repository>
