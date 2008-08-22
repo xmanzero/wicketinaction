@@ -4,7 +4,7 @@
 	<groupId>wicket</groupId>
 	<artifactId>wicket-in-action</artifactId>
 	<packaging>war</packaging>
-	<version>2.0-SNAPSHOT</version>
+	<version>1.0-SNAPSHOT</version>
 	<name>Wicket In Action</name>
 	<description>
 		Wicket in Action is a book concerning Wicket. Wicket is a Java
