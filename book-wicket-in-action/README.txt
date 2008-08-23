@@ -79,7 +79,9 @@ The examples require the following prerequisites in order to run:
 
 The examples can be run by deploying the _wicket-in-action.war_ into the
 servlet container of your choice. Usually by copying it into the webapps
-directory.
+directory. The WAR archive is a separate download available from the
+project web site, or you can build and run it from the source
+distribution.
 
 **Using Apache Ant**
 
