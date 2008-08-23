@@ -346,7 +346,8 @@
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<descriptors>
-						<descriptor>src/main/assembly/dist.xml</descriptor>
+						<descriptor>src/main/assembly/source.xml</descriptor>
+						<descriptor>src/main/assembly/binary.xml</descriptor>
 					</descriptors>
 				</configuration>
 			</plugin>

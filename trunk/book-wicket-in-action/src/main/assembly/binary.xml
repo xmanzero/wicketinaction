@@ -1,21 +1,9 @@
 <?xml version="1.0"?>
 <assembly>
-	<id>dist</id>
+	<id>binary</id>
 	<formats>
 		<format>zip</format>
 	</formats>
-	<dependencySets>
-		<dependencySet>
-			<outputDirectory>lib</outputDirectory>
-			<scope>compile</scope>
-			<useProjectArtifact>false</useProjectArtifact>
-		</dependencySet>
-	</dependencySets>
-	<files>
-		<file>
-			<source>src/main/assembly/build.xml</source>
-		</file>
-	</files>
 	<fileSets>
 		<fileSet>
 			<directory>.</directory>
@@ -27,6 +15,17 @@
 				<exclude>.project</exclude>
 				<exclude>.settings/**</exclude>
 			</excludes>
+			<includes>
+				<include>*.txt</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>target</directory>
+			<outputDirectory/>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<includes>
+				<include>*.war</include>
+			</includes>
 		</fileSet>
 	</fileSets>
 </assembly>
