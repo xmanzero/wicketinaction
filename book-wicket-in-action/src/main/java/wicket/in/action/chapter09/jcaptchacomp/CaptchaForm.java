@@ -41,7 +41,7 @@ public abstract class CaptchaForm extends Panel {
       String challengeId = UUID.randomUUID().toString();
       add(new CaptchaImage("captchaImage", challengeId) {
         @Override
-        protected ImageCaptchaService getImageCaptchaService() {
+        public ImageCaptchaService getImageCaptchaService() {
           return CaptchaForm.this.getImageCaptchaService();
         }
       });
