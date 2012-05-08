@@ -4,7 +4,7 @@
 	<groupId>wicket</groupId>
 	<artifactId>wicket-in-action</artifactId>
 	<packaging>war</packaging>
-	<version>0.10-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>Wicket In Action</name>
 	<description>
 		Wicket in Action is a book concerning Wicket. Wicket is a Java
@@ -33,9 +33,9 @@
 		<url>http://code.google.com/p/wicketinaction/issues/list</url>
 	</issueManagement>
 	<scm>
-		<connection>scm:svn:http://wicketinaction.googlecode.com/svn/trunk/book-wicket-in-action</connection>
-		<developerConnection>scm:svn:https://wicketinaction.googlecode.com/svn/trunk/book-wicket-in-action</developerConnection>
-		<url>http://code.google.com/p/wicketinaction/source/browse/#svn/trunk/book-wicket-in-action</url>
+		<connection>scm:svn:http://wicketinaction.googlecode.com/svn/tags/wicket-in-action-1.0</connection>
+		<developerConnection>scm:svn:https://wicketinaction.googlecode.com/svn/tags/wicket-in-action-1.0</developerConnection>
+		<url>http://code.google.com/p/wicketinaction/source/browse/#svn/tags/wicket-in-action-1.0</url>
 	</scm>
 	<repositories>
 		<repository>
