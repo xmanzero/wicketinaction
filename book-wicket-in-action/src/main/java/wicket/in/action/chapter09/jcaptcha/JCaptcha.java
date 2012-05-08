@@ -22,6 +22,8 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.rmi.server.UID;
 
+import javax.imageio.ImageIO;
+
 import org.apache.wicket.Session;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.form.Form;
@@ -37,8 +39,6 @@ import wicket.in.action.common.RequiredTextField;
 
 import com.octo.captcha.service.image.DefaultManageableImageCaptchaService;
 import com.octo.captcha.service.image.ImageCaptchaService;
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 public class JCaptcha extends AbstractBasePage {
 
@@ -59,9 +59,9 @@ public class JCaptcha extends AbstractBasePage {
           BufferedImage challenge = captchaService
               .getImageChallengeForID(challengeId, Session.get()
                   .getLocale());
-          JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os);
+
           try {
-            encoder.encode(challenge);
+            ImageIO.write(challenge, "jpeg", os);
             return os.toByteArray();
           } catch (Exception e) {
             throw new RuntimeException(e);
