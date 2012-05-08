@@ -168,10 +168,10 @@ public class HelloWorldTest {
     tester.assertRenderedPage(Checkout.class);
     tester
         .assertErrorMessages(new String[] {
-            "veld 'name' is verplicht.",
-            "veld 'street' is verplicht.",
-            "veld 'zipcode' is verplicht.",
-            "veld 'city' is verplicht." });
+            "Veld 'name' is verplicht.",
+            "Veld 'street' is verplicht.",
+            "Veld 'zipcode' is verplicht.",
+            "Veld 'city' is verplicht." });
   }
 
   @Test
@@ -232,10 +232,12 @@ public class HelloWorldTest {
   public void autoLinkTest() {
     tester.setupRequestAndResponse();
     tester.startPage(AutoLinksPage.class);
+	tester.dumpPage();
     TagTester tagTester = tester.getTagById("menu");
     Assert.assertNotNull(tagTester
         .getChild(
             "href",
-            "?wicket:bookmarkablePage=%3Awicket.in.action.chapter14.section_14_1.HelloWorld"));
+			"?wicket:bookmarkablePage=:wicket.in.action.chapter14.section_14_1.HelloWorld"
+         ));
   }
 }
