@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import javax.imageio.ImageIO;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
@@ -12,8 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.octo.captcha.service.image.DefaultManageableImageCaptchaService;
 import com.octo.captcha.service.image.ImageCaptchaService;
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 public class ImageCaptchaServlet extends HttpServlet {
 
@@ -31,9 +31,7 @@ public class ImageCaptchaServlet extends HttpServlet {
 
     BufferedImage challenge = captchaService.getImageChallengeForID(
         captchaId, request.getLocale());
-    JPEGImageEncoder jpegEncoder = JPEGCodec
-        .createJPEGEncoder(jpegOutputStream);
-    jpegEncoder.encode(challenge);
+    ImageIO.write(challenge, "jpeg", jpegOutputStream);
     captchaChallengeAsJpeg = jpegOutputStream.toByteArray();
 
     response.setHeader("Cache-Control", "no-store");

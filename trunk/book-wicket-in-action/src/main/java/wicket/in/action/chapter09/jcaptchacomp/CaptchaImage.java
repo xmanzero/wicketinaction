@@ -3,13 +3,13 @@ package wicket.in.action.chapter09.jcaptchacomp;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 
+import javax.imageio.ImageIO;
+
 import org.apache.wicket.Session;
 import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.markup.html.image.resource.DynamicImageResource;
 
 import com.octo.captcha.service.image.ImageCaptchaService;
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 public abstract class CaptchaImage extends Image {
 
@@ -24,9 +24,8 @@ public abstract class CaptchaImage extends Image {
         BufferedImage challenge = getImageCaptchaService()
             .getImageChallengeForID(challengeId,
                 Session.get().getLocale());
-        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os);
         try {
-          encoder.encode(challenge);
+          ImageIO.write(challenge, "jpeg", os);
           return os.toByteArray();
         } catch (Exception e) {
           throw new RuntimeException(e);
